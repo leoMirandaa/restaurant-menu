@@ -1,4 +1,12 @@
+import { theme } from "antd"
+
 import { IconIceCream2, IconGlassFull, IconMeat, IconSalad, IconSoup, IconCarrot, IconChefHat } from '@tabler/icons-react';
+// const { useToken } = theme;
+// const { token } = useToken();
+// const {
+//   token: { colorBgContainer }
+// } = theme.useToken();
+
 
 export const menuOptions = [
   {
@@ -8,23 +16,23 @@ export const menuOptions = [
   },
   {
     key: '2',
-    icon: <IconSalad size={32} />,
+    icon: <IconSalad size={32}  />,
     label: 'Salad',
   },
   {
     key: '3',
-    icon: <IconMeat size={32}/>,
+    icon: <IconMeat size={32} />,
     label: 'Main dishes',
     
   },
   {
     key: '4',
-    icon: <IconGlassFull size={32}/>,
+    icon: <IconGlassFull size={32} />,
     label: 'Beverages',
   },
   {
     key: '5',
-    icon: <IconIceCream2 size={32} />,
+    icon: <IconIceCream2 size={32}  />,
     label: 'Desert',
   }
 ]

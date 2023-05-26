@@ -1,15 +1,12 @@
-import Link from 'next/link';
-
-import { Layout, Menu, theme, Tooltip, Typography } from "antd"
-const { Header, Content, Sider } = Layout;
+import { Layout, Menu, theme, Typography } from "antd"
+const { Content, Sider } = Layout;
 const { Title } = Typography;
-import { IconChefHat } from '@tabler/icons-react';
 
-import { FooterComponent } from './Footer';
+import { FooterComponent, HeaderComponent } from "../ui";
 import { menuOptions } from '@/utils/menuOptions';
 
 export const Navbar = ({ children }) => {  
-  
+
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -17,20 +14,19 @@ export const Navbar = ({ children }) => {
   const { useToken } = theme;
   const { token } = useToken();
 
+  const handleClick = (e) => {
+    console.log('HandleClick ', e)
+  }
+
   return (
     <Layout style={{height: '100vh'}}>
-      <Header style={{ padding: '0px 20px', background: colorBgContainer,display: 'flex', }}>
-        <Link href="/" style={{display: 'flex',alignItems: 'center'}}>
-          <IconChefHat size={36} color='#BE3455'/>      
-          <Title level={4} style={{marginLeft:'5px'}}>Magenta kitchen</Title>
-        </Link>
-      </Header>
+      <HeaderComponent />
         
       <Content
         style={{
           padding: '0 20px',
           margin: '20px 0',
-          background: 'colorBgContainer'
+          // background: colorBgContainer
         }}
       > 
       <Layout style={{ height: '100%' }}>
@@ -58,6 +54,7 @@ export const Navbar = ({ children }) => {
             mode="inline"
             defaultSelectedKeys={['1']}
             items= {...menuOptions}
+            onClick={handleClick}
           />
         </Sider>
         
