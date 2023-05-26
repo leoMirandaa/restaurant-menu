@@ -7,6 +7,7 @@ export default function App({ Component, pageProps }) {
     <ConfigProvider
       theme={{
         ...magentaTheme
+        // ...darkTheme,
       }}
     >
       <Component {...pageProps} />

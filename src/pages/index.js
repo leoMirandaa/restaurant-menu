@@ -1,21 +1,19 @@
-import { Button, Space } from 'antd';
-import { products } from '../../database/products';
-import Image from 'next/image';
+import { Typography } from 'antd';
+import { ShopLayout } from '../../components/layouts';
+
+const { Title } = Typography;
 
 export default function Home() {
   return (
     <>
-      <h1>Food Store</h1>
-        <Button type="primary">Primary Button</Button>
-        {
-          products.map(product => (
-            <Image 
-              width='300' 
-              height='200' 
-              src={`${product.imageUrl}`} 
-            />
-          ))
-        }
+        <ShopLayout 
+          title={'Magenta-Cloud - Home'}
+          pageDescription={'The most elegant food at the corner'}
+        >
+          <Title level={1} style={{textAlign: 'center'}}>Home</Title>
+          <Title level={2}>Food Menu</Title>
+
+        </ShopLayout>
     </>
   )
 }

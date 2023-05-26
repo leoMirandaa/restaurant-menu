@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tabler/icons-react": "^2.20.0",
     "antd": "^5.5.1",
     "next": "13.4.3",
     "react": "18.2.0",
