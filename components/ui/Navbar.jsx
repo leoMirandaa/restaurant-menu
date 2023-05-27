@@ -19,7 +19,7 @@ export const Navbar = ({ children }) => {
   }
 
   return (
-    <Layout style={{height: '100vh'}}>
+    <Layout >
       <HeaderComponent />
         
       <Content
@@ -29,14 +29,17 @@ export const Navbar = ({ children }) => {
           // background: colorBgContainer
         }}
       > 
-      <Layout style={{ height: '100%' }}>
+      <Layout  >
         <Sider 
           theme='light'
           breakpoint="sm"
           collapsedWidth="0"
           style={{
+            borderRadius: '10px',
             height: '50%', 
-            borderRadius: '10px'
+            position: 'sticky',
+            top: 84,
+            zIndex: 1,
           }} 
         >
           <div style={{ textAlign: 'center'}}>
@@ -63,7 +66,8 @@ export const Navbar = ({ children }) => {
             marginLeft: '16px',
             padding: '0px 24px',
             background: colorBgContainer,
-            borderRadius: '10px'
+            borderRadius: '10px',
+            // overflow: 'initial'
           }}
         > 
           { children }
