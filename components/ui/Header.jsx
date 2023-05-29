@@ -1,10 +1,10 @@
-import Link from 'next/link';
 import { useState } from 'react';
+import Link from 'next/link';
 
 import { Layout, Badge, theme, Typography, Button } from "antd"
 const { Title } = Typography;
-
 const { Header } = Layout;
+
 import { IconChefHat, IconShoppingCart, IconMoonFilled, IconSunFilled } from '@tabler/icons-react';
 
 export const HeaderComponent = () => {
@@ -29,15 +29,18 @@ export const HeaderComponent = () => {
         zIndex: 1,
       }}
     >
-
-      <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between'}}>
-
-        <Link href="/" style={{display: 'flex',alignItems: 'center'}}>
+      <nav 
+        style={{
+          display: 'flex', 
+          width: '100%', 
+          justifyContent: 'space-between'
+        }}>
+        <Link href="/" style={{display: 'flex', alignItems: 'center'}}>
           <IconChefHat size={36} color='#BE3455'/>      
           <Title level={4} style={{marginLeft:'5px'}}>Magenta kitchen</Title>
         </Link>
 
-        <div  style={{display: "flex"}} >
+        <div style={{display: "flex"}} >
           <div style={{display: 'flex',alignItems: 'center', marginRight: '20px'}}>
             <Button 
               icon={ isDark ? <IconSunFilled /> :<IconMoonFilled />} 
@@ -53,7 +56,7 @@ export const HeaderComponent = () => {
             </Badge>
           </Link>
         </div>
-      </div>
+      </nav>
     </Header>
   )
 }
