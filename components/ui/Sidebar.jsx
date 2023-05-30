@@ -23,7 +23,7 @@ export const Sidebar = ({ handleClick }) => {
         position: 'sticky',
         top: 84,
         zIndex: 1,
-        border: `2px dotted ${token.colorPrimary}`
+        // border: `2px dotted ${token.colorPrimary}`
       }} 
     >
       <div style={{ textAlign: 'center'}}>

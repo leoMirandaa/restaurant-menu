@@ -4,10 +4,9 @@ import Link from 'next/link';
 import { Layout, Badge, theme, Typography, Button } from "antd"
 const { Title } = Typography;
 const { Header } = Layout;
+import { IconChefHat, IconShoppingCart, IconMoonFilled, IconSunFilled } from '@tabler/icons-react';
 
 import { magentaTheme, darkTheme } from '../../themes';
-
-import { IconChefHat, IconShoppingCart, IconMoonFilled, IconSunFilled } from '@tabler/icons-react';
 
 export const HeaderComponent = ({ setTheme }) => {
   const [ isDark, setIsDark] = useState(false)
@@ -28,12 +27,11 @@ export const HeaderComponent = ({ setTheme }) => {
     <Header 
       style={{ 
         background: colorBgContainer,
-        borderBottom: `2px dotted ${token.colorPrimary}`,
+        // borderBottom: `2px dotted ${token.colorPrimary}`,
         display: 'flex', 
         padding: '0px 20px', 
         position: 'sticky',
         top: 0,
-        // boxShadow: '1px 1px 2px 2px rgba(190, 52, 85, .1)',
         transition: '0.3s', 
         zIndex: 1,
         opacity: .9,
@@ -43,7 +41,10 @@ export const HeaderComponent = ({ setTheme }) => {
         style={{
           display: 'flex', 
           width: '100%', 
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
+ 
+          maxWidth: '1400px', 
+          margin: '0 auto'
         }}>
         <Link href="/" style={{display: 'flex', alignItems: 'center'}}>
           <IconChefHat size={36} color={`${token.colorPrimary}`}/>      

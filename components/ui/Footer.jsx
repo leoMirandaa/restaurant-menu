@@ -18,10 +18,13 @@ export const FooterComponent = () => {
       // bottom: 0,
       // zIndex: 1,
       background: colorBgContainer,
-      borderTop: `2px dotted ${token.colorPrimary}`,
+      
+      // borderTop: `2px dotted ${token.colorPrimary}`,
     }}
   >
-    Created by Leopoldo Miranda ©2023
+    <div style={{ maxWidth: '1400px', margin: '0 auto'}}>
+      Created by Leopoldo Miranda ©2023
+    </div>
   </Footer>
   )
 }
