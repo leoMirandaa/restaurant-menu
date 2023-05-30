@@ -5,28 +5,38 @@ import { Layout, Badge, theme, Typography, Button } from "antd"
 const { Title } = Typography;
 const { Header } = Layout;
 
+import { magentaTheme, darkTheme } from '../../themes';
+
 import { IconChefHat, IconShoppingCart, IconMoonFilled, IconSunFilled } from '@tabler/icons-react';
 
-export const HeaderComponent = () => {
+export const HeaderComponent = ({ setTheme }) => {
   const [ isDark, setIsDark] = useState(false)
 
   const {
     token: { colorBgContainer },
   } = theme.useToken();
 
+  const { useToken } = theme;
+  const { token } = useToken();
+
   const handleDarkMode = () => {
     setIsDark(!isDark)
+    !isDark ? setTheme({...darkTheme}) : setTheme({...magentaTheme})
   }
 
   return (
     <Header 
       style={{ 
         background: colorBgContainer,
+        borderBottom: `2px dotted ${token.colorPrimary}`,
         display: 'flex', 
         padding: '0px 20px', 
         position: 'sticky',
         top: 0,
+        // boxShadow: '1px 1px 2px 2px rgba(190, 52, 85, .1)',
+        transition: '0.3s', 
         zIndex: 1,
+        opacity: .9,
       }}
     >
       <nav 
@@ -36,7 +46,7 @@ export const HeaderComponent = () => {
           justifyContent: 'space-between'
         }}>
         <Link href="/" style={{display: 'flex', alignItems: 'center'}}>
-          <IconChefHat size={36} color='#BE3455'/>      
+          <IconChefHat size={36} color={`${token.colorPrimary}`}/>      
           <Title level={4} style={{marginLeft:'5px'}}>Magenta kitchen</Title>
         </Link>
 

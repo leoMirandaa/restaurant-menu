@@ -1,10 +1,17 @@
-import { Layout, Menu, Typography } from "antd"
+import { Layout, Menu, Typography, theme } from "antd"
 const { Sider } = Layout;
 const { Title } = Typography;
 
 import { menuOptions } from "@/utils/menuOptions";
 
 export const Sidebar = ({ handleClick }) => {
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
+  
+  const { useToken } = theme;
+  const { token } = useToken();
+
   return (
     <Sider 
       theme='light'
@@ -16,10 +23,11 @@ export const Sidebar = ({ handleClick }) => {
         position: 'sticky',
         top: 84,
         zIndex: 1,
+        border: `2px dotted ${token.colorPrimary}`
       }} 
     >
       <div style={{ textAlign: 'center'}}>
-        <Title level={2}> Menu </Title>
+        <Title level={2} style={{color: token.colorPrimary}}> Menu </Title>
       </div>
       
     <Menu
