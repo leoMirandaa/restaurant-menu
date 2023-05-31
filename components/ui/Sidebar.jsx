@@ -3,6 +3,7 @@ const { Sider } = Layout;
 const { Title } = Typography;
 
 import { menuOptions } from "@/utils/menuOptions";
+import styles from './Menu.module.css'
 
 export const Sidebar = ({ handleClick }) => {
   const {
@@ -14,33 +15,32 @@ export const Sidebar = ({ handleClick }) => {
 
   return (
     <Sider 
+      className={styles.sidebarMenu}
       theme='light'
-      breakpoint="sm"
-      collapsedWidth="0"
       style={{
         borderRadius: '10px',
         height: '50%', 
         position: 'sticky',
         top: 84,
         zIndex: 1,
-        // border: `2px dotted ${token.colorPrimary}`
+        // border: `2px dotted ${token.colorPrimary}`,
       }} 
     >
-      <div style={{ textAlign: 'center'}}>
+      <div  style={{ textAlign: 'center'}}>
         <Title level={2} style={{color: token.colorPrimary}}> Menu </Title>
       </div>
       
-    <Menu
-      style={{ 
-        borderInline: 'none',
-        borderRadius: '10px',
-        paddingBottom: '10px',
-      }}
-      mode="inline"
-      defaultSelectedKeys={['1']}
-      items= {...menuOptions}
-      onClick={handleClick}
-    />
-  </Sider>
+      <Menu
+        style={{ 
+          borderInline: 'none',
+          borderRadius: '10px',
+          paddingBottom: '10px',
+        }}
+        mode="inline"
+        defaultSelectedKeys={['starter']}
+        items= {...menuOptions}
+        onClick={handleClick}
+      />
+    </Sider>
   )
 }

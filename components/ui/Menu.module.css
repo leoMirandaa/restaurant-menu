@@ -1,0 +1,19 @@
+
+.sidebarMenu {
+  background: 'tomato' !important;
+}
+
+@media (max-width: 768px) {  
+  .sidebarMenu {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .menuIcon {
+    /* background-color: 'red'; */
+    display: none;
+  }
+
+
+}

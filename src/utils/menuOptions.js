@@ -1,37 +1,29 @@
-import { theme } from "antd"
-
-import { IconIceCream2, IconGlassFull, IconMeat, IconSalad, IconSoup, IconCarrot, IconChefHat } from '@tabler/icons-react';
-// const { useToken } = theme;
-// const { token } = useToken();
-// const {
-//   token: { colorBgContainer }
-// } = theme.useToken();
-
+import { IconIceCream2, IconGlassFull, IconMeat, IconSalad, IconCarrot } from '@tabler/icons-react';
 
 export const menuOptions = [
   {
-    key: '1',
+    key: 'starter',
     icon: <IconCarrot size={32} />,
     label: 'Starter',
   },
   {
-    key: '2',
+    key: 'salad',
     icon: <IconSalad size={32}  />,
     label: 'Salad',
   },
   {
-    key: '3',
+    key: 'main dishes',
     icon: <IconMeat size={32} />,
     label: 'Main dishes',
     
   },
   {
-    key: '4',
+    key: 'beverages',
     icon: <IconGlassFull size={32} />,
     label: 'Beverages',
   },
   {
-    key: '5',
+    key: 'desert',
     icon: <IconIceCream2 size={32}  />,
     label: 'Desert',
   }

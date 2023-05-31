@@ -1,12 +1,12 @@
 import Head from "next/head";
 import { useRef } from 'react';
 
-import { Button, Card, Layout, theme, Typography, Badge, Tag } from "antd";
+import { Layout, theme, Typography } from "antd";
 const { Content } = Layout;
-const { Title, Paragraph, Text } = Typography;
-const { Meta } = Card;
+const { Title, Paragraph } = Typography;
 
 import { products } from "../../database/products";
+import { PlateCard } from "../products/Card";
 import { FooterComponent, HeaderComponent, Sidebar } from "../ui"
 
 export const ShopLayout = ({ title, pageDescription, imageUrl, setTheme }) => {
@@ -25,16 +25,16 @@ export const ShopLayout = ({ title, pageDescription, imageUrl, setTheme }) => {
 
   const handleClick = (e) => {
     console.log('HandleClick ', e.key)
-    if(e.key == 1) {
+    if(e.key == 'starter') {
       starter.current.scrollIntoView({ behavior: "smooth", inline: 'start' });
     }
-    else if (e.key == 2) {
+    else if (e.key == 'salad') {
       salad.current.scrollIntoView({ behavior: "smooth", inline: 'start' });
     }
-    else if (e.key == 3) {
+    else if (e.key == 'main dishes') {
       mainDishes.current.scrollIntoView({ behavior: "smooth", inline: 'start' });
     }
-    else if (e.key == 4) {
+    else if (e.key == 'beverages') {
       beverages.current.scrollIntoView({ behavior: "smooth", inline: 'start' });
     }
     else {
@@ -56,7 +56,10 @@ export const ShopLayout = ({ title, pageDescription, imageUrl, setTheme }) => {
         }
       </Head>
 
-      <HeaderComponent setTheme={setTheme} />
+      <HeaderComponent 
+        setTheme={setTheme} 
+        handleClick={handleClick}
+      />
 
       <Content
         style={{
@@ -67,121 +70,120 @@ export const ShopLayout = ({ title, pageDescription, imageUrl, setTheme }) => {
           style={{ 
             maxWidth: '1400px', 
             width: '100%',
-            margin: '0 auto'
           }}
         >
           <Sidebar handleClick={handleClick} />
+
           <Content
             style={{
-              marginLeft: '16px',
               padding: '0px 24px',
-              // background: colorBgContainer,
               borderRadius: '10px',
-              
-              // border: `2px dotted ${token.colorPrimary}`
             }}
           > 
-            <main style={{ paddingTop: '15px'}}>
-              <div ref={starter}>
+            <main style={{ paddingTop: '15px' }}>
+              <div style={{marginBottom: '40px'}} ref={starter}>
                 <Title 
                   level={2} 
-                  style={{color: token.colorPrimary, marginBottom: '0px'}}
+                  style={{
+                    color: token.colorPrimary, 
+                    marginBottom: '0px',
+                  }}
                 >
                   Starter 
                 </Title>
 
-                <Paragraph style={{fontSize: '16px'}}> Excepteur dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur </Paragraph>
+                <Paragraph 
+                  style={{fontSize: '16px'}}
+                > 
+                  Excepteur dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur 
+                </Paragraph>
 
                 <div 
                   style={{ 
                     display: 'flex', 
-                    justifyContent: 'flex-start', 
+                    justifyContent: 'center', 
                     flexWrap: 'wrap', 
                     gap: '30px'
                   }}
                 >
                   {
                     products.map(plate => (
-                      <Badge.Ribbon 
-                        color={`${token.colorPrimary}`} 
-                        text={`$ ${plate.price}`}
-                        style={{fontWeight: 'bold'}} 
-                      >
-                        <Card
-                          hoverable
-                          style={{ width: 350, position: 'relative' }}
-                          cover={
-                            <img 
-                              style={{
-                                width: '350px',
-                                height: '230px',
-                                objectFit: 'cover'
-                              }}
-                              alt="example" 
-                              src={`${plate.imageUrl}`} 
-                              // src="https://images.pexels.com/photos/5419047/pexels-photo-5419047.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                            />
-                          }
-                          // cover={<img alt="example" src="https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg" />}
-                          actions={[
-                            <Button 
-                              // style={{backgroundColor: token.colorTextSecondary}} 
-                              type="primary"
-                            >
-                                Add to cart
-                            </Button>
-                          ]}
-                        >
-                          <Meta 
-                            title={`${plate.name}`} 
-                            description={`${plate.description}`} 
-                          />
-                        </Card>
-                      </Badge.Ribbon>
+                      <PlateCard 
+                        name={plate.name} 
+                        description={plate.description}
+                        price={plate.price} 
+                        imageUrl={plate.imageUrl} 
+                      />
                     ))
                   }      
                 </div>
               </div>
-                  {/* Tomato Soup
-                  Chicken soup
-                  Crispy corn */}
 
-              <div ref={salad}>
-                <Title level={2} style={{color: token.colorPrimary}}>Salad </Title>
-                <Paragraph>
-                  Chicken salad
-                  Green salad
-                  Guacamole Salad
-                  Salmon salad
-                  Excepteur pariatur voluptate occaecat velit minim nisi incididunt. Id anim id et irure eu. Id cupidatat occaecat aute eiusmod proident incididunt sunt deserunt. Officia commodo ea consequat incididunt tempor ullamco est commodo proident qui officia. Non nostrud sit eu excepteur consectetur ullamco laborum ipsum amet. Commodo reprehenderit veniam anim officia dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur
-                  Excepteur pariatur voluptate occaecat velit minim nisi incididunt. Id anim id et irure eu. Id cupidatat occaecat aute eiusmod proident incididunt sunt deserunt. Officia commodo ea consequat incididunt tempor ullamco est commodo proident qui officia. Non nostrud sit eu excepteur consectetur ullamco laborum ipsum amet. Commodo reprehenderit veniam anim officia dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur
-                  Excepteur pariatur voluptate occaecat velit minim nisi incididunt. Id anim id et irure eu. Id cupidatat occaecat aute eiusmod proident incididunt sunt deserunt. Officia commodo ea consequat incididunt tempor ullamco est commodo proident qui officia. Non nostrud sit eu excepteur consectetur ullamco laborum ipsum amet. Commodo reprehenderit veniam anim officia dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur
-                  Excepteur pariatur voluptate occaecat velit minim nisi incididunt. Id anim id et irure eu. Id cupidatat occaecat aute eiusmod proident incididunt sunt deserunt. Officia commodo ea consequat incididunt tempor ullamco est commodo proident qui officia. Non nostrud sit eu excepteur consectetur ullamco laborum ipsum amet. Commodo reprehenderit veniam anim officia dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur
-                </Paragraph>
+              <div style={{marginBottom: '40px'}} ref={salad}>
+                <Title level={2} style={{display: 'flex',
+                    top: 64,  color: token.colorPrimary, marginBottom: '0px'}}>Salad </Title>
+                <Paragraph style={{fontSize: '16px'}}> Excepteur dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur </Paragraph>
+                <div 
+                  style={{ 
+                    display: 'flex', 
+                    justifyContent: 'center', 
+                    flexWrap: 'wrap', 
+                    gap: '30px'
+                  }}
+                >
+                  {
+                    products.map(plate => (
+                      <PlateCard 
+                        name={plate.name} 
+                        description={plate.description}
+                        price={plate.price} 
+                        imageUrl={plate.imageUrl} 
+                      />
+                    ))
+                  }         
+                </div>
              </div>
 
-              <div ref={mainDishes}>
-                <Title level={2} style={{color: token.colorPrimary}}>Main dishes </Title>
-                <Paragraph>
-                  Goat steak
-                  Cheese ravioli
-                  Grilled octopus
-                  Lasagne
-                  Excepteur pariatur voluptate occaecat velit minim nisi incididunt. Id anim id et irure eu. Id cupidatat occaecat aute eiusmod proident incididunt sunt deserunt. Officia commodo ea consequat incididunt tempor ullamco est commodo proident qui officia. Non nostrud sit eu excepteur consectetur ullamco laborum ipsum amet. Commodo reprehenderit veniam anim officia dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur
-                  Excepteur pariatur voluptate occaecat velit minim nisi incididunt. Id anim id et irure eu. Id cupidatat occaecat aute eiusmod proident incididunt sunt deserunt. Officia commodo ea consequat incididunt tempor ullamco est commodo proident qui officia. Non nostrud sit eu excepteur consectetur ullamco laborum ipsum amet. Commodo reprehenderit veniam anim officia dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur
-                  Excepteur pariatur voluptate occaecat velit minim nisi incididunt. Id anim id et irure eu. Id cupidatat occaecat aute eiusmod proident incididunt sunt deserunt. Officia commodo ea consequat incididunt tempor ullamco est commodo proident qui officia. Non nostrud sit eu excepteur consectetur ullamco laborum ipsum amet. Commodo reprehenderit veniam anim officia dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur
-                  Excepteur pariatur voluptate occaecat velit minim nisi incididunt. Id anim id et irure eu. Id cupidatat occaecat aute eiusmod proident incididunt sunt deserunt. Officia commodo ea consequat incididunt tempor ullamco est commodo proident qui officia. Non nostrud sit eu excepteur consectetur ullamco laborum ipsum amet. Commodo reprehenderit veniam anim officia dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur
+              <div style={{marginBottom: '40px'}} ref={mainDishes}>
+              <Title 
+                  level={2} 
+                  style={{
+                    color: token.colorPrimary, 
+                    marginBottom: '0px',
+                  }}
+                >
+                  Main Dishes 
+                </Title>                
+                <Paragraph 
+                  style={{fontSize: '16px'}}
+                > 
+                  Excepteur dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur 
                 </Paragraph>
+
+                <div 
+                  style={{ 
+                    display: 'flex', 
+                    justifyContent: 'center', 
+                    flexWrap: 'wrap', 
+                    gap: '30px'
+                  }}
+                >
+                  {
+                    products.map(plate => (
+                      <PlateCard 
+                        name={plate.name} 
+                        description={plate.description}
+                        price={plate.price} 
+                        imageUrl={plate.imageUrl} 
+                      />
+                    ))
+                  }      
+                </div>
               </div>
 
               <div ref={beverages}>
                 <Title level={2} style={{color: token.colorPrimary}}>Beverages </Title>
                 <Paragraph>
-                  Coffee
-                  Mineral water
-                  Fruit Juice
-                  Tea
-                  White Wine
                   Excepteur pariatur voluptate occaecat velit minim nisi incididunt. Id anim id et irure eu. Id cupidatat occaecat aute eiusmod proident incididunt sunt deserunt. Officia commodo ea consequat incididunt tempor ullamco est commodo proident qui officia. Non nostrud sit eu excepteur consectetur ullamco laborum ipsum amet. Commodo reprehenderit veniam anim officia dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur
                   Excepteur pariatur voluptate occaecat velit minim nisi incididunt. Id anim id et irure eu. Id cupidatat occaecat aute eiusmod proident incididunt sunt deserunt. Officia commodo ea consequat incididunt tempor ullamco est commodo proident qui officia. Non nostrud sit eu excepteur consectetur ullamco laborum ipsum amet. Commodo reprehenderit veniam anim officia dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur
                   Excepteur pariatur voluptate occaecat velit minim nisi incididunt. Id anim id et irure eu. Id cupidatat occaecat aute eiusmod proident incididunt sunt deserunt. Officia commodo ea consequat incididunt tempor ullamco est commodo proident qui officia. Non nostrud sit eu excepteur consectetur ullamco laborum ipsum amet. Commodo reprehenderit veniam anim officia dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur
@@ -190,10 +192,30 @@ export const ShopLayout = ({ title, pageDescription, imageUrl, setTheme }) => {
               </div>
 
               <div ref={desert}>
-                <Title level={2} style={{color: token.colorPrimary}}>Dessert </Title>
+                <Title 
+                  level={2} 
+                  style={{
+                    color: token.colorPrimary,
+                  }}
+                >
+                  Dessert 
+                </Title>
+
                 <Paragraph>
                   Cheese cake
                   Tiramisu
+                  Excepteur pariatur voluptate occaecat velit minim nisi incididunt. Id anim id et irure eu. Id cupidatat occaecat aute eiusmod proident incididunt sunt deserunt. Officia commodo ea consequat incididunt tempor ullamco est commodo proident qui officia. Non nostrud sit eu excepteur consectetur ullamco laborum ipsum amet. Commodo reprehenderit veniam anim officia dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur
+                  Excepteur pariatur voluptate occaecat velit minim nisi incididunt. Id anim id et irure eu. Id cupidatat occaecat aute eiusmod proident incididunt sunt deserunt. Officia commodo ea consequat incididunt tempor ullamco est commodo proident qui officia. Non nostrud sit eu excepteur consectetur ullamco laborum ipsum amet. Commodo reprehenderit veniam anim officia dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur
+                  Excepteur pariatur voluptate occaecat velit minim nisi incididunt. Id anim id et irure eu. Id cupidatat occaecat aute eiusmod proident incididunt sunt deserunt. Officia commodo ea consequat incididunt tempor ullamco est commodo proident qui officia. Non nostrud sit eu excepteur consectetur ullamco laborum ipsum amet. Commodo reprehenderit veniam anim officia dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur
+                  Excepteur pariatur voluptate occaecat velit minim nisi incididunt. Id anim id et irure eu. Id cupidatat occaecat aute eiusmod proident incididunt sunt deserunt. Officia commodo ea consequat incididunt tempor ullamco est commodo proident qui officia. Non nostrud sit eu excepteur consectetur ullamco laborum ipsum amet. Commodo reprehenderit veniam anim officia dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur
+                </Paragraph>
+                <Paragraph>
+                  Excepteur pariatur voluptate occaecat velit minim nisi incididunt. Id anim id et irure eu. Id cupidatat occaecat aute eiusmod proident incididunt sunt deserunt. Officia commodo ea consequat incididunt tempor ullamco est commodo proident qui officia. Non nostrud sit eu excepteur consectetur ullamco laborum ipsum amet. Commodo reprehenderit veniam anim officia dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur
+                  Excepteur pariatur voluptate occaecat velit minim nisi incididunt. Id anim id et irure eu. Id cupidatat occaecat aute eiusmod proident incididunt sunt deserunt. Officia commodo ea consequat incididunt tempor ullamco est commodo proident qui officia. Non nostrud sit eu excepteur consectetur ullamco laborum ipsum amet. Commodo reprehenderit veniam anim officia dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur
+                  Excepteur pariatur voluptate occaecat velit minim nisi incididunt. Id anim id et irure eu. Id cupidatat occaecat aute eiusmod proident incididunt sunt deserunt. Officia commodo ea consequat incididunt tempor ullamco est commodo proident qui officia. Non nostrud sit eu excepteur consectetur ullamco laborum ipsum amet. Commodo reprehenderit veniam anim officia dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur
+                  Excepteur pariatur voluptate occaecat velit minim nisi incididunt. Id anim id et irure eu. Id cupidatat occaecat aute eiusmod proident incididunt sunt deserunt. Officia commodo ea consequat incididunt tempor ullamco est commodo proident qui officia. Non nostrud sit eu excepteur consectetur ullamco laborum ipsum amet. Commodo reprehenderit veniam anim officia dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur
+                </Paragraph>
+                <Paragraph>
                   Excepteur pariatur voluptate occaecat velit minim nisi incididunt. Id anim id et irure eu. Id cupidatat occaecat aute eiusmod proident incididunt sunt deserunt. Officia commodo ea consequat incididunt tempor ullamco est commodo proident qui officia. Non nostrud sit eu excepteur consectetur ullamco laborum ipsum amet. Commodo reprehenderit veniam anim officia dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur
                   Excepteur pariatur voluptate occaecat velit minim nisi incididunt. Id anim id et irure eu. Id cupidatat occaecat aute eiusmod proident incididunt sunt deserunt. Officia commodo ea consequat incididunt tempor ullamco est commodo proident qui officia. Non nostrud sit eu excepteur consectetur ullamco laborum ipsum amet. Commodo reprehenderit veniam anim officia dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur
                   Excepteur pariatur voluptate occaecat velit minim nisi incididunt. Id anim id et irure eu. Id cupidatat occaecat aute eiusmod proident incididunt sunt deserunt. Officia commodo ea consequat incididunt tempor ullamco est commodo proident qui officia. Non nostrud sit eu excepteur consectetur ullamco laborum ipsum amet. Commodo reprehenderit veniam anim officia dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur
