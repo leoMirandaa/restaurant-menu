@@ -13,13 +13,13 @@ export default function App({ Component, pageProps }) {
         ...theme
       }}
     >
-      <ShopLayout 
+      {/* <ShopLayout 
         title={'Magenta-Cloud - Home'}
         pageDescription={'The most elegant food at the corner'}
         setTheme={setTheme}
-        >
+        > */}
         <Component {...pageProps} />
-      </ShopLayout>
+      {/* </ShopLayout> */}
     </ConfigProvider>
   )
 }
