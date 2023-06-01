@@ -23,11 +23,20 @@ export const Sidebar = ({ handleClick }) => {
         position: 'sticky',
         top: 84,
         zIndex: 1,
+        paddingTop: 10
         // border: `2px dotted ${token.colorPrimary}`,
       }} 
     >
       <div  style={{ textAlign: 'center'}}>
-        <Title level={2} style={{color: token.colorPrimary}}> Menu </Title>
+        <Title 
+          level={2} 
+          style={{
+            color: token.colorPrimary,
+            marginTop: 0
+          }}
+        >
+           Menu 
+        </Title>
       </div>
       
       <Menu

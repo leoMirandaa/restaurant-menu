@@ -16,7 +16,7 @@ export default function App({ Component, pageProps }) {
       {/* <ShopLayout 
         title={'Magenta-Cloud - Home'}
         pageDescription={'The most elegant food at the corner'}
-        setTheme={setTheme}
+        // setTheme={setTheme}
         > */}
         <Component {...pageProps} />
       {/* </ShopLayout> */}

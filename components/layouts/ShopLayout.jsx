@@ -9,7 +9,7 @@ import { products } from "../../database/products";
 import { PlateCard } from "../products/Card";
 import { FooterComponent, HeaderComponent, Sidebar } from "../ui"
 
-export const ShopLayout = ({ title, pageDescription, imageUrl, setTheme }) => {
+export const ShopLayout = ({ children, title, pageDescription, imageUrl, setTheme }) => {
   const starter = useRef();
   const salad = useRef();
   const mainDishes = useRef();
@@ -43,7 +43,7 @@ export const ShopLayout = ({ title, pageDescription, imageUrl, setTheme }) => {
   }
   
   return (
-    <Layout>
+    <Layout >
       <Head>
         <title>{ title }</title>
         <meta name="description" content={ pageDescription }/>
@@ -70,11 +70,12 @@ export const ShopLayout = ({ title, pageDescription, imageUrl, setTheme }) => {
           style={{ 
             maxWidth: '1400px', 
             width: '100%',
+            
           }}
         >
           <Sidebar handleClick={handleClick} />
 
-          <Content
+          {/* <Content
             style={{
               padding: '0px 24px',
               borderRadius: '10px',
@@ -229,7 +230,9 @@ export const ShopLayout = ({ title, pageDescription, imageUrl, setTheme }) => {
                 </Paragraph>
               </div>
             </main>           
-          </Content>
+          </Content> */}
+
+          {children}
         </Layout>
       </Content>
       
