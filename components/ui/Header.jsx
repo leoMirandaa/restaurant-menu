@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { Layout, Badge, theme, Typography, Button, Drawer, Menu, Dropdown, Space } from "antd"
 const { Title } = Typography;
@@ -12,30 +13,11 @@ import { menuOptions } from '@/utils/menuOptions';
 
 import styles from './menu.module.css'
 
-const items = [
-  {
-    key: '1',
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-        1st menu item
-      </a>
-    ),
-  },
-  {
-    key: '2',
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-        2nd menu item (disabled)
-      </a>
-    ),
-    icon: <SmileOutlined />,
-    disabled: true,
-  },
-];
-
 export const HeaderComponent = ({ setTheme, handleClick }) => {
   const [ isDark, setIsDark] = useState(false)
   const [open, setOpen] = useState(false);
+
+  const router = useRouter();
 
   const {
     token: { colorBgContainer },
@@ -45,8 +27,13 @@ export const HeaderComponent = ({ setTheme, handleClick }) => {
   const { token } = useToken();
 
   const handleDarkMode = () => {
+    if(!isDark) {
+      localStorage.setItem('theme', JSON.stringify('darkTheme'))    
+    } else {
+      localStorage.setItem('theme', JSON.stringify('magentaTheme'))    
+    }
     setIsDark(!isDark)
-    !isDark ? setTheme({...darkTheme}) : setTheme({...magentaTheme})
+    // !isDark ? setTheme({...darkTheme}) : setTheme({...magentaTheme})
   }
 
 
@@ -87,7 +74,6 @@ export const HeaderComponent = ({ setTheme, handleClick }) => {
             <Button className={styles.menuIcon} type="text" onClick={showDrawer} icon={<IconMenu2 color={token.colorPrimary} />} />
             
             <Drawer
-              // title="Menu"
               placement="left"
               onClose={onClose}
               open={open}
@@ -111,29 +97,22 @@ export const HeaderComponent = ({ setTheme, handleClick }) => {
             </Link>
           </div>
 
-        <div style={{display: "flex"}} >
-        <Dropdown
-        menu={{
-          items,
-        }}
-      >
-        <a onClick={(e) => e.preventDefault()}>
-          {/* <Space> */}
-            <Title style={{color: token.colorPrimary}} level={4}>
+        <div style={{display: "flex", alignItems: 'center'}}>
+            <Button 
+              type='primary' 
+              style={{marginRight: '20px'}}
+              onClick={() => router.push('/admin')}
+            >
               Admin
-            </Title>
-            {/* <DownOutlined /> */}
-          {/* </Space> */}
-        </a>
-      </Dropdown>
-          <div style={{display: 'flex',alignItems: 'center', marginRight: '20px'}}>
+            </Button>
+          {/* <div style={{display: 'flex',alignItems: 'center', marginRight: '20px'}}>
             <Button 
               icon={ isDark ? <IconSunFilled /> :<IconMoonFilled />} 
               type='text' 
               shape='circle' 
               onClick={handleDarkMode}
             />
-          </div>
+          </div> */}
 
           
           <Link href='/checkout' style={{display: 'flex',alignItems: 'center'}}>

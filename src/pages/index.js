@@ -1,8 +1,9 @@
-import { useState } from 'react';
+"use client"
+import { useEffect, useState } from 'react';
 import { ConfigProvider } from 'antd'
 
 import { ShopLayout } from '../../components/layouts';
-import { magentaTheme } from '../../themes'
+import { magentaTheme, darkTheme } from '../../themes'
 import Dishes from './dishes';
 
 export default function Home() {
@@ -10,11 +11,6 @@ export default function Home() {
 
   return (
     <>
-    <ConfigProvider
-      theme={{
-        ...theme
-      }}
-    >
       <ShopLayout 
         title={'Magenta-Cloud - Home'}
         pageDescription={'The most elegant food at the corner'}
@@ -24,11 +20,9 @@ export default function Home() {
         // padding: '0px 24px',
         // borderRadius: '10px',
       }}>
-
         <Dishes />
         </div>
       </ShopLayout>
-      </ConfigProvider>
     </>
   )
 }
