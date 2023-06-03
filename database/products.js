@@ -195,8 +195,9 @@ export const products =  [
 ]
 
 export const categories = {
-  0: 'Salads',
-  1: 'Hamburguers',
-  2: 'Beverages',
-  3: 'Meat'
+  0: 'Starters',
+  1: 'Saladas',
+  2: 'Main Dishses',
+  3: 'Beverages',
+  4: 'Deserts'
 }

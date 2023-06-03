@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import { Layout, theme, Typography, Table, Space, Button, Card, Tag } from "antd";
 const { Content } = Layout;
 const { Title } = Typography;
@@ -6,6 +8,7 @@ import { IconPencil, IconTrash, IconPlus } from '@tabler/icons-react';
 
 import { HeaderComponent } from "../../../components/ui";
 import Image from "next/image";
+import { DishModal } from "../../../components/modals/DishModal";
 
 const categories = {
   0: 'Starters',
@@ -100,6 +103,8 @@ const data = [
 ];
 
 const adminPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -107,15 +112,28 @@ const adminPage = () => {
   const { useToken } = theme;
   const { token } = useToken();
 
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
   return (
   <Layout style={{
-    height: '100vh'
+    height: '100vh',
   }}>
     <HeaderComponent/>
       <Content
         style={{
           padding: '0px 24px',
           borderRadius: '10px',
+          width: '100vw'
         }}
       >
         <main 
@@ -123,7 +141,7 @@ const adminPage = () => {
             // paddingTop: '15px', 
             display: 'flex', 
             flexDirection: 'column',
-            alignItems: 'center'
+            alignItems: 'center',
           }}
         >
           <div style={{textAlign: 'center', width: '100%'}}>
@@ -143,8 +161,16 @@ const adminPage = () => {
             {/* <Button type="primary" icon={<IconPlus stroke={2} size={20}/>}/> */}
               <Title 
                 style={{color: token.colorPrimary, margin:0}} 
-                level={3}>Dishes</Title>
-              <Button>New dish</Button>
+                level={3}
+              >
+                Dishes
+              </Title>
+
+              <Button
+                onClick={showModal}
+              >
+                New dish
+              </Button>
             </div>
 
             <Table 
@@ -156,8 +182,13 @@ const adminPage = () => {
               // pagination={{ pageSize: 3 }}
             />
           </Card>
-
         </main>
+
+        <DishModal
+          isModalOpen={isModalOpen}
+          handleOk={handleOk}
+          handleCancel={handleCancel}
+        />
       </Content>
     </Layout>
   )
