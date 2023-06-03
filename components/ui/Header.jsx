@@ -6,9 +6,8 @@ import { Layout, Badge, theme, Typography, Button, Drawer, Menu, Dropdown, Space
 const { Title } = Typography;
 const { Header } = Layout;
 import { IconChefHat, IconShoppingCart, IconMoonFilled, IconSunFilled, IconMenu2 } from '@tabler/icons-react';
-import { DownOutlined, SmileOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import { HomeOutlined } from '@ant-design/icons';
 
-import { magentaTheme, darkTheme } from '../../themes';
 import { menuOptions } from '@/utils/menuOptions';
 
 import { useCartStore } from '@/store/cartStore';
@@ -106,13 +105,19 @@ export const HeaderComponent = ({ setTheme, handleClick }) => {
           </div>
 
         <div style={{display: "flex", alignItems: 'center'}}>
-            <Button 
-              type='primary' 
-              style={{marginRight: '20px'}}
-              onClick={() => router.push('/admin')}
-            >
-              Admin
-            </Button>
+          <Button 
+            icon={<HomeOutlined />}
+            onClick={() => router.push('/')}
+          />
+          
+          <Button 
+            type='primary' 
+            style={{margin: '0px 20px'}}
+            onClick={() => router.push('/admin')}
+          >
+            Admin
+          </Button>
+            
           {/* <div style={{display: 'flex',alignItems: 'center', marginRight: '20px'}}>
             <Button 
               icon={ isDark ? <IconSunFilled /> :<IconMoonFilled />} 
@@ -122,9 +127,6 @@ export const HeaderComponent = ({ setTheme, handleClick }) => {
             />
           </div> */}
 
-          {/* <Button onClick={decreaseCart}>-1</Button>
-          <Button onClick={increaseCart}>+1</Button>
-          <Button onClick={resetCart}>Reset</Button> */}
           <Link href='/checkout' style={{display: 'flex',alignItems: 'center'}}>
             <Badge count={cart}>
               <IconShoppingCart />

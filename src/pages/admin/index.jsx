@@ -7,7 +7,7 @@ const { Title } = Typography;
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import { IconPencil, IconTrash, IconPlus } from '@tabler/icons-react';
 
-import { HeaderComponent } from "../../../components/ui";
+import { FooterComponent, HeaderComponent } from "../../../components/ui";
 import Image from "next/image";
 import { DishModal } from "../../../components/modals/DishModal";
 
@@ -193,6 +193,8 @@ const adminPage = () => {
           handleCancel={handleCancel}
         />
       </Content>
+
+      <FooterComponent/>
     </Layout>
   )
 }

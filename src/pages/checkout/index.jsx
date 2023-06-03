@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-import { Avatar, Card, Layout, List, theme, Typography } from "antd";
+import { Card, Layout, List, theme, Typography } from "antd";
 const { Content } = Layout;
-const { Title, Paragraph } = Typography;
+const { Title } = Typography;
 
 import { useCartStore } from "@/store/cartStore";
 import { FooterComponent, HeaderComponent } from "../../../components/ui";
@@ -51,25 +51,41 @@ export default function checkoutPage ()  {
             </Title>
           </div>
 
-          <h6>
-            {JSON.stringify(dishes)}
-          </h6>
-
-          <div style={{display: 'flex', justifyContent: 'center', width: '100%', gap: 20}}>
+          <div 
+            style={{
+              display: 'flex', 
+              justifyContent: 'center', 
+              width: '100%', 
+              gap: 20,
+              
+            }}
+          >
             <Card               
-              style={{ minWidth: '60%'}}
+              style={{height: 650,
+                overflow: 'auto',
+                padding: '0 16px',
+                border: '1px solid rgba(140, 140, 140, 0.35)', minWidth: '60%'}}
             >
               <List
+                locale={{emptyText: 'No Orders'}}
                 itemLayout="horizontal"
                 dataSource={dishes}
                 renderItem={(item, index) => (
                   <List.Item>
                     <List.Item.Meta
-                      avatar={<Image style={{objectFit: 'cover'}} width={150} height={150} src={item.imageUrl} />}
+                      avatar={
+                        <Image 
+                          style={{objectFit: 'cover'}} 
+                          width={150} 
+                          height={150} 
+                          src={item.imageUrl} 
+                          alt="image"
+                        />
+                      }
                       title={
                         <>
                           <Title level={4} style={{margin: '0 0 0 0', display: 'flex', justifyContent: 'space-between', alignItems: 'start'}}>
-                            <span style={{width: '80%'}}>
+                            <span style={{width: '60%'}}>
                               {item.name}
                             </span>
                             <span style={{color: token.colorPrimary}}>
@@ -80,7 +96,6 @@ export default function checkoutPage ()  {
                           <Title level={5} style={{margin: '0 0 0 0', display: 'flex', justifyContent: 'space-between', alignItems: 'start'}}>
                             category: {item.category}
                           </Title>
-                 
                         </>
                       }
                       description={item.description}
@@ -93,39 +108,17 @@ export default function checkoutPage ()  {
             <Card
               style={{ minWidth: '35%'}}
             >
-              <Title level={4} style={{margin: '0px'}}>
+              <Title level={3} style={{margin: '0px', color:`${token.colorPrimary}`}}>
                 Order Summary
               </Title>
 
-              <Title level={4}>
+              <Title level={5}>
                 Total: {
-                  dishes.map(dish => {
-                    return (
-                      <h4>test</h4>
-                    )
-                  }
-                  )
+                  (dishes?.reduce((sum, item) => sum + item.price, 0) )
                 }
               </Title>
             </Card>
           </div>
-
-
-          {/* {
-            dishes.map((dish) => (
-              <>
-                <h4>id: {dish.id}</h4>
-                <h5>name: {dish.name}</h5>
-                <h5>imageUrl: {dish.imageUrl}</h5>
-                <h5>category: {dish.category}</h5>
-                <h5>description: {dish.descriptiion}</h5>
-                <h5>price: {dish.price}</h5>
-                <hr />
-              </>
-            ))
-          } */}
-
-          {/* <h4>{JSON.stringify(dishes)}</h4> */}
         </main>
       </Content>
       <FooterComponent/>
