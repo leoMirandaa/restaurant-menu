@@ -4,6 +4,7 @@ import { Layout, theme, Typography, Table, Space, Button, Card, Tag } from "antd
 const { Content } = Layout;
 const { Title } = Typography;
 
+import { EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import { IconPencil, IconTrash, IconPlus } from '@tabler/icons-react';
 
 import { HeaderComponent } from "../../../components/ui";
@@ -29,7 +30,7 @@ const columns = [
     title: 'Image',
     dataIndex: 'image',
     key: 'image',
-    render:(text) => <Image src={text} width={100} height={100} alt="img" />
+    render:(text) => <Image style={{objectFit: 'cover'}} src={text} width={150} height={150} alt="img" />
   },
   {
     title: 'Category',
@@ -52,8 +53,8 @@ const columns = [
     key: 'action',
     render: (_, record) => (
       <Space size="middle">
-        <Button type="text" icon={<IconPencil stroke={2} size={20}/>} shape="circle"/>
-        <Button type="text" danger icon={<IconTrash stroke={2} size={20}/>} shape="circle"/>
+        <Button type="text" icon={<EditOutlined/>} shape="circle"/>
+        <Button type="text" danger icon={<DeleteOutlined />} shape="circle"/>
       </Space>
     ),
   },
@@ -85,7 +86,7 @@ const data = [
     price: 15,
   },
   {
-    key: '3',
+    key: '4',
     name: 'Joe Black',
     image: 'https://images.pexels.com/photos/6310077/pexels-photo-6310077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 2,
@@ -93,7 +94,7 @@ const data = [
     price: 15,
   },
   {
-    key: '3',
+    key: '5',
     name: 'Michale Steph',
     image: 'https://images.pexels.com/photos/3491211/pexels-photo-3491211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 3,
@@ -125,9 +126,11 @@ const adminPage = () => {
   };
 
   return (
-  <Layout style={{
-    height: '100vh',
-  }}>
+  <Layout 
+    style={{
+      height: '100vh',
+    }}
+  >
     <HeaderComponent/>
       <Content
         style={{

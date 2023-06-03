@@ -45,7 +45,6 @@ export const products =  [
     id:5,
     name: 'Mushroom Soup',
     description: 'Lorem Ipsum is simply but also the leap into electronic typesetting, remaining essentially unchanged',
-    ingredients: ['Butter', '16 oz mushrooms', 'Onion', 'Wripping cream', 'leaves for garnish' ],
     price: 55,
     category: 0,
     imageUrl: 'https://images.pexels.com/photos/5950442/pexels-photo-5950442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
@@ -56,7 +55,6 @@ export const products =  [
     id:6,
     name: 'Caesar Salad',
     description: 'Lorem Ipsum is simply but also the leap into electronic typesetting, remaining essentially unchanged',
-    ingredients: ['Butter', '16 oz mushrooms', 'Onion', 'Wripping cream', 'leaves for garnish' ],
     price: 55,
     category: 1,
     imageUrl: 'https://img.freepik.com/free-photo/chicken-parmesan-caesar-salad-with-lettuce-cherry-tomatoes-inside-white-bowl-served-with-sauce-bread_114579-204.jpg?w=996&t=st=1685654701~exp=1685655301~hmac=d4f5e0e0843f2220c3d10250bbece26b7c426b7c13d88a210a8890bd924f6495'
@@ -65,7 +63,6 @@ export const products =  [
     id:7,
     name: 'Green Salad',
     description: 'Lorem Ipsum is simply but also the leap into electronic typesetting, remaining essentially unchanged',
-    ingredients: ['Butter', '16 oz mushrooms', 'Onion', 'Wripping cream', 'leaves for garnish' ],
     price: 55,
     category: 1,
     imageUrl: 'https://images.unsplash.com/photo-1608032077018-c9aad9565d29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
@@ -74,18 +71,15 @@ export const products =  [
     id:8,
     name: 'Greek Salad',
     description: 'Lorem Ipsum is simply but also the leap into electronic typesetting, remaining essentially unchanged',
-    ingredients: ['Butter', '16 oz mushrooms', 'Onion', 'Wripping cream', 'leaves for garnish' ],
     price: 55,
     category: 1,
     imageUrl: 'https://img.freepik.com/free-photo/dietary-salad-with-tomatoes-feta-lettuce-spinach-pine-nuts_2829-20133.jpg?w=996&t=st=1685654765~exp=1685655365~hmac=bca184fffd5a0fb634c6103abf63f31ae6d9188f8905f3c9ff26c56670b78ad1'
   },
 
 
-
-
   // Main dishes
   {
-    id:0,
+    id:21,
     name: 'Beef Hamburger',
     description: 'Lorem Ipsum is simply but also the leap into electronic typesetting, remaining essentially unchanged',
     price: 25,

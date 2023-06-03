@@ -1,13 +1,21 @@
 import { useState } from 'react'
+import { useRouter } from 'next/router';
+
+import { PlusOutlined, MinusOutlined } from '@ant-design/icons';
 import { Button, Card, theme, Badge, Typography } from "antd";
 const { Title, Paragraph, Text } = Typography;
 
-import { PlusOutlined, MinusOutlined } from '@ant-design/icons';
-import { useRouter } from 'next/router';
+import { useCartStore } from '@/store/cartStore';
 
-export const PlateCard = ({ name, description, price, imageUrl }) => {
+export const PlateCard = ({ id, name, category, description, price, imageUrl }) => {
   const [count, setCount] = useState(0);
-  const router = useRouter()
+  const router = useRouter();
+
+  const increaseCart = useCartStore((state) => state.increaseCart)
+  const decreaseCart = useCartStore((state) => state.decreaseCart)
+  const dishes = useCartStore((state) => state.dishes)
+  const addDish = useCartStore((state) => state.addDish)
+  const removeDish = useCartStore((state) => state.removeDish)
 
   const { useToken } = theme;
   const { token } = useToken();
@@ -16,6 +24,20 @@ export const PlateCard = ({ name, description, price, imageUrl }) => {
     event.stopPropagation()
     console.log('clicked')
     router.push('/dishes/1')
+  }
+
+  const handleAddDish = () => {
+    console.log(dishes)
+    setCount(count+1)
+    addDish({id, name, category, description, price, imageUrl})
+    increaseCart(1)
+  }
+
+  const handleRemoveDish = () => {
+    if(count === 0) return
+    setCount(count-1)
+    removeDish({id})
+    decreaseCart(1)
   }
 
   return (
@@ -64,7 +86,6 @@ export const PlateCard = ({ name, description, price, imageUrl }) => {
             </Title>
             
             <Paragraph type="secondary" style={{margin: '10px 0px 20px 0px'}}>
-              {/* {description} */}
               {description}
             </Paragraph>
           </div>
@@ -74,13 +95,15 @@ export const PlateCard = ({ name, description, price, imageUrl }) => {
             style={{textAlign: 'center', cursor: 'auto'}}
           >          
             <Button  
-              onClick={(e)=>{setCount(count - 1)}} 
+              // onClick={(e)=>{setCount(count - 1)}} 
+              onClick={handleRemoveDish} 
               type="primary" 
               icon={<MinusOutlined />} 
             />
               <Text style={{cursor: 'auto', margin: '0 10px', fontWeight: 'bold'}}>{count}</Text> 
             <Button 
-              onClick={(e)=>{setCount(count + 1)}} 
+              // onClick={(e)=>{setCount(count + 1)}} 
+              onClick={handleAddDish} 
               type="primary" 
               icon={<PlusOutlined />} 
             />

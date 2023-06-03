@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Button, Modal, Form, Input, Select } from 'antd'
+const { Option } = Select;
 
 export const DishModal = ({ isModalOpen, handleOk, handleCancel }) => {
   
@@ -38,7 +39,7 @@ export const DishModal = ({ isModalOpen, handleOk, handleCancel }) => {
           <Form.Item
             label="Dish name"
             name="dishname"
-            rules={[{ required: true, message: 'Please input your username!' }]}
+            rules={[{ required: true, message: 'Please input dish name' }]}
           >
             <Input />
           </Form.Item>
@@ -46,7 +47,7 @@ export const DishModal = ({ isModalOpen, handleOk, handleCancel }) => {
           <Form.Item
             label="Image Url"
             name="imageurl"
-            rules={[{ required: true, message: 'Please input your username!' }]}
+            rules={[{ required: true, message: 'Please input image url' }]}
           >
             <Input />
           </Form.Item>
@@ -54,26 +55,27 @@ export const DishModal = ({ isModalOpen, handleOk, handleCancel }) => {
           <Form.Item
             label="Category"
             name="category"
-            // rules={[{ required: true, message: 'Please input your username!' }]}
+            rules={[{ required: true, message: 'Please select category' }]}
+            initialValue="starters"
           >
             <Select
-              defaultValue="starters"
               style={{ width: '100%' }}
               onChange={handleChange}
               options={[
                 { value: 'starters', label: 'Starters' },
-                { value: 'saladas', label: 'Saladas' },
+                { value: 'salads', label: 'Salads' },
                 { value: 'main dishes', label: 'Main Dishes' },
                 { value: 'beverages', label: 'Beverages' },
                 { value: 'deserts', label: 'Deserts' },
               ]}
-            />
+            >
+            </Select>
           </Form.Item>
 
           <Form.Item
             label="Description"
             name="description"
-            rules={[{ required: true, message: 'Please input your username!' }]}
+            rules={[{ required: true, message: 'Please input description' }]}
           >
             <Input />
           </Form.Item>
@@ -81,7 +83,7 @@ export const DishModal = ({ isModalOpen, handleOk, handleCancel }) => {
           <Form.Item
             label="Price"
             name="price"
-            rules={[{ required: true, message: 'Please input your username!' }]}
+            rules={[{ required: true, message: 'Please input price' }]}
           >
             <Input />
           </Form.Item>

@@ -6,10 +6,12 @@ import { Layout, Badge, theme, Typography, Button, Drawer, Menu, Dropdown, Space
 const { Title } = Typography;
 const { Header } = Layout;
 import { IconChefHat, IconShoppingCart, IconMoonFilled, IconSunFilled, IconMenu2 } from '@tabler/icons-react';
-import { DownOutlined, SmileOutlined } from '@ant-design/icons';
+import { DownOutlined, SmileOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 
 import { magentaTheme, darkTheme } from '../../themes';
 import { menuOptions } from '@/utils/menuOptions';
+
+import { useCartStore } from '@/store/cartStore';
 
 import styles from './menu.module.css'
 
@@ -18,6 +20,12 @@ export const HeaderComponent = ({ setTheme, handleClick }) => {
   const [open, setOpen] = useState(false);
 
   const router = useRouter();
+
+  const cart = useCartStore((state) => state.cart)
+  const dishes = useCartStore((state) => state.dishes)
+  // const increaseCart = useCartStore((state) => state.increaseCart)
+  // const decreaseCart = useCartStore((state) => state.decreaseCart)
+  // const resetCart = useCartStore((state) => state.resetCart)
 
   const {
     token: { colorBgContainer },
@@ -114,11 +122,14 @@ export const HeaderComponent = ({ setTheme, handleClick }) => {
             />
           </div> */}
 
-          
+          {/* <Button onClick={decreaseCart}>-1</Button>
+          <Button onClick={increaseCart}>+1</Button>
+          <Button onClick={resetCart}>Reset</Button> */}
           <Link href='/checkout' style={{display: 'flex',alignItems: 'center'}}>
-            <Badge count={1}>
+            <Badge count={cart}>
               <IconShoppingCart />
             </Badge>
+
           </Link>
         </div>
       </nav>

@@ -58,7 +58,9 @@ const Dishes = () => {
             {
               products.filter(p=> p.category==0).map(plate => (
                 <PlateCard
+                  id={plate.id}
                   name={plate.name} 
+                  category={plate.category}
                   description={plate.description}
                   price={plate.price} 
                   imageUrl={plate.imageUrl} 
@@ -84,6 +86,7 @@ const Dishes = () => {
               products.filter(p=> p.category==1).map(plate => (
                 <PlateCard 
                   name={plate.name} 
+                  category={plate.category}
                   description={plate.description}
                   ingredients={plate.ingredients}
                   price={plate.price} 
@@ -122,6 +125,7 @@ const Dishes = () => {
               products.filter(p=> p.category==2).map(plate => (
                 <PlateCard 
                   name={plate.name} 
+                  category={plate.category}
                   description={plate.description}
                   ingredients={plate.ingredients}
                   price={plate.price} 
@@ -159,6 +163,7 @@ const Dishes = () => {
               products.filter(p=> p.category==3).map(plate => (
                 <PlateCard 
                   name={plate.name} 
+                  category={plate.category}
                   description={plate.description}
                   ingredients={plate.ingredients}
                   price={plate.price} 
@@ -196,6 +201,7 @@ const Dishes = () => {
               products.filter(p=> p.category==4).map(plate => (
                 <PlateCard 
                   name={plate.name} 
+                  category={plate.category}
                   description={plate.description}
                   ingredients={plate.ingredients}
                   price={plate.price} 
