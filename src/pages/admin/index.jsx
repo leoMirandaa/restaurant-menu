@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
-import { Layout, theme, Typography, Table, Space, Button, Card, Tag } from "antd";
+import { Layout, theme, Typography, Table, Space, Button, Card, Tag, Breadcrumb } from "antd";
 const { Content } = Layout;
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import { IconPencil, IconTrash, IconPlus } from '@tabler/icons-react';
@@ -10,6 +10,7 @@ import { IconPencil, IconTrash, IconPlus } from '@tabler/icons-react';
 import { FooterComponent, HeaderComponent } from "../../../components/ui";
 import Image from "next/image";
 import { DishModal } from "../../../components/modals/DishModal";
+import Link from 'next/link';
 
 const categories = {
   0: 'Starters',
@@ -144,10 +145,21 @@ const adminPage = () => {
             // paddingTop: '15px', 
             display: 'flex', 
             flexDirection: 'column',
-            alignItems: 'center',
+            // alignItems: 'center',
           }}
         >
-          <div style={{textAlign: 'center', width: '100%'}}>
+          <Breadcrumb
+            separator=">"
+            items={[
+              {
+                title: <Link href='/'>Menu</Link>,
+              },
+              {
+                title: <Text type="primary">Admin page</Text> ,
+              },
+            ]}
+          />
+          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
             <Title 
               level={2} 
               style={{
@@ -157,7 +169,6 @@ const adminPage = () => {
               >
               AdminPage
             </Title>
-          </div>
 
           <Card style={{width: '1100px'}}>
             <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center' ,margin: '0px 0px 30px 0px'}}>
@@ -185,6 +196,8 @@ const adminPage = () => {
               // pagination={{ pageSize: 3 }}
             />
           </Card>
+          </div>
+
         </main>
 
         <DishModal
