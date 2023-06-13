@@ -1,0 +1,27 @@
+.card {
+  width: 340px;
+  cursor: 'pointer';
+  height: 'auto'
+}
+
+.image {
+  width: 340px;
+  height: 180px;
+  object-fit: 'cover';
+}
+
+.bodyCard {
+  display: 'flex';
+  flex-direction: 'column';
+  justify-content: 'space-between';
+  align-items: 'space-between';
+  min-height: 'auto'
+}
+
+.bodyCard p {
+  margin: 0px;
+}
+
+.bodyCard .ingredients {
+  margin-top: .8rem;
+}

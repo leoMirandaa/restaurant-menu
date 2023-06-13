@@ -3,8 +3,7 @@ const { Sider } = Layout;
 const { Title } = Typography;
 
 import { menuOptions } from "@/utils/menuOptions";
-import styles from './Menu.module.css'
-
+import styles from '../../src/styles/sidebar.module.css'
 
 export const Sidebar = ({ handleClick }) => {
   const {
@@ -16,24 +15,15 @@ export const Sidebar = ({ handleClick }) => {
 
   return (
     <Sider 
-      className={styles.sidebarMenu}
+      className={styles.sidebarMenuContainer}
       theme='light'
-      style={{
-        borderRadius: '10px',
-        height: '50%', 
-        position: 'sticky',
-        top: 84,
-        zIndex: 1,
-        paddingTop: 10
-        // border: `2px dotted ${token.colorPrimary}`,
-      }} 
     >
       <div  style={{ textAlign: 'center'}}>
         <Title 
           level={2} 
           style={{
             color: token.colorPrimary,
-            marginTop: 0
+              marginTop: '8px',
           }}
         >
            Menu 
@@ -41,11 +31,7 @@ export const Sidebar = ({ handleClick }) => {
       </div>
       
       <Menu
-        style={{ 
-          borderInline: 'none',
-          borderRadius: '10px',
-          paddingBottom: '10px',
-        }}
+        className={styles.menuContainer}
         mode="inline"
         defaultSelectedKeys={['starter']}
         items= {...menuOptions}

@@ -6,6 +6,8 @@ import { products } from "../../../database/products";
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 
+import styles from '../../styles/dishes.module.css'
+
 const Dishes = () => {
   const starter = useRef();
   const salad = useRef();
@@ -23,7 +25,7 @@ const Dishes = () => {
   return (
     <Content
       style={{
-        padding: '0px 24px',
+        // padding: '0px 24px',
         borderRadius: '10px',
       }}
     > 
@@ -47,14 +49,7 @@ const Dishes = () => {
             Excepteur dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur 
           </Paragraph>
 
-          <div 
-            style={{ 
-              display: 'flex', 
-              justifyContent: 'center', 
-              flexWrap: 'wrap', 
-              gap: '30px',
-            }}
-          >
+          <div className={styles.cardsContainer}>
             {
               products.filter(p=> p.category==0).map(plate => (
                 <PlateCard
@@ -74,14 +69,7 @@ const Dishes = () => {
           <Title level={2} style={{display: 'flex',
               top: 64,  color: token.colorPrimary, marginBottom: '0px'}}>Salad </Title>
           <Paragraph style={{fontSize: '16px'}}> Excepteur dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur </Paragraph>
-          <div 
-            style={{ 
-              display: 'flex', 
-              justifyContent: 'center', 
-              flexWrap: 'wrap', 
-              gap: '30px'
-            }}
-          >
+          <div className={styles.cardsContainer}>
             {
               products.filter(p=> p.category==1).map(plate => (
                 <PlateCard 
@@ -113,14 +101,7 @@ const Dishes = () => {
             Excepteur dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur 
           </Paragraph>
 
-          <div 
-            style={{ 
-              display: 'flex', 
-              justifyContent: 'center', 
-              flexWrap: 'wrap', 
-              gap: '30px'
-            }}
-          >
+          <div className={styles.cardsContainer} >
             {
               products.filter(p=> p.category==2).map(plate => (
                 <PlateCard 
@@ -151,14 +132,7 @@ const Dishes = () => {
           > 
             Excepteur dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur 
           </Paragraph>
-          <div 
-            style={{ 
-              display: 'flex', 
-              justifyContent: 'center', 
-              flexWrap: 'wrap', 
-              gap: '30px'
-            }}
-          >
+          <div className={styles.cardsContainer}>
             {
               products.filter(p=> p.category==3).map(plate => (
                 <PlateCard 
@@ -189,14 +163,8 @@ const Dishes = () => {
           > 
             Excepteur dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur 
           </Paragraph>
-          <div 
-            style={{ 
-              display: 'flex', 
-              justifyContent: 'center', 
-              flexWrap: 'wrap', 
-              gap: '30px'
-            }}
-          >
+
+          <div className={styles.cardsContainer}>
             {
               products.filter(p=> p.category==4).map(plate => (
                 <PlateCard 

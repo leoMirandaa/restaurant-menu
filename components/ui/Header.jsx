@@ -12,9 +12,11 @@ import { menuOptions } from '@/utils/menuOptions';
 
 import { useCartStore } from '@/store/cartStore';
 
-import styles from './menu.module.css'
+import { darkTheme } from '../../themes';
 
-export const HeaderComponent = ({ setTheme, handleClick }) => {
+import styles from '../../src/styles/header.module.css'
+
+export const HeaderComponent = ({ themeSelected, setThemeSelected, handleClick }) => {
   const [ isDark, setIsDark] = useState(false)
   const [open, setOpen] = useState(false);
 
@@ -35,12 +37,14 @@ export const HeaderComponent = ({ setTheme, handleClick }) => {
 
   const handleDarkMode = () => {
     if(!isDark) {
-      localStorage.setItem('theme', JSON.stringify('darkTheme'))    
+      setThemeSelected("magentaTheme"); 
+      localStorage.setItem('theme', 'magentaTheme')
+      
     } else {
-      localStorage.setItem('theme', JSON.stringify('magentaTheme'))    
+      setThemeSelected("darkTheme"); 
+      localStorage.setItem('theme', 'darkTheme')
     }
     setIsDark(!isDark)
-    // !isDark ? setTheme({...darkTheme}) : setTheme({...magentaTheme})
   }
 
 
@@ -54,62 +58,44 @@ export const HeaderComponent = ({ setTheme, handleClick }) => {
   
   return (
     <Header 
-      style={{ 
-        background: colorBgContainer,
-        // borderBottom: `2px dotted ${token.colorPrimary}`,
-        display: 'flex', 
-        padding: '0px 20px', 
-        position: 'sticky',
-        top: 0,
-        transition: '0.3s', 
-        zIndex: 2,
-        opacity: .9,
-        marginBottom: '20px'
-      }}
+      className={styles.headerContainer}
+      style={{background: colorBgContainer}}
     >
-      <nav 
-        style={{
-          display: 'flex', 
-          width: '100%', 
-          justifyContent: 'space-between',
- 
-          maxWidth: '1400px', 
-          margin: '0 auto'
-        }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center'}} >
-            <Button className={styles.menuIcon} type="text" onClick={showDrawer} icon={<IconMenu2 color={token.colorPrimary} />} />
-            
-            <Drawer
-              placement="left"
-              onClose={onClose}
-              open={open}
-              >
-              <Menu
-                style={{ 
-                  borderInline: 'none',
-                  borderRadius: '10px',
-                  paddingBottom: '10px',
-                }}
-                mode="inline"
-                defaultSelectedKeys={['1']}
-                items= {...menuOptions}
-                onClick={(e) => {handleClick(e)}}
-                />
-            </Drawer>
+      <nav className={styles.navContainer}>
+        <div style={{ display: 'flex', alignItems: 'center'}} >
+          <Button className={styles.menuIcon} type="text" onClick={showDrawer} icon={<IconMenu2 color={token.colorPrimary} />} />
+          
+          <Drawer
+            placement="left"
+            onClose={onClose}
+            open={open}
+            >
+            <Menu
+              style={{ 
+                borderInline: 'none',
+                borderRadius: '10px',
+                paddingBottom: '10px',
+              }}
+              mode="inline"
+              defaultSelectedKeys={['1']}
+              items= {...menuOptions}
+              onClick={(e) => {handleClick(e)}}
+              />
+          </Drawer>
 
-            <Link href="/" style={{display: 'flex', alignItems: 'center'}}>
-              <IconChefHat size={36} color={`${token.colorPrimary}`}/>      
-              <Title level={4} style={{marginLeft:'5px'}}>Magenta kitchen</Title>
-            </Link>
-          </div>
+          <Link href="/" style={{display: 'flex', alignItems: 'center'}}>
+            <IconChefHat size={36} color={`${token.colorPrimary}`}/>      
+            <Title level={4} style={{marginLeft:'5px'}}>Magenta kitchen</Title>
+          </Link>
+        </div>
 
         <div style={{display: "flex", alignItems: 'center'}}>
+
           <Button 
             icon={<HomeOutlined />}
             onClick={() => router.push('/')}
           />
-          
+
           <Button 
             type='primary' 
             style={{margin: '0px 20px'}}
@@ -118,21 +104,15 @@ export const HeaderComponent = ({ setTheme, handleClick }) => {
             Admin
           </Button>
             
-          {/* <div style={{display: 'flex',alignItems: 'center', marginRight: '20px'}}>
+          <div style={{display: 'flex',alignItems: 'center', marginRight: '20px'}}>
             <Button 
               icon={ isDark ? <IconSunFilled /> :<IconMoonFilled />} 
               type='text' 
               shape='circle' 
               onClick={handleDarkMode}
             />
-          </div> */}
+          </div>
 
-          <Link href='/checkout' style={{display: 'flex',alignItems: 'center'}}>
-            <Badge count={cart}>
-              <IconShoppingCart />
-            </Badge>
-
-          </Link>
         </div>
       </nav>
     </Header>

@@ -170,32 +170,32 @@ const adminPage = () => {
               AdminPage
             </Title>
 
-          <Card style={{width: '1100px'}}>
-            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center' ,margin: '0px 0px 30px 0px'}}>
-            {/* <Button type="primary" icon={<IconPlus stroke={2} size={20}/>}/> */}
-              <Title 
-                style={{color: token.colorPrimary, margin:0}} 
-                level={3}
-              >
-                Dishes
-              </Title>
+            <Card style={{width: '1100px'}}>
+              <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center' ,margin: '0px 0px 30px 0px'}}>
+              {/* <Button type="primary" icon={<IconPlus stroke={2} size={20}/>}/> */}
+                <Title 
+                  style={{color: token.colorPrimary, margin:0}} 
+                  level={3}
+                >
+                  Dishes
+                </Title>
 
-              <Button
-                onClick={showModal}
-              >
-                New dish
-              </Button>
-            </div>
+                <Button
+                  onClick={showModal}
+                >
+                  New dish
+                </Button>
+              </div>
 
-            <Table 
-              size="small"
-              columns={columns} 
-              dataSource={data}
-              style={{width: '1100px'}}
-              scroll={{ y: 400 }}
-              // pagination={{ pageSize: 3 }}
-            />
-          </Card>
+              <Table 
+                size="small"
+                columns={columns} 
+                dataSource={data}
+                style={{width: '1100px'}}
+                scroll={{ y: 400 }}
+                // pagination={{ pageSize: 3 }}
+              />
+            </Card>
           </div>
 
         </main>

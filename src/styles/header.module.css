@@ -1,0 +1,19 @@
+.headerContainer {
+  display: flex; 
+  /* padding: 0px 20px;  */
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  opacity: .9;
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+.navContainer {
+  display: flex; 
+  width: 100%; 
+  justify-content: space-between;
+  max-width: 1300px; 
+  margin: 0 auto;
+  background: pink;
+}

@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { ConfigProvider } from 'antd'
 import { magentaTheme, darkTheme } from '../../themes'
@@ -6,41 +7,51 @@ import '@/styles/globals.css'
 
 export default function App({ Component, pageProps }) {
   // const [theme, setTheme] = useState({...magentaTheme})
-  // const [themeSelected, setThemeSelected] = useState('magentaTheme')
+  const [themeSelected, setThemeSelected] = useState({...magentaTheme})
 
   useEffect(() => {
-    // const theme = localStorage.getItem('theme')
-    // setThemeSelected(theme)
-    // if( theme || localStorage.setItem('theme', JSON.stringify({name: 'magentaTheme'}))){
-    //   setThemeSelected(theme.name)
-    // }
+    console.log('** 1st useEffect')
 
-    // localStorage.setItem('theme', JSON.stringify({name: 'magentaTheme'}))
+    const themeSelected = localStorage.getItem('theme')
 
-    // setTheme(localStorage.getItem('theme') || 'darkTheme')
+    if( themeSelected || localStorage.setItem('theme', JSON.stringify('magentaTheme'))){
+      setThemeSelected(themeSelected)
+    }
+
+    // setThemeSelected(localStorage.getItem('theme') || 'darkTheme')
     
-    // if( themew.name == 'magentaTheme'){
-    //   console.log('-----')
-    // }
-    // // localStorage.setItem('theme', JSON.stringify({name: 'magentaTheme'}))
-    // console.log('*** ', themew)
+    if( themeSelected == 'magentaTheme'){
+      console.log('*** mangeta')
+      setThemeSelected({...magentaTheme})
+    }
+    else if(themeSelected == 'darkTheme')  {
+      console.log('*** dark')
+      setThemeSelected({...darkTheme})
+    }
   },[])
 
-  // useEffect(() => {
-  //   console.log('--- ', themeSelected)
-  // }, [themeSelected])
-  
-
+  useEffect( () => {
+    
+    if( themeSelected == 'magentaTheme'){
+      console.log('*** mangeta')
+      setThemeSelected({...magentaTheme})
+    }
+    else if(themeSelected == 'darkTheme')  {
+      console.log('*** dark')
+      setThemeSelected({...darkTheme})
+    }
+  },[themeSelected])
   
   return (
     <ConfigProvider
       theme={
-        {...magentaTheme}
-        // {...darkTheme}
-        // ...themeSelected
+        {...themeSelected}
       }
     >
-          <Component {...pageProps} />
+      <Component {...pageProps} 
+        themeSelected={themeSelected}
+        setThemeSelected={setThemeSelected}
+      />
     </ConfigProvider>
   )
 }

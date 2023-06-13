@@ -1,0 +1,12 @@
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .cardsContainer {
+    justify-content: start
+  }
+}

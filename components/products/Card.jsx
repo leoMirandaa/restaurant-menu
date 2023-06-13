@@ -1,21 +1,22 @@
-import { useState } from 'react'
 import { useRouter } from 'next/router';
 
-import { PlusOutlined, MinusOutlined } from '@ant-design/icons';
-import { Button, Card, theme, Badge, Typography } from "antd";
+import { Card, theme, Badge, Typography } from "antd";
 const { Title, Paragraph, Text } = Typography;
 
-import { useCartStore } from '@/store/cartStore';
+import styles from '../../src/styles/dishCard.module.css'
+
+import image from '../../public/park.jpeg'
+
+export const categories = {
+  0: 'Starters',
+  1: 'Saladas',
+  2: 'Main Dishses',
+  3: 'Beverages',
+  4: 'Deserts'
+}
 
 export const PlateCard = ({ id, name, category, description, price, imageUrl }) => {
-  const [count, setCount] = useState(0);
   const router = useRouter();
-
-  const increaseCart = useCartStore((state) => state.increaseCart)
-  const decreaseCart = useCartStore((state) => state.decreaseCart)
-  const dishes = useCartStore((state) => state.dishes)
-  const addDish = useCartStore((state) => state.addDish)
-  const removeDish = useCartStore((state) => state.removeDish)
 
   const { useToken } = theme;
   const { token } = useToken();
@@ -26,90 +27,48 @@ export const PlateCard = ({ id, name, category, description, price, imageUrl }) 
     router.push('/dishes/1')
   }
 
-  const handleAddDish = () => {
-    console.log(dishes)
-    setCount(count+1)
-    addDish({id, name, category, description, price, imageUrl})
-    increaseCart(1)
-  }
-
-  const handleRemoveDish = () => {
-    if(count === 0) return
-    setCount(count-1)
-    removeDish({id})
-    decreaseCart(1)
-  }
-
   return (
-    // <Badge.Ribbon 
-    //   key={name}
-    //   color={`${token.colorTextSecondary}`} 
-    //   text={`$ ${price}`}
-    //   style={{fontWeight: 'bold'}} 
-    // >
+    <Badge.Ribbon 
+      key={name}
+      color={`${token.colorPrimary}`} 
+      text={`${categories[category]}`}
+    >
       <Card
+        className={styles.card}
         onClick={handleCardClick}
-        style={{
-          width: 310, 
-          cursor: 'pointer',
-          height: 'auto'
-        }}
         cover={
           <img 
-            style={{
-              width: '310px',
-              height: '180px',
-              objectFit: 'cover',
-            }}
+            className={styles.image}
             alt="example" 
             src={`${imageUrl}`} 
           />
         }
       >
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            alignItems: 'space-between',
-            minHeight: 'auto'
-          }}
-        >
-          <div>
-            <Title level={4} style={{margin: '0 0 0 0', display: 'flex', justifyContent: 'space-between', alignItems: 'start'}}>
-              <span style={{width: '80%'}}>
-                {name}
-              </span>
-              <span style={{color: token.colorPrimary}}>
-                ${price}
-              </span>
-            </Title>
-            
-            <Paragraph type="secondary" style={{margin: '10px 0px 20px 0px'}}>
-              {description}
-            </Paragraph>
-          </div>
+        <div className={styles.bodyCard}>
+          <Title level={4} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start'}}>
+            {name}
+          </Title>
+
+          <p> Single: 
+            <span style={{color: token.colorPrimary}}>
+              $18.50
+            </span>
+          </p>
+
+          <p>Double: 
+            <span style={{color: token.colorPrimary}}>
+              $36.80
+            </span>
+          </p>
           
-          <div 
-            onClick={(e) => e.stopPropagation()} 
-            style={{textAlign: 'center', cursor: 'auto'}}
-          >          
-            <Button  
-              // onClick={(e)=>{setCount(count - 1)}} 
-              onClick={handleRemoveDish} 
-              type="primary" 
-              icon={<MinusOutlined />} 
-            />
-              <Text style={{cursor: 'auto', margin: '0 10px', fontWeight: 'bold'}}>{count}</Text> 
-            <Button 
-              // onClick={(e)=>{setCount(count + 1)}} 
-              onClick={handleAddDish} 
-              type="primary" 
-              icon={<PlusOutlined />} 
-            />
-          </div>
+          <Paragraph 
+            className={styles.ingredients} 
+            type="secondary"
+          >
+            {description}
+          </Paragraph>          
         </div>
       </Card>
-    // </Badge.Ribbon>
+    </Badge.Ribbon>
   )
 }

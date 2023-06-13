@@ -6,3 +6,14 @@ body {
 * {
   scroll-margin-top: 100px;
 }
+
+:root {
+  /* Your default theme */
+  --background: white;
+  --foreground: black;
+}
+
+[data-theme='dark'] {
+  --background: black;
+  --foreground: white;
+}

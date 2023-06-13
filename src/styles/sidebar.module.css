@@ -1,0 +1,30 @@
+.sidebarMenuContainer {
+  border-radius: 10px;
+  height: 50%; 
+  position: sticky;
+  top: 84;
+  z-index: 1;
+  padding-top: 10;
+  margin-right: 40px;
+  
+  /* border: `2px dotted ${token.colorPrimary}`; */
+}
+
+@media (max-width: 768px) {  
+  .sidebarMenuContainer {
+    display: none;
+  }
+}
+
+.menuContainer {
+  border: 0px !important;
+  border-radius: 10px;
+  padding-bottom: 10px;
+}
+
+
+/* @media (min-width: 769px) {
+  .menuIcon {
+    display: none;
+  }
+} */

@@ -9,7 +9,9 @@ import { products } from "../../database/products";
 import { PlateCard } from "../products/Card";
 import { FooterComponent, HeaderComponent, Sidebar } from "../ui"
 
-export const ShopLayout = ({ children, title, pageDescription, imageUrl, setTheme }) => {
+import styles from '../../src/styles/shopLayout.module.css'
+
+export const ShopLayout = ({ children, title, pageDescription, imageUrl, themeSelected, setThemeSelected }) => {
   const starter = useRef();
   const salad = useRef();
   const mainDishes = useRef();
@@ -57,7 +59,8 @@ export const ShopLayout = ({ children, title, pageDescription, imageUrl, setThem
       </Head>
 
       <HeaderComponent 
-        setTheme={setTheme} 
+        themeSelected={themeSelected} 
+        setThemeSelected={setThemeSelected}
         handleClick={handleClick}
       />
 
@@ -66,15 +69,8 @@ export const ShopLayout = ({ children, title, pageDescription, imageUrl, setThem
           padding: '0 20px',
         }}
       >
-        <Layout
-          style={{ 
-            maxWidth: '1400px', 
-            width: '100%',
-            
-          }}
-        >
-          <Sidebar handleClick={handleClick} />
-          
+        <Layout className={styles.allContent}>
+          <Sidebar handleClick={handleClick} />          
           {children}
         </Layout>
       </Content>
