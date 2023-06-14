@@ -1,20 +1,13 @@
-import { useRef } from 'react';
-
-import { Layout, theme, Typography } from "antd";
+import { Layout, theme, Typography, FloatButton, Button, Menu } from "antd";
 import { PlateCard } from "../../../components/products/Card";
 import { products } from "../../../database/products";
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
+import { CustomerServiceOutlined } from '@ant-design/icons';
 
 import styles from '../../styles/dishes.module.css'
 
 const Dishes = () => {
-  const starter = useRef();
-  const salad = useRef();
-  const mainDishes = useRef();
-  const beverages = useRef();
-  const dessert = useRef();
-
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -27,12 +20,11 @@ const Dishes = () => {
       style={{
         // padding: '0px 24px',
         borderRadius: '10px',
+        scrollBehavior: 'smooth'
       }}
     > 
-      <main 
-        // style={{ paddingTop: '15px' }}
-      >
-        <div style={{marginBottom: '40px'}} ref={starter}>
+      <main >        
+        <div style={{marginBottom: '40px'}} id="starter">
           <Title 
             level={2} 
             style={{
@@ -65,7 +57,7 @@ const Dishes = () => {
           </div>
         </div>
 
-        <div style={{marginBottom: '40px'}} ref={salad}>
+        <div style={{marginBottom: '40px'}} id="salad">
           <Title level={2} style={{display: 'flex',
               top: 64,  color: token.colorPrimary, marginBottom: '0px'}}>Salad </Title>
           <Paragraph style={{fontSize: '16px'}}> Excepteur dolore voluptate amet do voluptate enim non nostrud commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute pariatur </Paragraph>
@@ -85,7 +77,7 @@ const Dishes = () => {
           </div>
       </div>
 
-        <div style={{marginBottom: '40px'}} ref={mainDishes}>
+        <div style={{marginBottom: '40px'}} id='mainDishes'>
         <Title 
             level={2} 
             style={{
@@ -117,7 +109,7 @@ const Dishes = () => {
           </div>
         </div>
 
-        <div style={{marginBottom: '40px'}} ref={beverages}>
+        <div style={{marginBottom: '40px'}} id='beverages'>
           <Title 
             level={2} 
             style={{
@@ -148,7 +140,7 @@ const Dishes = () => {
           </div>
         </div>
 
-        <div style={{marginBottom: '40px'}} ref={dessert}>
+        <div style={{marginBottom: '40px'}} id='deserts'>
           <Title 
             level={2} 
             style={{
@@ -179,7 +171,12 @@ const Dishes = () => {
             }      
           </div>
         </div>
-      </main>           
+      </main>    
+            
+      <FloatButton.BackTop 
+        shape="square"
+        type="primary"
+      />
     </Content>
   )
 }

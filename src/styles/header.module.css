@@ -15,5 +15,40 @@
   justify-content: space-between;
   max-width: 1300px; 
   margin: 0 auto;
-  background: pink;
+  /* background: pink; */
+}
+
+.navContainerOptions {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  width: 100%;
+}
+
+.navbarLogo {
+  display: flex; 
+  align-items: center;
+}
+
+.drawerContainer {
+  border: none !important;
+  border-radius: 10px;
+  padding-bottom: 10px;
+}
+
+
+.headerButtonsContainer {
+  display: none;
+}
+@media (min-width: 768px){
+  .headerButtonsContainer {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .menuIcon {
+    display: none;
+  }
 }

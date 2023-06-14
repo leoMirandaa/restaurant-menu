@@ -28,11 +28,11 @@ export const PlateCard = ({ id, name, category, description, price, imageUrl }) 
   }
 
   return (
-    <Badge.Ribbon 
-      key={name}
-      color={`${token.colorPrimary}`} 
-      text={`${categories[category]}`}
-    >
+    // <Badge.Ribbon 
+    //   key={name}
+    //   color={`${token.colorPrimary}`} 
+    //   text={`${categories[category]}`}
+    // >
       <Card
         className={styles.card}
         onClick={handleCardClick}
@@ -45,17 +45,17 @@ export const PlateCard = ({ id, name, category, description, price, imageUrl }) 
         }
       >
         <div className={styles.bodyCard}>
-          <Title level={4} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start'}}>
+          <Title level={4}>
             {name}
           </Title>
 
-          <p> Single: 
+          <p> Single: &nbsp;
             <span style={{color: token.colorPrimary}}>
               $18.50
             </span>
           </p>
 
-          <p>Double: 
+          <p>Double: &nbsp;
             <span style={{color: token.colorPrimary}}>
               $36.80
             </span>
@@ -69,6 +69,6 @@ export const PlateCard = ({ id, name, category, description, price, imageUrl }) 
           </Paragraph>          
         </div>
       </Card>
-    </Badge.Ribbon>
+    // </Badge.Ribbon>
   )
 }

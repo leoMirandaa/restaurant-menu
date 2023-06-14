@@ -2,10 +2,10 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { Layout, Badge, theme, Typography, Button, Drawer, Menu, Dropdown, Space } from "antd"
+import { Layout, theme, Typography, Button, Drawer, Menu, Dropdown, Space } from "antd"
 const { Title } = Typography;
 const { Header } = Layout;
-import { IconChefHat, IconShoppingCart, IconMoonFilled, IconSunFilled, IconMenu2 } from '@tabler/icons-react';
+import { IconChefHat, IconMoonFilled, IconSunFilled, IconMenu2 } from '@tabler/icons-react';
 import { HomeOutlined } from '@ant-design/icons';
 
 import { menuOptions } from '@/utils/menuOptions';
@@ -16,7 +16,7 @@ import { darkTheme } from '../../themes';
 
 import styles from '../../src/styles/header.module.css'
 
-export const HeaderComponent = ({ themeSelected, setThemeSelected, handleClick }) => {
+export const HeaderComponent = ({ themeSelected, setThemeSelected }) => {
   const [ isDark, setIsDark] = useState(false)
   const [open, setOpen] = useState(false);
 
@@ -47,7 +47,6 @@ export const HeaderComponent = ({ themeSelected, setThemeSelected, handleClick }
     setIsDark(!isDark)
   }
 
-
   const showDrawer = () => {
     setOpen(true);
   };
@@ -62,35 +61,72 @@ export const HeaderComponent = ({ themeSelected, setThemeSelected, handleClick }
       style={{background: colorBgContainer}}
     >
       <nav className={styles.navContainer}>
-        <div style={{ display: 'flex', alignItems: 'center'}} >
-          <Button className={styles.menuIcon} type="text" onClick={showDrawer} icon={<IconMenu2 color={token.colorPrimary} />} />
-          
-          <Drawer
-            placement="left"
-            onClose={onClose}
-            open={open}
-            >
-            <Menu
-              style={{ 
-                borderInline: 'none',
-                borderRadius: '10px',
-                paddingBottom: '10px',
-              }}
-              mode="inline"
-              defaultSelectedKeys={['1']}
-              items= {...menuOptions}
-              onClick={(e) => {handleClick(e)}}
-              />
-          </Drawer>
-
+        <div className={styles.navContainerOptions} >
           <Link href="/" style={{display: 'flex', alignItems: 'center'}}>
             <IconChefHat size={36} color={`${token.colorPrimary}`}/>      
-            <Title level={4} style={{marginLeft:'5px'}}>Magenta kitchen</Title>
+            <Title level={4}>Magenta kitchen</Title>
           </Link>
+
+          <Button 
+            className={styles.menuIcon} 
+            type="text" 
+            onClick={showDrawer} 
+            icon={<IconMenu2 size={30} color={token.colorPrimary} />} 
+          />
         </div>
 
-        <div style={{display: "flex", alignItems: 'center'}}>
+        <div className={styles.headerButtonsContainer}>
+          <Button 
+            icon={<HomeOutlined />}
+            // onClick={() => router.push('/')}
+            onClick={() => window.scroll({
+              top: 0, 
+              left: 0, 
+              behavior: 'smooth'
+            })}
+          />
 
+          <Button 
+            type='primary' 
+            style={{margin: '0px 20px'}}
+            onClick={() => router.push('/admin')}
+          >
+            Admin
+          </Button>
+            
+          <div style={{display: 'flex',alignItems: 'center', marginRight: '20px'}}>
+            <Button 
+              icon={ isDark ? <IconSunFilled /> :<IconMoonFilled />} 
+              type='text' 
+              shape='circle' 
+              onClick={handleDarkMode}
+            />
+          </div>
+        </div>
+      </nav>
+
+      <Drawer
+        placement="left"
+        onClose={onClose}
+        open={open}
+        >
+          <div  style={{ textAlign: 'center'}}>
+            <Title 
+              level={2} 
+              style={{color: token.colorPrimary,margin: '0px'}}
+            >
+              Menu 
+            </Title>
+          </div>
+          
+          <Menu
+            className={styles.drawerContainer}
+            mode="inline"
+            defaultSelectedKeys={['1']}
+            items= {...menuOptions}
+          />
+
+        <div>
           <Button 
             icon={<HomeOutlined />}
             onClick={() => router.push('/')}
@@ -112,9 +148,8 @@ export const HeaderComponent = ({ themeSelected, setThemeSelected, handleClick }
               onClick={handleDarkMode}
             />
           </div>
-
         </div>
-      </nav>
+      </Drawer>
     </Header>
   )
 }

@@ -1,7 +1,17 @@
 .card {
   width: 340px;
-  cursor: 'pointer';
-  height: 'auto'
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+
+}
+
+.card img {
+  transition: all 0.4s ease-in-out;
+}
+
+.card img:hover {
+  scale: 1.1;
 }
 
 .image {
@@ -10,12 +20,16 @@
   object-fit: cover;
 }
 
-.bodyCard {
-  display: 'flex';
-  flex-direction: 'column';
-  justify-content: 'space-between';
-  align-items: 'space-between';
-  min-height: 'auto'
+/* .bodyCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
+  min-height: auto
+} */
+
+.bodyCard h4{
+  margin-top: 0px;
 }
 
 .bodyCard p {
@@ -24,4 +38,8 @@
 
 .bodyCard .ingredients {
   margin-top: .8rem;
+}
+
+.bodyCard p {
+  font-size: 16px;
 }

@@ -5,7 +5,7 @@ const { Title } = Typography;
 import { menuOptions } from "@/utils/menuOptions";
 import styles from '../../src/styles/sidebar.module.css'
 
-export const Sidebar = ({ handleClick }) => {
+export const Sidebar = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -17,6 +17,7 @@ export const Sidebar = ({ handleClick }) => {
     <Sider 
       className={styles.sidebarMenuContainer}
       theme='light'
+      style={{position: 'sticky', top: '88'}}
     >
       <div  style={{ textAlign: 'center'}}>
         <Title 
@@ -35,7 +36,6 @@ export const Sidebar = ({ handleClick }) => {
         mode="inline"
         defaultSelectedKeys={['starter']}
         items= {...menuOptions}
-        onClick={handleClick}
       />
     </Sider>
   )

@@ -1,10 +1,11 @@
 body {
   margin: 0;
-  padding: 0
+  padding: 0;
 }
 
 * {
-  scroll-margin-top: 100px;
+  scroll-margin-top: 85px;
+  scroll-behavior: smooth;
 }
 
 :root {
