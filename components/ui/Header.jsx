@@ -54,6 +54,12 @@ export const HeaderComponent = ({ themeSelected, setThemeSelected }) => {
   const onClose = () => {
     setOpen(false);
   };
+
+  const handleCloseDrawer = () => {
+    setTimeout(() => {
+      setOpen(false);
+    }, 350);
+  }
   
   return (
     <Header 
@@ -110,21 +116,28 @@ export const HeaderComponent = ({ themeSelected, setThemeSelected }) => {
         onClose={onClose}
         open={open}
         >
-          <div  style={{ textAlign: 'center'}}>
-            <Title 
-              level={2} 
-              style={{color: token.colorPrimary,margin: '0px'}}
-            >
-              Menu 
-            </Title>
+          <div style={{background: token.colorBgContainer, paddingTop: '10px', borderRadius: '10px'}}>
+            <div  style={{ textAlign: 'center'}}>
+              <Title 
+                level={2} 
+                style={{color: token.colorPrimary,margin: '0px'}}
+              >
+                Menu 
+              </Title>
+            </div>
+            
+            <Menu
+              className={styles.drawerContainer}
+              // style={{display: 'flex', flexDirection: 'column' ,justifyContent: 'center'}}
+              // style={{background: token.colorBgElevated}}
+              // style={{width: '200px', margin: '0 auto', background: token.colorBgElevated}}
+              mode="inline"
+              defaultSelectedKeys={['1']}
+              items= {...menuOptions}
+              onClick={handleCloseDrawer}
+            />
+
           </div>
-          
-          <Menu
-            className={styles.drawerContainer}
-            mode="inline"
-            defaultSelectedKeys={['1']}
-            items= {...menuOptions}
-          />
 
         <div>
           <Button 
