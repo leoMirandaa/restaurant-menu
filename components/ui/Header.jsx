@@ -115,6 +115,7 @@ export const HeaderComponent = ({ themeSelected, setThemeSelected }) => {
         placement="left"
         onClose={onClose}
         open={open}
+        width={278}
         >
           <div style={{background: token.colorBgContainer, paddingTop: '10px', borderRadius: '10px'}}>
             <div  style={{ textAlign: 'center'}}>

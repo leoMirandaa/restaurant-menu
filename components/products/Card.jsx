@@ -1,74 +1,77 @@
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
-import { Card, theme, Badge, Typography } from "antd";
-const { Title, Paragraph, Text } = Typography;
+import { Card, theme, Typography } from "antd";
+const { Title, Paragraph } = Typography;
 
-import styles from '../../src/styles/dishCard.module.css'
-
-import image from '../../public/park.jpeg'
+import styles from "../../src/styles/dishCard.module.css";
 
 export const categories = {
-  0: 'Starters',
-  1: 'Saladas',
-  2: 'Main Dishses',
-  3: 'Beverages',
-  4: 'Deserts'
-}
+  0: "Starters",
+  1: "Saladas",
+  2: "Main Dishses",
+  3: "Beverages",
+  4: "Deserts",
+};
 
-export const PlateCard = ({ id, name, category, description, price, imageUrl }) => {
+export const PlateCard = ({
+  id,
+  name,
+  category,
+  description,
+  price,
+  imageUrl,
+}) => {
   const router = useRouter();
 
   const { useToken } = theme;
   const { token } = useToken();
 
   const handleCardClick = (event) => {
-    event.stopPropagation()
-    console.log('clicked')
-    router.push('/dishes/1')
-  }
+    event.stopPropagation();
+    console.log("clicked");
+    router.push("/dishes/1");
+  };
 
   return (
-    // <Badge.Ribbon 
-    //   key={name}
-    //   color={`${token.colorPrimary}`} 
-    //   text={`${categories[category]}`}
-    // >
-      <Card
-        className={styles.card}
-        onClick={handleCardClick}
-        cover={
-          <img 
-            className={styles.image}
-            alt="example" 
-            src={`${imageUrl}`} 
-          />
-        }
-      >
-        <div className={styles.bodyCard}>
-          <Title level={4}>
-            {name}
-          </Title>
+    <Card
+      className={styles.card}
+      onClick={handleCardClick}
+      cover={
+        <img
+          className={styles.image}
+          alt="example"
+          src={`${imageUrl}`}
+        />
+      }
+    >
+      <div className={styles.bodyCard}>
+        <Title
+          level={3}
+          style={{ margin: "0" }}
+        >
+          {name}
+        </Title>
 
-          <p> Single: &nbsp;
-            <span style={{color: token.colorPrimary}}>
-              $18.50
-            </span>
-          </p>
+        <div className={styles.pricesContainer}>
+          <div>
+            {" "}
+            Single: &nbsp;
+            <span style={{ color: token.colorPrimary }}>$18.50</span>
+          </div>
 
-          <p>Double: &nbsp;
-            <span style={{color: token.colorPrimary}}>
-              $36.80
-            </span>
-          </p>
-          
-          <Paragraph 
-            className={styles.ingredients} 
-            type="secondary"
-          >
-            {description}
-          </Paragraph>          
+          <div>
+            Double: &nbsp;
+            <span style={{ color: token.colorPrimary }}>$36.80</span>
+          </div>
         </div>
-      </Card>
-    // </Badge.Ribbon>
-  )
-}
+
+        <Paragraph
+          className={styles.ingredients}
+          type="secondary"
+        >
+          {description}
+        </Paragraph>
+      </div>
+    </Card>
+  );
+};

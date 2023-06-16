@@ -205,6 +205,7 @@ const Dishes = () => {
       <FloatButton.BackTop
         shape="square"
         type="primary"
+        style={{ opacity: ".9" }}
       />
     </Content>
   );

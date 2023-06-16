@@ -3,7 +3,6 @@
   cursor: pointer;
   overflow: hidden;
   transition: all 0.4s ease-in-out;
-
 }
 
 .card img {
@@ -20,26 +19,20 @@
   object-fit: cover;
 }
 
-/* .bodyCard {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: space-between;
-  min-height: auto
-} */
-
-.bodyCard h4{
+.bodyCard h4 {
   margin-top: 0px;
 }
 
-.bodyCard p {
-  margin: 0px;
+.bodyCard .pricesContainer {
+  margin: 0.6rem 0rem;
+  font-weight: bold;
 }
 
 .bodyCard .ingredients {
-  margin-top: .8rem;
+  font-size: 16px;
+  margin: 0px;
 }
 
-.bodyCard p {
+.bodyCard div {
   font-size: 16px;
 }
