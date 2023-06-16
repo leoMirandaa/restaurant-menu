@@ -5,6 +5,7 @@ export const darkTheme = {
   algorithm: theme.darkAlgorithm,
   token: {
     colorPrimary: magentaTheme.token.colorPrimary,
-    colorTextSecondary: magentaTheme.token.colorTextSecondary
+    colorTextSecondary: magentaTheme.token.colorTextSecondary,
+    fontFamily: "Vollkorn",
   },
-}
+};

@@ -22,7 +22,7 @@ export const Sidebar = () => {
       <div  style={{ textAlign: 'center'}}>
         <Title 
           level={2} 
-          style={{
+          style={{  
             color: token.colorPrimary,
               marginTop: '8px',
           }}

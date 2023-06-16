@@ -16,7 +16,7 @@ export const ShopLayout = ({ children, title, pageDescription, imageUrl, themeSe
   const { token } = useToken();
 
   return (
-    <Layout >
+    <Layout>
       <Head>
         <title>{ title }</title>
         <meta name="description" content={ pageDescription }/>
