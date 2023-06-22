@@ -4,6 +4,7 @@ import { Card, theme, Typography } from "antd";
 const { Title, Paragraph } = Typography;
 
 import styles from "../../src/styles/dishCard.module.css";
+import Image from "next/image";
 
 export const categories = {
   0: "Starters",
@@ -37,10 +38,12 @@ export const PlateCard = ({
       className={styles.card}
       onClick={handleCardClick}
       cover={
-        <img
+        <Image
           className={styles.image}
           alt="example"
           src={`${imageUrl}`}
+          width={200}
+          height={200}
         />
       }
     >

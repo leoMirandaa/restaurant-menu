@@ -1,32 +1,32 @@
 .headerContainer {
-  display: flex; 
+  display: flex;
   /* padding: 0px 20px;  */
   position: sticky;
   top: 0;
   z-index: 2;
-  opacity: .9;
+  opacity: 0.9;
   margin-bottom: 20px;
   padding: 0 20px;
 }
 
 .navContainer {
-  display: flex; 
-  width: 100%; 
+  display: flex;
+  width: 100%;
   justify-content: space-between;
-  max-width: 1300px; 
+  max-width: 1300px;
   margin: 0 auto;
   /* background: pink; */
 }
 
 .navContainerOptions {
-  display: flex; 
-  align-items: center; 
-  justify-content: space-between; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
 }
 
 .navbarLogo {
-  display: flex; 
+  display: flex;
   align-items: center;
 }
 
@@ -36,11 +36,10 @@
   padding-bottom: 10px;
 }
 
-
 .headerButtonsContainer {
   display: none;
 }
-@media (min-width: 768px){
+@media (min-width: 768px) {
   .headerButtonsContainer {
     display: flex;
     align-items: center;

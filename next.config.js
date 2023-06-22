@@ -2,8 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['images.pexels.com', 'images.unsplash.com', 'img.freepik.com']
-  }
-}
+    formats: ["image/avif", "image/webp"],
+    domains: ["images.pexels.com", "images.unsplash.com", "img.freepik.com"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

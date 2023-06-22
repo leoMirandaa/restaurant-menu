@@ -49,6 +49,7 @@ const Dishes = () => {
               .filter((p) => p.category == 0)
               .map((plate) => (
                 <PlateCard
+                  key={plate.id}
                   id={plate.id}
                   name={plate.name}
                   category={plate.category}
@@ -75,7 +76,10 @@ const Dishes = () => {
           >
             Salad{" "}
           </Title>
-          <Paragraph style={{ fontSize: "16px" }}>
+          <Paragraph
+            // type="secondary"
+            style={{ fontSize: "16px" }}
+          >
             {" "}
             Excepteur dolore voluptate amet do voluptate enim non nostrud
             commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute
@@ -86,6 +90,7 @@ const Dishes = () => {
               .filter((p) => p.category == 1)
               .map((plate) => (
                 <PlateCard
+                  key={plate.id}
                   name={plate.name}
                   category={plate.category}
                   description={plate.description}
@@ -121,6 +126,7 @@ const Dishes = () => {
               .filter((p) => p.category == 2)
               .map((plate) => (
                 <PlateCard
+                  key={plate.id}
                   name={plate.name}
                   category={plate.category}
                   description={plate.description}
@@ -155,6 +161,7 @@ const Dishes = () => {
               .filter((p) => p.category == 3)
               .map((plate) => (
                 <PlateCard
+                  key={plate.id}
                   name={plate.name}
                   category={plate.category}
                   description={plate.description}
@@ -190,6 +197,7 @@ const Dishes = () => {
               .filter((p) => p.category == 4)
               .map((plate) => (
                 <PlateCard
+                  key={plate.id}
                   name={plate.name}
                   category={plate.category}
                   description={plate.description}
