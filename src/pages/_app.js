@@ -6,7 +6,7 @@ import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }) {
   // const [theme, setTheme] = useState({...magentaTheme})
-  const [themeSelected, setThemeSelected] = useState({ ...magentaTheme });
+  const [themeSelected, setThemeSelected] = useState({ ...darkTheme });
 
   // useEffect(() => {
   //   console.log('** 1st useEffect')
