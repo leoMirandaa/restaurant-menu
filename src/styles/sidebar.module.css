@@ -1,19 +1,18 @@
-
 .sidebarMenuContainer {
   border-radius: 10px;
-  height: 50%; 
+  height: 50%;
   position: sticky;
   top: 5rem;
   z-index: 1;
   padding-top: 10;
   margin-right: 40px;
-  
+  display: none;
   /* border: 2px dotted red; */
 }
 
-@media (max-width: 768px) {  
+@media (min-width: 1024px) {
   .sidebarMenuContainer {
-    display: none;
+    display: flex;
   }
 }
 
@@ -22,10 +21,3 @@
   border-radius: 10px;
   padding-bottom: 10px;
 }
-
-
-/* @media (min-width: 769px) {
-  .menuIcon {
-    display: none;
-  }
-} */

@@ -1,13 +1,10 @@
 .card {
-  width: 340px;
   cursor: pointer;
   overflow: hidden;
   transition: all 0.4s ease-in-out;
 }
 
 .image {
-  width: 340px;
-  height: 180px;
   object-fit: cover;
 }
 

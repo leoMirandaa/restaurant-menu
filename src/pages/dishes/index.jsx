@@ -17,13 +17,15 @@ const Dishes = () => {
 
   return (
     <Content
+      // className="container"
+      // className="content"
       style={{
-        // padding: '0px 24px',
+        // padding: "0px 24px",
         borderRadius: "10px",
         scrollBehavior: "smooth",
       }}
     >
-      <main>
+      <main className={styles.content}>
         <div
           style={{ marginBottom: "40px" }}
           id="starter"

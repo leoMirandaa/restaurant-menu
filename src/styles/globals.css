@@ -18,3 +18,12 @@ body {
   --background: black;
   --foreground: white;
 }
+
+@media (min-width: 1024px) {
+  .container {
+    width: 95%;
+    max-width: 1440px;
+    margin: auto;
+    /* background-color: skyblue !important; */
+  }
+}
