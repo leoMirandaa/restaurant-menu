@@ -17,9 +17,10 @@ const { Title, Text } = Typography;
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { IconPencil, IconTrash, IconPlus } from "@tabler/icons-react";
 
-import { FooterComponent, HeaderComponent } from "../../../components/ui";
+import { FooterComponent } from "@/components/Footer";
+import { NavbarComponent } from "@/components/Navbar";
 import Image from "next/image";
-import { DishModal } from "../../../components/modals/DishModal";
+import { DishModal } from "../../components/modals/DishModal";
 import Link from "next/link";
 
 const categories = {
@@ -168,7 +169,7 @@ const adminPage = () => {
         height: "100vh",
       }}
     >
-      <HeaderComponent />
+      <NavbarComponent />
       <Content
         style={{
           padding: "0px 24px",

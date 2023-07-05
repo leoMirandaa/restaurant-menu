@@ -1,0 +1,63 @@
+.mainContainer {
+  color: #ffffffd9;
+  position: relative;
+}
+
+.video {
+  filter: brightness(0.5);
+  min-height: calc(100vh - 130px);
+  object-fit: cover;
+  position: relative;
+  width: 100%;
+}
+
+.restaurantInformation {
+  position: absolute;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  top: 0;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .restaurantInformation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 1024px) {
+  .restaurantInformation .informationContainer div {
+    display: inline;
+  }
+}
+
+.restaurantInformation div div {
+  padding: 0 0 0.5rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .informationContainer {
+    padding-right: 1.5rem;
+  }
+}
+
+.titleContainer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  text-align: center;
+  font-size: 2.5rem;
+  padding-top: 0;
+}
+@media (min-width: 768px) {
+  .title {
+    font-size: 4rem;
+  }
+}
+@media (min-width: 1024px) {
+  .title {
+    font-size: 7rem;
+  }
+}
