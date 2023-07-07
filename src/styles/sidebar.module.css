@@ -1,23 +1,19 @@
 .sidebarMenuContainer {
   border-radius: 10px;
   height: 50%;
-  position: sticky;
-  top: 5rem;
+  /* position: sticky; */
+  /* top: 88; */
+  top: 5.2rem;
   z-index: 1;
-  padding-top: 10;
+  /* padding-top: 10; */
   margin-right: 40px;
-  display: none;
+  /* display: none; */
   /* border: 2px dotted red; */
-}
-
-@media (min-width: 1024px) {
-  .sidebarMenuContainer {
-    display: flex;
-  }
 }
 
 .menuContainer {
   border: 0px !important;
   border-radius: 10px;
   padding-bottom: 10px;
+  /* text-align: ; */
 }
