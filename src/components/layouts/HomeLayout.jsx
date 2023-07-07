@@ -68,7 +68,7 @@ export const HomeLayout = ({
           }
         }
       >
-        <Layout className={styles.allContent}>{children}</Layout>
+        <Layout>{children}</Layout>
       </Content>
 
       <FooterComponent />

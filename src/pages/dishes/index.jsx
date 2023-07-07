@@ -36,7 +36,7 @@ const Dishes = () => {
               level={2}
               style={{
                 color: token.colorPrimary,
-                margin: "8px 0px 0px 0px",
+                margin: "1.5rem 0px 0px 0px",
               }}
             >
               Starter

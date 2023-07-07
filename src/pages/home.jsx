@@ -19,14 +19,22 @@ const HomePage = () => {
       pageDescription={"The most elegant food at the corner"}
     >
       <main className={styles.mainContainer}>
-        <video
+        <img
+          className={styles.video}
+          // src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          // src="https://images.pexels.com/photos/3499599/pexels-photo-3499599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src="https://images.pexels.com/photos/1510692/pexels-photo-1510692.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt=""
+          style={{ height: "80vh" }}
+        />
+        {/* <video
           className={styles.video}
           src="./cooking.mp4"
           typeof="video/mp4"
           autoPlay
           loop
           muted
-        />
+        /> */}
 
         <section className={styles.restaurantInformation}>
           <div className={styles.informationContainer}>
