@@ -48,7 +48,6 @@ export const ShopLayout = ({
         )}
       </Head>
 
-      {/* <div className="container"> */}
       <NavbarComponent
         themeSelected={themeSelected}
         setThemeSelected={setThemeSelected}
@@ -62,7 +61,6 @@ export const ShopLayout = ({
       </Content>
 
       <FooterComponent />
-      {/* </div> */}
     </Layout>
   );
 };
