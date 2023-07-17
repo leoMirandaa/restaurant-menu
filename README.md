@@ -1,6 +1,6 @@
 # Magenta kitchen
 
-<img title="Home image" alt="Home image" src="./public/restaurant-menu-homepage.jpg">
+<img title="Home image" alt="Home image" src="./public/react-logo.png">
 
 ## Technologies used
 

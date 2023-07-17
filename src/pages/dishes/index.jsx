@@ -3,10 +3,11 @@ import { PlateCard } from "../../components/products/Card";
 import { products } from "../../../database/products";
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
-import { CustomerServiceOutlined } from "@ant-design/icons";
+import { inView, animate } from "motion";
 
-import styles from "../../styles/dishes.module.css";
 import { ShopLayout } from "@/components/layouts";
+import styles from "../../styles/dishes.module.css";
+import { useEffect } from "react";
 
 const Dishes = () => {
   const {
@@ -16,21 +17,30 @@ const Dishes = () => {
   const { useToken } = theme;
   const { token } = useToken();
 
+  useEffect(() => {
+    inView("section", ({ target }) => {
+      animate(
+        target.querySelector("span"),
+
+        { opacity: 1, transform: "none" },
+        { delay: 0.2, duration: 0.9, easing: [0.17, 0.55, 0.55, 1] }
+      );
+    });
+  }, []);
+
   return (
     <ShopLayout>
       <Content
-        // className="container"
-        // className="content"
         style={{
-          // padding: "0px 24px",
           borderRadius: "10px",
           scrollBehavior: "smooth",
         }}
       >
         <main className={styles.content}>
-          <div
+          <section
             style={{ marginBottom: "40px" }}
             id="starter"
+            className="leoo"
           >
             <Title
               level={2}
@@ -42,13 +52,16 @@ const Dishes = () => {
               Starter
             </Title>
 
-            <Paragraph style={{ fontSize: "16px" }}>
+            <Paragraph
+              className="section"
+              style={{ fontSize: "16px" }}
+            >
               Excepteur dolore voluptate amet do voluptate enim non nostrud
               commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute
               pariatur
             </Paragraph>
 
-            <div className={styles.cardsContainer}>
+            <span className={styles.cardsContainer}>
               {products
                 .filter((p) => p.category == 0)
                 .map((plate) => (
@@ -62,12 +75,13 @@ const Dishes = () => {
                     imageUrl={plate.imageUrl}
                   />
                 ))}
-            </div>
-          </div>
+            </span>
+          </section>
 
-          <div
+          <section
             style={{ marginBottom: "40px" }}
             id="salad"
+            className="leoo"
           >
             <Title
               level={2}
@@ -80,16 +94,13 @@ const Dishes = () => {
             >
               Salad{" "}
             </Title>
-            <Paragraph
-              // type="secondary"
-              style={{ fontSize: "16px" }}
-            >
+            <Paragraph style={{ fontSize: "16px" }}>
               {" "}
               Excepteur dolore voluptate amet do voluptate enim non nostrud
               commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute
               pariatur{" "}
             </Paragraph>
-            <div className={styles.cardsContainer}>
+            <span className={styles.cardsContainer}>
               {products
                 .filter((p) => p.category == 1)
                 .map((plate) => (
@@ -103,12 +114,13 @@ const Dishes = () => {
                     imageUrl={plate.imageUrl}
                   />
                 ))}
-            </div>
-          </div>
+            </span>
+          </section>
 
-          <div
+          <section
             style={{ marginBottom: "40px" }}
             id="mainDishes"
+            className="leoo"
           >
             <Title
               level={2}
@@ -125,7 +137,7 @@ const Dishes = () => {
               pariatur
             </Paragraph>
 
-            <div className={styles.cardsContainer}>
+            <span className={styles.cardsContainer}>
               {products
                 .filter((p) => p.category == 2)
                 .map((plate) => (
@@ -139,10 +151,10 @@ const Dishes = () => {
                     imageUrl={plate.imageUrl}
                   />
                 ))}
-            </div>
-          </div>
+            </span>
+          </section>
 
-          <div
+          <section
             style={{ marginBottom: "40px" }}
             id="beverages"
           >
@@ -160,7 +172,7 @@ const Dishes = () => {
               commodo occaecat. Nulla dolor velit fugiat ea consectetur est aute
               pariatur
             </Paragraph>
-            <div className={styles.cardsContainer}>
+            <span className={styles.cardsContainer}>
               {products
                 .filter((p) => p.category == 3)
                 .map((plate) => (
@@ -174,10 +186,10 @@ const Dishes = () => {
                     imageUrl={plate.imageUrl}
                   />
                 ))}
-            </div>
-          </div>
+            </span>
+          </section>
 
-          <div
+          <section
             style={{ marginBottom: "40px" }}
             id="deserts"
           >
@@ -196,7 +208,7 @@ const Dishes = () => {
               pariatur
             </Paragraph>
 
-            <div className={styles.cardsContainer}>
+            <span className={styles.cardsContainer}>
               {products
                 .filter((p) => p.category == 4)
                 .map((plate) => (
@@ -210,8 +222,8 @@ const Dishes = () => {
                     imageUrl={plate.imageUrl}
                   />
                 ))}
-            </div>
-          </div>
+            </span>
+          </section>
         </main>
 
         <FloatButton.BackTop

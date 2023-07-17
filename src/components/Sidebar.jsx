@@ -17,9 +17,10 @@ export const Sidebar = () => {
     <Sider 
       className={styles.sidebarMenuContainer}
       theme='light'
-      style={{position: 'sticky', top: '88'}}
+      style={{position: 'sticky'}}
+      width={250}
     >
-      <div  style={{ textAlign: 'center'}}>
+      <div className={styles.sidebarTitle}>
         <Title 
           level={2} 
           style={{  

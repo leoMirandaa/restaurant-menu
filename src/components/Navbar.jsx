@@ -114,7 +114,7 @@ export const NavbarComponent = ({ themeSelected, setThemeSelected }) => {
             Admin
           </Button>
             
-          <div style={{display: 'flex',alignItems: 'center', marginRight: '20px'}}>
+          {/* <div style={{display: 'flex',alignItems: 'center', marginRight: '20px'}}>
             <Button 
               icon={ isDark ? <IconSunFilled /> :<IconMoonFilled />} 
               size='large'
@@ -122,7 +122,7 @@ export const NavbarComponent = ({ themeSelected, setThemeSelected }) => {
               shape='circle' 
               onClick={handleDarkMode}
             />
-          </div>
+          </div> */}
         </div>
       </nav>
 
@@ -169,14 +169,14 @@ export const NavbarComponent = ({ themeSelected, setThemeSelected }) => {
             Admin
           </Button>
             
-          <div style={{display: 'flex',alignItems: 'center', marginRight: '20px'}}>
+          {/* <div style={{display: 'flex',alignItems: 'center', marginRight: '20px'}}>
             <Button 
               icon={ isDark ? <IconSunFilled /> :<IconMoonFilled />} 
               type='text' 
               shape='circle' 
               onClick={handleDarkMode}
             />
-          </div>
+          </div> */}
         </div>
       </Drawer>
     </Header>

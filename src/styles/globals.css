@@ -6,10 +6,10 @@ body {
 * {
   scroll-margin-top: 85px;
   scroll-behavior: smooth;
+  /* font-size: 16px; */
 }
 
 :root {
-  /* Your default theme */
   --background: white;
   --foreground: black;
 }
@@ -24,6 +24,5 @@ body {
     width: 95%;
     max-width: 1440px;
     margin: auto;
-    /* background-color: skyblue !important; */
   }
 }

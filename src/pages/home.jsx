@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { HomeLayout } from "@/components/layouts/HomeLayout";
 import { Button } from "antd";
@@ -9,9 +10,14 @@ import {
 } from "@ant-design/icons";
 
 import styles from "../styles/home.module.css";
+import { animate } from "motion";
 
 const HomePage = () => {
   const router = useRouter();
+
+  useEffect(() => {
+    animate(".test", { opacity: [0, 1] }, { duration: 0.9 });
+  }, []);
 
   return (
     <HomeLayout
@@ -21,8 +27,6 @@ const HomePage = () => {
       <main className={styles.mainContainer}>
         <img
           className={styles.video}
-          // src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          // src="https://images.pexels.com/photos/3499599/pexels-photo-3499599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           src="https://images.pexels.com/photos/1510692/pexels-photo-1510692.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           alt=""
           style={{ height: "80vh" }}
@@ -36,7 +40,7 @@ const HomePage = () => {
           muted
         /> */}
 
-        <section className={styles.restaurantInformation}>
+        <section className={`${styles.restaurantInformation} test`}>
           <div className={styles.informationContainer}>
             <div>
               <AimOutlined /> Restaurant St, Delicious City, London 9578, USA
@@ -55,7 +59,7 @@ const HomePage = () => {
           </div>{" "}
         </section>
 
-        <div className={styles.titleContainer}>
+        <section className={`${styles.titleContainer} test`}>
           <div className={styles.title}>Where every flavor tells a story</div>
           <Button
             type="primary"
@@ -64,7 +68,7 @@ const HomePage = () => {
           >
             VIEW OUR MENU
           </Button>
-        </div>
+        </section>
       </main>
     </HomeLayout>
   );

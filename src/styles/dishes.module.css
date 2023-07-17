@@ -17,6 +17,7 @@
 
   display: grid;
   grid-template-columns: 1fr;
+  opacity: 0;
 }
 
 @media (min-width: 768px) {
