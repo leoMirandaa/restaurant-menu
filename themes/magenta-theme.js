@@ -1,6 +1,6 @@
 export const magentaTheme = {
   token: {
-    colorPrimary: "#BE3455",
+    colorPrimary: "#E8013C",
     colorTextSecondary: "#218380",
     fontFamily: "Vollkorn",
 
