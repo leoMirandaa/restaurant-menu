@@ -24,6 +24,10 @@
   width: 100%;
 }
 
+.navContainerOptions h4 {
+  margin: 0px;
+}
+
 .navbarLogo {
   display: flex;
   align-items: center;
