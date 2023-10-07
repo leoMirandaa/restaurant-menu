@@ -8,6 +8,7 @@ import { NavbarComponent } from "../Navbar";
 import { Sidebar } from "../Sidebar";
 
 import styles from "../../styles/shopLayout.module.css";
+import { HomeNavbar } from "../HomeNavbar";
 
 export const HomeLayout = ({
   children,
@@ -25,14 +26,7 @@ export const HomeLayout = ({
   const { token } = useToken();
 
   return (
-    <Layout
-      style={{
-        // maxWidth: "1440px",
-        // margin: "auto",
-        // border: "solid 3px green",
-        background: "#141414",
-      }}
-    >
+    <Layout>
       <Head>
         <title>{title}</title>
         <meta
@@ -55,7 +49,7 @@ export const HomeLayout = ({
         )}
       </Head>
 
-      <NavbarComponent
+      <HomeNavbar
         themeSelected={themeSelected}
         setThemeSelected={setThemeSelected}
       />
