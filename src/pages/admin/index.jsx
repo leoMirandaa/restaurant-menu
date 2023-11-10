@@ -17,7 +17,7 @@ const { Title, Text } = Typography;
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { IconPencil, IconTrash, IconPlus } from "@tabler/icons-react";
 
-import { FooterComponent } from "@/components/Footer";
+import { FooterComponent } from "@/components/ui";
 import { NavbarComponent } from "@/components/Navbar";
 import Image from "next/image";
 import { DishModal } from "../../components/modals/DishModal";

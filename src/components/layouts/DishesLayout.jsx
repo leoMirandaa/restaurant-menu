@@ -4,12 +4,12 @@ import { Layout, theme } from "antd";
 const { Content } = Layout;
 
 import { FooterComponent } from "../ui/Footer";
-import { NavbarComponent } from "../Navbar";
-import { Sidebar } from "../Sidebar";
+import { DishesNavbar } from "../ui";
+import { Sidebar } from "../ui";
 
 import styles from "../../styles/shopLayout.module.css";
 
-export const ShopLayout = ({
+export const DishesLayout = ({
   children,
   title,
   pageDescription,
@@ -48,7 +48,7 @@ export const ShopLayout = ({
         )}
       </Head>
 
-      <NavbarComponent
+      <DishesNavbar
         themeSelected={themeSelected}
         setThemeSelected={setThemeSelected}
       />

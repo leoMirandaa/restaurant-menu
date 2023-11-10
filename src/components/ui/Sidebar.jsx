@@ -3,7 +3,7 @@ const { Sider } = Layout;
 const { Title } = Typography;
 
 import { menuOptions } from "@/utils/menuOptions";
-import styles from '../styles/sidebar.module.css'
+import styles from '../../styles/sidebar.module.css'
 
 export const Sidebar = () => {
   const {

@@ -37,7 +37,6 @@ export const HomeNavbar = ({ themeSelected, setThemeSelected }) => {
         <div className={styles.headerButtonsContainer}>
           <Button
             icon={<ReadOutlined />}
-            size="large"
             type="primary"
             onClick={() => router.push("/dishes")}
           >
@@ -48,7 +47,6 @@ export const HomeNavbar = ({ themeSelected, setThemeSelected }) => {
             <Button
               type="primary"
               disabled
-              size="large"
               onClick={() => router.push("/admin")}
             >
               Admin
