@@ -1,14 +1,10 @@
 import Head from "next/head";
 
-import { Layout, theme } from "antd";
+import { Layout } from "antd";
 const { Content } = Layout;
 
-import { FooterComponent } from "../Footer";
-import { NavbarComponent } from "../Navbar";
-import { Sidebar } from "../Sidebar";
-
-import styles from "../../styles/shopLayout.module.css";
-import { HomeNavbar } from "../HomeNavbar";
+import { FooterComponent } from "../ui/Footer";
+import { HomeNavbar } from "../ui/HomeNavbar";
 
 export const HomeLayout = ({
   children,
@@ -18,13 +14,6 @@ export const HomeLayout = ({
   themeSelected,
   setThemeSelected,
 }) => {
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
-
-  const { useToken } = theme;
-  const { token } = useToken();
-
   return (
     <Layout>
       <Head>
@@ -55,12 +44,10 @@ export const HomeLayout = ({
       />
 
       <Content
-        style={
-          {
-            // maxWidth: "1440px",
-            // margin: "auto",
-          }
-        }
+      // style={{
+      //   maxWidth: "1440px",
+      //   margin: "auto",
+      // }}
       >
         <Layout>{children}</Layout>
       </Content>

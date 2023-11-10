@@ -1,0 +1,10 @@
+.footerContainer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.footerText {
+  font-size: 1.1rem;
+  color: #ffffff;
+}

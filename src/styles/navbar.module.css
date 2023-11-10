@@ -4,7 +4,6 @@
   top: 0;
   z-index: 2;
   opacity: 0.9;
-  /* margin-bottom: 20px; */
   padding: 0 20px;
 }
 
@@ -13,30 +12,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1300px;
+  max-width: var(--maxWidth);
   margin: 0 auto;
 }
 
 .navContainerOptions {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.navContainerOptions h4 {
-  margin: 0px;
-}
-
-.navbarLogo {
-  display: flex;
-  align-items: center;
-}
-
-.drawerContainer {
-  border: none !important;
-  border-radius: 10px;
-  padding-bottom: 10px;
+  justify-content: center;
+  gap: 0.3rem;
 }
 
 .headerButtonsContainer {
@@ -46,11 +30,6 @@
   .headerButtonsContainer {
     display: flex;
     align-items: center;
-  }
-}
-
-@media (min-width: 1024px) {
-  .menuIcon {
-    display: none;
+    gap: 1rem;
   }
 }

@@ -12,11 +12,13 @@ body {
 :root {
   --background: white;
   --foreground: black;
+  --maxWidth: 1300px;
 }
 
 [data-theme="dark"] {
   --background: black;
   --foreground: white;
+  --maxWidth: 1300px;
 }
 
 @media (min-width: 1024px) {

@@ -1,11 +1,11 @@
 .mainContainer {
-  color: #ffffffd9;
+  color: hsla(0, 0%, 100%, 0.851);
   position: relative;
 }
 
-.video {
+.img {
   filter: brightness(0.5);
-  min-height: calc(100vh - 130px);
+  min-height: calc(100vh - 131.9px);
   object-fit: cover;
   position: relative;
   width: 100%;
@@ -13,9 +13,8 @@
 
 .restaurantInformation {
   position: absolute;
-  font-size: 1rem;
-  margin-top: 1.5rem;
   top: 0;
+  margin-top: 1rem;
   width: 100%;
 }
 @media (min-width: 768px) {
@@ -33,6 +32,7 @@
 
 .restaurantInformation div div {
   padding: 0 0 0.5rem 1.5rem;
+  font-size: 1.1rem;
 }
 
 @media (min-width: 768px) {
@@ -51,9 +51,10 @@
   font-size: 2.5rem;
   padding-top: 0;
 }
-@media (min-width: 768px) {
+
+@media (min-width: 640px) {
   .title {
-    font-size: 4rem;
+    font-size: 5rem;
   }
 }
 @media (min-width: 1024px) {
