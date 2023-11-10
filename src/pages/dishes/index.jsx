@@ -5,7 +5,7 @@ const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 import { inView, animate } from "motion";
 
-import { ShopLayout } from "@/components/layouts";
+import { DishesLayout } from "@/components/layouts";
 import styles from "../../styles/dishes.module.css";
 import { useEffect } from "react";
 
@@ -29,7 +29,7 @@ const Dishes = () => {
   }, []);
 
   return (
-    <ShopLayout>
+    <DishesLayout>
       <Content
         style={{
           borderRadius: "10px",
@@ -232,7 +232,7 @@ const Dishes = () => {
           style={{ opacity: ".9" }}
         />
       </Content>
-    </ShopLayout>
+    </DishesLayout>
   );
 };
 export default Dishes;
