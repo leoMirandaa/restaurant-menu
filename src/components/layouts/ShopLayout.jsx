@@ -3,7 +3,7 @@ import Head from "next/head";
 import { Layout, theme } from "antd";
 const { Content } = Layout;
 
-import { FooterComponent } from "../Footer";
+import { FooterComponent } from "../ui/Footer";
 import { NavbarComponent } from "../Navbar";
 import { Sidebar } from "../Sidebar";
 
