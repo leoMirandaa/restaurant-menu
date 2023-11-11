@@ -24,6 +24,7 @@ export const DishesDrawer = ({open, setOpen}) => {
     onClose={onClose}
     open={open}
     width={278}
+    closeIcon={false}
   >
     <div style={{background: token.colorBgContainer, paddingTop: '10px', borderRadius: '10px'}}>
       <div  style={{ textAlign: 'center'}}>
