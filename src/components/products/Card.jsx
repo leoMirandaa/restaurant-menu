@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 
-import { Card, theme, Typography } from "antd";
+import { Card, theme, Typography, Tag } from "antd";
 const { Title, Paragraph } = Typography;
 
 import styles from "../../styles/dishCard.module.css";
@@ -15,12 +15,11 @@ export const categories = {
 };
 
 export const PlateCard = ({
-  id,
   name,
-  category,
-  description,
+  ingredients,
   price,
   imageUrl,
+  bestSeller,
 }) => {
   const router = useRouter();
 
@@ -36,7 +35,7 @@ export const PlateCard = ({
   return (
     <Card
       className={styles.card}
-      onClick={handleCardClick}
+      // onClick={handleCardClick}
       cover={
         <Image
           className={styles.image}
@@ -48,18 +47,21 @@ export const PlateCard = ({
       }
     >
       <div className={styles.bodyCard}>
-        <Title
-          level={3}
-          style={{ margin: "0" }}
-        >
-          {name}
-        </Title>
+        {bestSeller && (
+          <Tag
+            className={styles.bestSellerTag}
+            color="#990236"
+          >
+            Best seller
+          </Tag>
+        )}
 
+        <Title level={3}>{name}</Title>
         <div className={styles.pricesContainer}>
           <div>
             {" "}
             Single: &nbsp;
-            <span style={{ color: token.colorPrimary }}>$18.50</span>
+            <span style={{ color: token.colorPrimary }}>${price}</span>
           </div>
 
           <div>
@@ -67,12 +69,11 @@ export const PlateCard = ({
             <span style={{ color: token.colorPrimary }}>$36.80</span>
           </div>
         </div>
-
         <Paragraph
           className={styles.ingredients}
           type="secondary"
         >
-          {description}
+          {ingredients}
         </Paragraph>
       </div>
     </Card>

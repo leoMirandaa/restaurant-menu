@@ -8,13 +8,20 @@
   object-fit: cover;
 }
 
-.bodyCard h4 {
+.bestSellerTag {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+}
+
+.bodyCard h3 {
   margin-top: 0px;
+  font-weight: bold;
 }
 
 .bodyCard .pricesContainer {
   margin: 0.6rem 0rem;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .bodyCard .ingredients {
