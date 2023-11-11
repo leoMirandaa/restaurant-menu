@@ -1,9 +1,10 @@
+import Link from "next/link";
+
 import { Layout, theme, Typography, Breadcrumb } from "antd";
 const { Content } = Layout;
 const { Title, Paragraph, Text } = Typography;
 
-import { NavbarComponent } from "@/components/Navbar";
-import Link from "next/link";
+import { DishesNavbar } from "@/components/ui/DishesNavbar";
 import { products } from "../../../../database/products";
 // import { PlateCard } from "../../../../components/products/Card";
 
@@ -17,7 +18,7 @@ const Dish = () => {
 
   return (
     <Layout>
-      <NavbarComponent />
+      <DishesNavbar />
       <Content
         style={{
           padding: "0px 24px",

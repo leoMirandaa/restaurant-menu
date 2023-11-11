@@ -17,8 +17,8 @@ const { Title, Text } = Typography;
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { IconPencil, IconTrash, IconPlus } from "@tabler/icons-react";
 
-import { FooterComponent } from "@/components/ui";
-import { NavbarComponent } from "@/components/Navbar";
+import { FooterComponent } from "@/components/ui/Footer";
+import { DishesNavbar } from "@/components/ui";
 import Image from "next/image";
 import { DishModal } from "../../components/modals/DishModal";
 import Link from "next/link";
@@ -169,7 +169,7 @@ const adminPage = () => {
         height: "100vh",
       }}
     >
-      <NavbarComponent />
+      <DishesNavbar />
       <Content
         style={{
           padding: "0px 24px",
