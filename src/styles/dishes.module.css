@@ -20,7 +20,7 @@
   opacity: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .cardsContainer {
     grid-template-columns: repeat(2, 1fr);
   }
