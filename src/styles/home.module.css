@@ -51,6 +51,10 @@
   padding-top: 0;
 }
 
+.titleContainer .title {
+  font-weight: normal;
+}
+
 @media (min-width: 768px) {
   .title {
     font-size: 5rem;

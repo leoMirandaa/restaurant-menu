@@ -1,10 +1,14 @@
 .footerContainer {
   display: flex;
   justify-content: center;
-  text-align: center;
+  align-content: center;
 }
 
-.footerText {
-  font-size: 1.1rem;
-  color: #ffffff;
+.footerLink div {
+  margin-bottom: 0;
+}
+
+.footerLink div:hover {
+  opacity: 0.8;
+  text-decoration: underline;
 }

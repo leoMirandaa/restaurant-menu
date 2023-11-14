@@ -30,7 +30,7 @@ const HomePage = () => {
         <img
           className={styles.img}
           src="https://images.pexels.com/photos/1510692/pexels-photo-1510692.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt="image of restaurant"
+          alt="restaurant dish"
         />
 
         <div className={"homeContentAnimation"}>
@@ -54,7 +54,7 @@ const HomePage = () => {
           </section>
 
           <section className={styles.titleContainer}>
-            <div className={styles.title}>Where every flavor tells a story</div>
+            <h1 className={styles.title}>Where every flavor tells a story</h1>
             <Button
               type="primary"
               size="large"
