@@ -1,8 +1,9 @@
 import Link from "next/link";
 
-import { Layout, theme } from "antd";
+import { Layout, theme, Typography } from "antd";
 const { Footer } = Layout;
 import styles from "../../styles/footer.module.css";
+const { Paragraph } = Typography;
 
 export const FooterComponent = () => {
   const {
@@ -15,10 +16,10 @@ export const FooterComponent = () => {
       className={styles.footerContainer}
     >
       <Link
-        className={styles.footerText}
+        className={styles.footerLink}
         href="https://leomiranda.vercel.app/"
       >
-        Created by <u>Leo Miranda</u> ©2023
+        <Paragraph>Created by Leo Miranda ©2023</Paragraph>
       </Link>
     </Footer>
   );
