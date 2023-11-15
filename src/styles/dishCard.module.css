@@ -1,7 +1,6 @@
 .card {
-  cursor: pointer;
   overflow: hidden;
-  transition: all 0.4s ease-in-out;
+  padding-bottom: 1rem;
 }
 
 .image {
@@ -20,15 +19,41 @@
 }
 
 .bodyCard .pricesContainer {
-  margin: 0.6rem 0rem;
-  /* font-weight: bold; */
+  margin-bottom: 0.8rem;
+}
+
+.bodyCard .pricesContainer div {
+  margin: 0rem 0rem;
 }
 
 .bodyCard .ingredients {
   font-size: 16px;
   margin: 0px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .bodyCard div {
   font-size: 16px;
+}
+
+.bodyCard .detailsButton {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0.9rem;
+  border-top-left-radius: 10px;
+  background-color: var(--primary-color);
+  background-color: #303030;
+  cursor: pointer;
+}
+
+.bodyCard .detailsButton svg {
+  transition: 0.2s all ease;
+}
+
+.bodyCard .detailsButton:hover svg {
+  transform: translateX(3px);
 }

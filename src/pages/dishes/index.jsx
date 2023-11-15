@@ -68,13 +68,7 @@ const Dishes = () => {
                 .map((plate) => (
                   <PlateCard
                     key={`plate-list-${plate.id}`}
-                    id={plate.id}
-                    name={plate.name}
-                    category={plate.category}
-                    ingredients={plate.ingredients}
-                    price={plate.price}
-                    imageUrl={plate.imageUrl}
-                    bestSeller={plate.bestSeller}
+                    {...plate}
                   />
                 ))}
             </span>
@@ -105,13 +99,7 @@ const Dishes = () => {
                 .map((plate) => (
                   <PlateCard
                     key={`plate-list-${plate.id}`}
-                    name={plate.name}
-                    category={plate.category}
-                    description={plate.description}
-                    ingredients={plate.ingredients}
-                    price={plate.price}
-                    imageUrl={plate.imageUrl}
-                    bestSeller={plate.bestSeller}
+                    {...plate}
                   />
                 ))}
             </span>
@@ -141,13 +129,7 @@ const Dishes = () => {
                 .map((plate) => (
                   <PlateCard
                     key={`plate-list-${plate.id}`}
-                    name={plate.name}
-                    category={plate.category}
-                    description={plate.description}
-                    ingredients={plate.ingredients}
-                    price={plate.price}
-                    imageUrl={plate.imageUrl}
-                    bestSeller={plate.bestSeller}
+                    {...plate}
                   />
                 ))}
             </span>
@@ -176,13 +158,7 @@ const Dishes = () => {
                 .map((plate) => (
                   <PlateCard
                     key={`plate-list-${plate.id}`}
-                    name={plate.name}
-                    category={plate.category}
-                    description={plate.description}
-                    ingredients={plate.ingredients}
-                    price={plate.price}
-                    imageUrl={plate.imageUrl}
-                    bestSeller={plate.bestSeller}
+                    {...plate}
                   />
                 ))}
             </span>
@@ -212,13 +188,7 @@ const Dishes = () => {
                 .map((plate) => (
                   <PlateCard
                     key={`plate-list-${plate.id}`}
-                    name={plate.name}
-                    category={plate.category}
-                    description={plate.description}
-                    ingredients={plate.ingredients}
-                    price={plate.price}
-                    imageUrl={plate.imageUrl}
-                    bestSeller={plate.bestSeller}
+                    {...plate}
                   />
                 ))}
             </span>
