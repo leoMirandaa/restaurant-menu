@@ -1,10 +1,12 @@
+import { useState } from "react";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
-import { Card, theme, Typography, Tag } from "antd";
+import { Card, theme, Typography, Tag, Tooltip } from "antd";
 const { Title, Paragraph } = Typography;
+import { ArrowRightOutlined } from "@ant-design/icons";
 
 import styles from "../../styles/dishCard.module.css";
-import Image from "next/image";
 
 export const categories = {
   0: "Starters",
@@ -15,6 +17,7 @@ export const categories = {
 };
 
 export const PlateCard = ({
+  id,
   name,
   ingredients,
   price,
@@ -26,16 +29,14 @@ export const PlateCard = ({
   const { useToken } = theme;
   const { token } = useToken();
 
-  const handleCardClick = (event) => {
+  const handleDetailsClick = (event) => {
     event.stopPropagation();
-    console.log("clicked");
-    router.push("/dishes/1");
+    router.push(`/dishes/${id}`);
   };
 
   return (
     <Card
       className={styles.card}
-      // onClick={handleCardClick}
       cover={
         <Image
           className={styles.image}
@@ -58,16 +59,16 @@ export const PlateCard = ({
 
         <Title level={3}>{name}</Title>
         <div className={styles.pricesContainer}>
-          <div>
+          <Paragraph>
             {" "}
             Single: &nbsp;
             <span style={{ color: token.colorPrimary }}>${price}</span>
-          </div>
+          </Paragraph>
 
-          <div>
+          <Paragraph>
             Double: &nbsp;
             <span style={{ color: token.colorPrimary }}>$36.80</span>
-          </div>
+          </Paragraph>
         </div>
         <Paragraph
           className={styles.ingredients}
@@ -75,6 +76,14 @@ export const PlateCard = ({
         >
           {ingredients}
         </Paragraph>
+
+        <Tooltip
+          title="Details"
+          className={styles.detailsButton}
+          onClick={handleDetailsClick}
+        >
+          <ArrowRightOutlined />
+        </Tooltip>
       </div>
     </Card>
   );
