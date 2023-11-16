@@ -40,7 +40,7 @@ export const PlateCard = ({
       cover={
         <Image
           className={styles.image}
-          alt="example"
+          alt="dish food"
           src={`${imageUrl}`}
           width={200}
           height={200}

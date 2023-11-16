@@ -30,9 +30,9 @@ export const DishesNavbar = ({ themeSelected, setThemeSelected }) => {
   return (
     <Header
       className={styles.headerContainer}
-      style={{ background: colorBgContainer }}
+      style={{ background: colorBgContainer, padding: "0px" }}
     >
-      <nav className={styles.navContainer}>
+      <nav className={`container ${styles.navContainer}`}>
         <Link
           href="/"
           className={styles.navContainerOptions}
