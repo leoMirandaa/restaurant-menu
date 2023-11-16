@@ -1,80 +1,90 @@
-import Link from "next/link";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import Image from "next/image";
+import classnames from "classnames";
 
-import { Layout, theme, Typography, Breadcrumb } from "antd";
+import { Card, Layout, Typography, Tag, Tooltip } from "antd";
+import { ArrowLeftOutlined } from "@ant-design/icons";
+
 const { Content } = Layout;
 const { Title, Paragraph, Text } = Typography;
 
-import { DishesNavbar } from "@/components/ui/DishesNavbar";
+import { DishLayout } from "@/components/layouts";
 import { products } from "../../../../database/products";
-// import { PlateCard } from "../../../../components/products/Card";
+import styles from "../../../styles/dishDetailsCard.module.css";
 
 const Dish = () => {
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
+  const [dish, setDish] = useState([]);
+  const router = useRouter();
 
-  const { useToken } = theme;
-  const { token } = useToken();
+  useEffect(() => {
+    const data = products.filter((product) => product.id === +router.query.id);
+    setDish(data[0]);
+  }, []);
 
   return (
-    <Layout>
-      <DishesNavbar />
-      <Content
-        style={{
-          padding: "0px 24px",
-          borderRadius: "10px",
-          height: "100vh",
-        }}
-      >
-        <Layout>
-          <main
-          // style={{ paddingTop: '15px' }}
+    <DishLayout>
+      <Content>
+        <main>
+          <Card
+            className={styles.card}
+            cover={
+              <Image
+                className={styles.image}
+                alt="dish food"
+                src={dish?.imageUrl}
+                width={400}
+                height={450}
+              />
+            }
           >
-            <Breadcrumb
-              separator=">"
-              items={[
-                {
-                  title: <Link href="/">Menu</Link>,
-                },
-                {
-                  title: <Text type="primary">Dish details</Text>,
-                },
-              ]}
-            />
-            <Title
-              level={2}
-              style={{
-                color: token.colorPrimary,
-                marginTop: "8px",
-                textAlign: "center",
-              }}
-            >
-              Dishes/id
-            </Title>
+            <div className={styles.bodyCard}>
+              {dish?.bestSeller && (
+                <Tag
+                  className={styles.bestSellerTag}
+                  color="#990236"
+                >
+                  Best seller
+                </Tag>
+              )}
+              <Title
+                className={styles.dishName}
+                level={3}
+              >
+                {dish?.name}
+              </Title>
 
-            <div
-              style={{
-                background: "skyblue",
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              {/* {
-                [1].map(dish => (
-                  <PlateCard 
-                    name={products[0].name}
-                    description={products[0].description}
-                    // ingredients={products[0].ingredients}
-                    imageUrl={products[0].imageUrl}
-                    price={products[0].price}
-                  />
-                ))
-              } */}
+              <Text className={styles.subtitle}>Ingredients</Text>
+              <Paragraph
+                type="secondary"
+                className={styles.paragraph}
+              >
+                {dish?.ingredients}
+              </Paragraph>
+
+              <Text className={styles.subtitle}>Description</Text>
+              <Paragraph
+                type="secondary"
+                className={styles.paragraph}
+              >
+                {dish?.description}
+              </Paragraph>
+
+              <Tooltip
+                title="Back to Menu"
+                className={classnames(
+                  styles.detailsButton,
+                  styles.leftRowAnimation
+                )}
+                onClick={() => router.push("/dishes")}
+              >
+                <ArrowLeftOutlined />
+              </Tooltip>
             </div>
-          </main>
-        </Layout>
+          </Card>
+        </main>
       </Content>
-    </Layout>
+    </DishLayout>
   );
 };
 export default Dish;
