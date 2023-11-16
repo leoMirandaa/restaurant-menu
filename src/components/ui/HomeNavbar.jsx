@@ -21,11 +21,14 @@ export const HomeNavbar = ({ themeSelected, setThemeSelected }) => {
   return (
     <Header
       className={styles.headerContainer}
-      style={{ background: colorBgContainer }}
+      style={{ background: colorBgContainer, padding: "0px" }}
     >
-      <nav className={styles.navContainer}>
+      <nav className={`container ${styles.navContainer}`}>
         {/* mobile */}
-        <div className={styles.navContainerOptions}>
+        <div
+          className={styles.navContainerOptions}
+          onClick={() => router.push("/")}
+        >
           <IconChefHat
             size={30}
             color={`${token.colorPrimary}`}

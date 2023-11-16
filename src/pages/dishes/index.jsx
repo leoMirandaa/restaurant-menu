@@ -35,23 +35,19 @@ const Dishes = () => {
     <DishesLayout>
       <Content
         style={{
-          borderRadius: "10px",
           scrollBehavior: "smooth",
         }}
       >
-        <main className={styles.content}>
-          <section
-            style={{ marginBottom: "40px" }}
-            id="starter"
-          >
+        <main className="">
+          <section id="starter">
             <Title
               level={2}
               style={{
                 color: token.colorPrimary,
-                margin: "1.5rem 0px 0px 0px",
+                margin: "0px",
               }}
             >
-              Starter
+              Starters
             </Title>
 
             <Paragraph
@@ -74,20 +70,16 @@ const Dishes = () => {
             </span>
           </section>
 
-          <section
-            style={{ marginBottom: "40px" }}
-            id="salad"
-          >
+          <section id="salad">
             <Title
               level={2}
               style={{
-                display: "flex",
-                top: 64,
                 color: token.colorPrimary,
-                marginBottom: "0px",
+                margin: "0px",
+                marginTop: "3rem",
               }}
             >
-              Salad{" "}
+              Salads{" "}
             </Title>
             <Paragraph style={{ fontSize: "16px" }}>
               Medley of fresh, crisp and colorful ingredients harmoniously
@@ -105,15 +97,13 @@ const Dishes = () => {
             </span>
           </section>
 
-          <section
-            style={{ marginBottom: "40px" }}
-            id="mainDishes"
-          >
+          <section id="mainDishes">
             <Title
               level={2}
               style={{
                 color: token.colorPrimary,
-                marginBottom: "0px",
+                margin: "0px",
+                marginTop: "3rem",
               }}
             >
               Main Dishes
@@ -135,15 +125,13 @@ const Dishes = () => {
             </span>
           </section>
 
-          <section
-            style={{ marginBottom: "40px" }}
-            id="beverages"
-          >
+          <section id="beverages">
             <Title
               level={2}
               style={{
                 color: token.colorPrimary,
-                marginBottom: "0px",
+                margin: "0px",
+                marginTop: "3rem",
               }}
             >
               Beverages
@@ -164,15 +152,13 @@ const Dishes = () => {
             </span>
           </section>
 
-          <section
-            style={{ marginBottom: "40px" }}
-            id="deserts"
-          >
+          <section id="deserts">
             <Title
               level={2}
               style={{
                 color: token.colorPrimary,
-                marginBottom: "0px",
+                margin: "0px",
+                marginTop: "3rem",
               }}
             >
               Desserts
