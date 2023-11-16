@@ -23,10 +23,8 @@ body {
   --primary-color: #e8013c;
 }
 
-@media (min-width: 1024px) {
-  .container {
-    width: 95%;
-    max-width: 1440px;
-    margin: auto;
-  }
+.container {
+  width: 90%;
+  margin: auto;
+  max-width: var(--maxWidth);
 }

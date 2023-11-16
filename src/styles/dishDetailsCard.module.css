@@ -1,0 +1,73 @@
+.card {
+  overflow: hidden;
+  max-width: 1000px;
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  .card {
+    display: flex;
+  }
+}
+
+.image {
+  object-fit: cover;
+  min-width: 300px;
+  border-radius: 0px !important;
+}
+
+@media (min-width: 768px) {
+  .image {
+    min-height: 600px;
+    min-width: 350px;
+  }
+}
+@media (min-width: 1024px) {
+  .image {
+    min-height: 400px;
+    min-width: 350px;
+  }
+}
+
+.bestSellerTag {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+}
+
+.bodyCard .dishName {
+  margin-top: 0px;
+}
+
+.bodyCard .paragraph {
+  font-size: 16px;
+}
+
+.bodyCard .subtitle {
+  font-size: 16px;
+}
+
+.bodyCard .detailsButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.9rem;
+  border-bottom-right-radius: 50%;
+  /* background-color: var(--primary-color); */
+  background-color: #303030;
+  cursor: pointer;
+}
+
+.leftRowAnimation svg {
+  animation: leftArrowButton 1s ease infinite;
+}
+
+@keyframes leftArrowButton {
+  0% {
+    transform: translateX(0px);
+  }
+
+  50% {
+    transform: translateX(-3px);
+  }
+}
