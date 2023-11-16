@@ -2,18 +2,14 @@
   display: flex;
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 1;
   opacity: 0.9;
-  padding: 0 20px;
 }
 
 .navContainer {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: var(--maxWidth);
-  margin: 0 auto;
 }
 
 .navContainerOptions {
@@ -21,6 +17,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.3rem;
+  cursor: pointer;
 }
 
 .headerButtonsContainer {

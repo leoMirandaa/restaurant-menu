@@ -44,16 +44,22 @@
   bottom: 0;
   right: 0;
   padding: 0.9rem;
-  border-top-left-radius: 10px;
+  border-top-left-radius: 50%;
   background-color: var(--primary-color);
   background-color: #303030;
   cursor: pointer;
 }
 
 .bodyCard .detailsButton svg {
-  transition: 0.2s all ease;
+  animation: rightArrowButton 1s ease infinite;
 }
 
-.bodyCard .detailsButton:hover svg {
-  transform: translateX(3px);
+@keyframes rightArrowButton {
+  0% {
+    transform: translateX(0px);
+  }
+
+  50% {
+    transform: translateX(3px);
+  }
 }
