@@ -3,11 +3,9 @@ import Head from "next/head";
 import { Layout, theme } from "antd";
 const { Content } = Layout;
 
+import { DishesNavbar, Sidebar } from "../ui";
 import { FooterComponent } from "../ui/Footer";
-import { DishesNavbar } from "../ui";
-import { Sidebar } from "../ui";
-
-import styles from "../../styles/shopLayout.module.css";
+import styles from "../../styles/dishesLayout.module.css";
 
 export const DishesLayout = ({
   children,
@@ -17,13 +15,6 @@ export const DishesLayout = ({
   themeSelected,
   setThemeSelected,
 }) => {
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
-
-  const { useToken } = theme;
-  const { token } = useToken();
-
   return (
     <Layout>
       <Head>
@@ -52,9 +43,8 @@ export const DishesLayout = ({
         themeSelected={themeSelected}
         setThemeSelected={setThemeSelected}
       />
-
       <Content>
-        <Layout className={styles.allContent}>
+        <Layout className={`container ${styles.layoutContainer}`}>
           <Sidebar />
           {children}
         </Layout>

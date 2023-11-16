@@ -43,12 +43,7 @@ export const HomeLayout = ({
         setThemeSelected={setThemeSelected}
       />
 
-      <Content
-      // style={{
-      //   maxWidth: "1440px",
-      //   margin: "auto",
-      // }}
-      >
+      <Content>
         <Layout>{children}</Layout>
       </Content>
 
