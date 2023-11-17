@@ -1,11 +1,11 @@
 import { useRouter } from "next/router";
 
-import { Layout, theme, Typography, Button, Tooltip } from "antd";
+import { Layout, theme, Typography, Button } from "antd";
 import { ReadOutlined } from "@ant-design/icons";
 import { IconChefHat } from "@tabler/icons-react";
-
 const { Header } = Layout;
 const { Title } = Typography;
+
 import styles from "../../styles/navbar.module.css";
 
 export const HomeNavbar = ({ themeSelected, setThemeSelected }) => {
@@ -36,25 +36,20 @@ export const HomeNavbar = ({ themeSelected, setThemeSelected }) => {
           <Title level={3}>Magenta kitchen</Title>
         </div>
 
+        <Button
+          className={styles.menuIcon}
+          icon={<ReadOutlined />}
+          onClick={() => router.push("/dishes")}
+        />
+
         {/* desktop */}
         <div className={styles.headerButtonsContainer}>
           <Button
             icon={<ReadOutlined />}
-            type="primary"
             onClick={() => router.push("/dishes")}
           >
             Menu
           </Button>
-
-          <Tooltip title="Coming soon">
-            <Button
-              type="primary"
-              disabled
-              onClick={() => router.push("/admin")}
-            >
-              Admin
-            </Button>
-          </Tooltip>
         </div>
       </nav>
     </Header>
