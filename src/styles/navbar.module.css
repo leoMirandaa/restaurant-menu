@@ -27,6 +27,11 @@
   .headerButtonsContainer {
     display: flex;
     align-items: center;
-    gap: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .menuIcon {
+    display: none;
   }
 }

@@ -3,9 +3,9 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import classnames from "classnames";
 
-import { Card, Layout, Typography, Tag, Tooltip } from "antd";
+import { animate } from "motion";
+import { Card, Layout, Skeleton, Typography, Tag, Tooltip } from "antd";
 import { ArrowLeftOutlined } from "@ant-design/icons";
-
 const { Content } = Layout;
 const { Title, Paragraph, Text } = Typography;
 
@@ -20,22 +20,40 @@ const Dish = () => {
   useEffect(() => {
     const data = products.filter((product) => product.id === +router.query.id);
     setDish(data[0]);
+
+    animate(
+      ".cardDescriptionAnimation",
+      { opacity: [0, 1] },
+      { duration: 0.9 }
+    );
   }, []);
 
   return (
-    <DishLayout>
+    <DishLayout
+      title={dish?.name}
+      pageDescription={` ${dish?.name} dish description`}
+    >
       <Content>
         <main>
           <Card
-            className={styles.card}
+            className={`${styles.card} cardDescriptionAnimation`}
             cover={
-              <Image
-                className={styles.image}
-                alt="dish food"
-                src={dish?.imageUrl}
-                width={400}
-                height={450}
-              />
+              <>
+                {!dish?.imageUrl ? (
+                  <Skeleton.Image
+                    active
+                    className={styles.image}
+                  />
+                ) : (
+                  <Image
+                    className={styles.image}
+                    alt="dish food"
+                    src={dish?.imageUrl}
+                    width={400}
+                    height={450}
+                  />
+                )}
+              </>
             }
           >
             <div className={styles.bodyCard}>
