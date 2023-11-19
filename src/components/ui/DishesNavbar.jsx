@@ -2,15 +2,15 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-import { Layout, theme, Typography, Button, Drawer, Menu, Tooltip } from "antd";
+import { Layout, theme, Typography, Button } from "antd";
 import { HomeOutlined, MenuOutlined } from "@ant-design/icons";
+import { IconChefHat } from "@tabler/icons-react";
 const { Header } = Layout;
 const { Title } = Typography;
-import { IconChefHat } from "@tabler/icons-react";
 
 import { DishesDrawer } from ".";
-import styles from "../../styles/navbar.module.css";
 import navStyles from "../../styles/dishesNavbar.module.css";
+import styles from "../../styles/navbar.module.css";
 
 export const DishesNavbar = ({ themeSelected, setThemeSelected }) => {
   const [open, setOpen] = useState(false);
@@ -46,33 +46,17 @@ export const DishesNavbar = ({ themeSelected, setThemeSelected }) => {
 
         <Button
           className={navStyles.hamburgerMenuIcon}
-          type="text"
           onClick={showDrawer}
-          icon={
-            <MenuOutlined
-              style={{ color: token.colorPrimary, fontSize: "1.4rem" }}
-            />
-          }
+          icon={<MenuOutlined style={{}} />}
         />
 
         <div className={styles.headerButtonsContainer}>
           <Button
             icon={<HomeOutlined />}
-            type="primary"
             onClick={() => router.push("/")}
           >
             Home
           </Button>
-
-          <Tooltip title="Coming soon">
-            <Button
-              type="primary"
-              disabled
-              onClick={() => router.push("/admin")}
-            >
-              Admin
-            </Button>
-          </Tooltip>
         </div>
       </nav>
 
