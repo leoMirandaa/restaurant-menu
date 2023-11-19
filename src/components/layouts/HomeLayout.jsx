@@ -3,17 +3,9 @@ import Head from "next/head";
 import { Layout } from "antd";
 const { Content } = Layout;
 
-import { FooterComponent } from "../ui/Footer";
-import { HomeNavbar } from "../ui/HomeNavbar";
+import { FooterComponent, HomeNavbar } from "../ui";
 
-export const HomeLayout = ({
-  children,
-  title,
-  pageDescription,
-  imageUrl,
-  themeSelected,
-  setThemeSelected,
-}) => {
+export const HomeLayout = ({ children, title, pageDescription, imageUrl }) => {
   return (
     <Layout>
       <Head>
@@ -38,10 +30,7 @@ export const HomeLayout = ({
         )}
       </Head>
 
-      <HomeNavbar
-        themeSelected={themeSelected}
-        setThemeSelected={setThemeSelected}
-      />
+      <HomeNavbar />
 
       <Content>
         <Layout>{children}</Layout>

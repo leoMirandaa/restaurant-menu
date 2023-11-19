@@ -1,10 +1,9 @@
 import Head from "next/head";
 
-import { Layout, theme } from "antd";
+import { Layout } from "antd";
 const { Content } = Layout;
 
-import { DishesNavbar, Sidebar } from "../ui";
-import { FooterComponent } from "../ui/Footer";
+import { DishesNavbar, FooterComponent, Sidebar } from "../ui";
 import styles from "../../styles/dishesLayout.module.css";
 
 export const DishesLayout = ({
@@ -12,8 +11,6 @@ export const DishesLayout = ({
   title,
   pageDescription,
   imageUrl,
-  themeSelected,
-  setThemeSelected,
 }) => {
   return (
     <Layout>
@@ -39,10 +36,7 @@ export const DishesLayout = ({
         )}
       </Head>
 
-      <DishesNavbar
-        themeSelected={themeSelected}
-        setThemeSelected={setThemeSelected}
-      />
+      <DishesNavbar />
       <Content>
         <Layout className={`container ${styles.layoutContainer}`}>
           <Sidebar />
