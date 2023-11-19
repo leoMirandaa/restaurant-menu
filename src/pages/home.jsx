@@ -23,8 +23,8 @@ const HomePage = () => {
 
   return (
     <HomeLayout
-      title={"Magenta-Kitchen - Home"}
-      pageDescription={"Restaurant digital menu to show dishes"}
+      title="Magenta Kitchen"
+      pageDescription="Restaurant digital menu to show dishes"
     >
       <main className={styles.mainContainer}>
         <img
