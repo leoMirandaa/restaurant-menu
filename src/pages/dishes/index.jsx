@@ -32,7 +32,10 @@ const Dishes = () => {
   }, []);
 
   return (
-    <DishesLayout>
+    <DishesLayout
+      title="Dishes Menu"
+      pageDescription="List of delicious dishes"
+    >
       <Content
         style={{
           scrollBehavior: "smooth",
