@@ -5,7 +5,7 @@
 
 .img {
   filter: brightness(0.5);
-  min-height: calc(100vh - 131.9px);
+  height: calc(100vh - 137.5px);
   object-fit: cover;
   position: relative;
   width: 100%;
@@ -22,6 +22,10 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    max-width: var(--maxWidth);
+    left: 50%;
+    top: 1rem;
+    transform: translate(-50%, -50%);
   }
 }
 @media (min-width: 1024px) {
@@ -43,9 +47,9 @@
 .titleContainer {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 45%;
   transform: translate(-50%, -50%);
-  width: 70%;
+  width: 80%;
   text-align: center;
   font-size: 2.5rem;
   padding-top: 0;
@@ -53,6 +57,7 @@
 
 .titleContainer .title {
   font-weight: normal;
+  margin-bottom: 1rem;
 }
 
 @media (min-width: 768px) {
