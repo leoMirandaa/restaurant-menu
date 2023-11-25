@@ -3,3 +3,20 @@
     display: none;
   }
 }
+
+.sidebarTitle {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 0.5rem;
+}
+
+.sidebarTitleText {
+  margin: 0px !important;
+  margin-bottom: 1rem !important;
+}
+
+.drawerMenu {
+  border-radius: 10px;
+  border: none !important;
+}
