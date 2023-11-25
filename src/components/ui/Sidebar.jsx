@@ -25,7 +25,7 @@ export const Sidebar = () => {
           level={2} 
           style={{  
             color: token.colorPrimary,
-              marginTop: '8px',
+              marginTop: '1rem',
           }}
         >
            Menu 

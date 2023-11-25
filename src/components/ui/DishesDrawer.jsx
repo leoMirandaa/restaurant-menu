@@ -1,7 +1,8 @@
 import { Drawer, Menu, theme, Typography  } from "antd";
 const { Title } = Typography;
-import navStyles from "../../styles/dishesNavbar.module.css";
+
 import { menuOptions } from "@/utils/menuOptions";
+import navStyles from "../../styles/dishesNavbar.module.css";
 
 export const DishesDrawer = ({open, setOpen}) => {
   const { useToken } = theme;
@@ -25,19 +26,20 @@ export const DishesDrawer = ({open, setOpen}) => {
     open={open}
     width={278}
     closeIcon={false}
+ 
   >
-    <div style={{background: token.colorBgContainer, paddingTop: '10px', borderRadius: '10px'}}>
-      <div  style={{ textAlign: 'center'}}>
+    <div>
+      <div className={navStyles.sidebarTitle}>
         <Title 
-          level={2} 
-          style={{color: token.colorPrimary, margin: '0px'}}
+          level={3} 
+          className={navStyles.sidebarTitleText}
         >
-          Menu 
+          Menu
         </Title>
       </div>
       
       <Menu
-        className={navStyles.drawerContainer}
+        className={navStyles.drawerMenu}
         mode="inline"
         defaultSelectedKeys={['1']}
         items= {...menuOptions}

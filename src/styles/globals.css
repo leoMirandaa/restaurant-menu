@@ -28,3 +28,7 @@ body {
   margin: auto;
   max-width: var(--maxWidth);
 }
+
+.ant-drawer-header {
+  display: none !important;
+}
