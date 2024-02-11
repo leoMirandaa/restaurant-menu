@@ -6,6 +6,7 @@ export const darkTheme = {
   token: {
     colorPrimary: magentaTheme.token.colorPrimary,
     colorTextSecondary: magentaTheme.token.colorTextSecondary,
+    secondaryColor: "#303030",
     fontFamily: "Bitter",
   },
 };
