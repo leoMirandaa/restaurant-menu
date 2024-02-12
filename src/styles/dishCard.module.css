@@ -43,11 +43,8 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 0.9rem;
+  border-radius: 0px;
   border-top-left-radius: 50%;
-  background-color: var(--primary-color);
-  background-color: #303030;
-  cursor: pointer;
 }
 
 .bodyCard .detailsButton svg {

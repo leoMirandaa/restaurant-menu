@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
-import { Card, theme, Typography, Tag, Tooltip } from "antd";
+import { Button, Card, theme, Typography, Tag, Tooltip } from "antd";
 const { Title, Paragraph } = Typography;
 import { ArrowRightOutlined } from "@ant-design/icons";
 
@@ -79,10 +79,16 @@ export const PlateCard = ({
 
         <Tooltip
           title="Details"
-          className={styles.detailsButton}
+          // className={styles.detailsButton}
           onClick={handleDetailsClick}
         >
-          <ArrowRightOutlined />
+          <Button
+            className={styles.detailsButton}
+            icon={<ArrowRightOutlined style={{ fontSize: "13px" }} />}
+            style={{ background: token.secondaryColor }}
+            type="secondary"
+            size="large"
+          />
         </Tooltip>
       </div>
     </Card>
