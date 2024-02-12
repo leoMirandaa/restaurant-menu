@@ -4,7 +4,16 @@ import Image from "next/image";
 import classnames from "classnames";
 
 import { animate } from "motion";
-import { Card, Layout, Skeleton, Typography, Tag, Tooltip } from "antd";
+import {
+  Button,
+  Card,
+  Layout,
+  Skeleton,
+  Typography,
+  Tag,
+  Tooltip,
+  theme,
+} from "antd";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 const { Content } = Layout;
 const { Title, Paragraph, Text } = Typography;
@@ -16,6 +25,9 @@ import styles from "../../../styles/dishDetailsCard.module.css";
 const Dish = () => {
   const [dish, setDish] = useState([]);
   const router = useRouter();
+
+  const { useToken } = theme;
+  const { token } = useToken();
 
   useEffect(() => {
     const data = products.filter((product) => product.id === +router.query.id);
@@ -90,13 +102,19 @@ const Dish = () => {
 
               <Tooltip
                 title="Back to Menu"
-                className={classnames(
-                  styles.detailsButton,
-                  styles.leftRowAnimation
-                )}
+                // className={classnames(
+                //   styles.detailsButton,
+                //   styles.leftRowAnimation
+                // )}
                 onClick={() => router.push("/dishes")}
               >
-                <ArrowLeftOutlined />
+                <Button
+                  className={styles.detailsButton}
+                  icon={<ArrowLeftOutlined style={{ fontSize: "13px" }} />}
+                  style={{ background: token.secondaryColor }}
+                  type="secondary"
+                  size="large"
+                />
               </Tooltip>
             </div>
           </Card>
