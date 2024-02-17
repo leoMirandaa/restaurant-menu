@@ -102,10 +102,6 @@ const Dish = () => {
 
               <Tooltip
                 title="Back to Menu"
-                // className={classnames(
-                //   styles.detailsButton,
-                //   styles.leftRowAnimation
-                // )}
                 onClick={() => router.push("/dishes")}
               >
                 <Button
