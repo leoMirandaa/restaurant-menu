@@ -79,7 +79,6 @@ export const PlateCard = ({
 
         <Tooltip
           title="Details"
-          // className={styles.detailsButton}
           onClick={handleDetailsClick}
         >
           <Button
