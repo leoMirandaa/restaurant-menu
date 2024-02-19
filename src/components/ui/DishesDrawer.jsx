@@ -1,14 +1,10 @@
-import { Drawer, Menu, theme, Typography  } from "antd";
+import { Drawer, Menu, Typography } from "antd";
 const { Title } = Typography;
 
 import { menuOptions } from "@/utils/menuOptions";
 import navStyles from "../../styles/dishesNavbar.module.css";
 
-export const DishesDrawer = ({open, setOpen}) => {
-  const { useToken } = theme;
-  const { token } = useToken();
-
- 
+export const DishesDrawer = ({ open, setOpen }) => {
   const onClose = () => {
     setOpen(false);
   };
@@ -21,31 +17,30 @@ export const DishesDrawer = ({open, setOpen}) => {
 
   return (
     <Drawer
-    placement="left"
-    onClose={onClose}
-    open={open}
-    width={278}
-    closeIcon={false}
- 
-  >
-    <div>
-      <div className={navStyles.sidebarTitle}>
-        <Title 
-          level={3} 
-          className={navStyles.sidebarTitleText}
-        >
-          Menu
-        </Title>
+      placement="left"
+      onClose={onClose}
+      open={open}
+      width={278}
+      closeIcon={false}
+    >
+      <div>
+        <div className={navStyles.sidebarTitle}>
+          <Title
+            level={3}
+            className={navStyles.sidebarTitleText}
+          >
+            Menu
+          </Title>
+        </div>
+
+        <Menu
+          className={navStyles.drawerMenu}
+          mode="inline"
+          defaultSelectedKeys={["1"]}
+          items={[...menuOptions]}
+          onClick={handleCloseDrawer}
+        />
       </div>
-      
-      <Menu
-        className={navStyles.drawerMenu}
-        mode="inline"
-        defaultSelectedKeys={['1']}
-        items= {...menuOptions}
-        onClick={handleCloseDrawer}
-      />
-    </div>
-  </Drawer>
-  )
-}
+    </Drawer>
+  );
+};
