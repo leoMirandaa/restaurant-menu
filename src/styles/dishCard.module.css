@@ -1,6 +1,5 @@
 .card {
   overflow: hidden;
-  padding-bottom: 1rem;
 }
 
 .image {
@@ -33,6 +32,7 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  margin-bottom: 1rem;
 }
 
 .bodyCard div {
@@ -43,8 +43,6 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  border-radius: 0px;
-  border-top-left-radius: 50%;
 }
 
 .bodyCard .detailsButton svg {
