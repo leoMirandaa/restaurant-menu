@@ -13,6 +13,7 @@ import {
   Tag,
   Tooltip,
   theme,
+  ConfigProvider,
 } from "antd";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 const { Content } = Layout;
@@ -59,6 +60,7 @@ const Dish = () => {
                 ) : (
                   <Image
                     className={styles.image}
+                    style={{ borderRadius: "0px" }}
                     alt="dish food"
                     src={dish?.imageUrl}
                     width={400}
@@ -100,15 +102,16 @@ const Dish = () => {
                 {dish?.description}
               </Paragraph>
 
-              <Tooltip
-                title="Back to Menu"
-                onClick={() => router.push("/dishes")}
-              >
+              <Tooltip title="Back to Menu">
                 <Button
-                  className={styles.detailsButton}
+                  onClick={() => router.push("/dishes")}
                   icon={<ArrowLeftOutlined style={{ fontSize: "13px" }} />}
-                  style={{ background: token.secondaryColor }}
-                  type="secondary"
+                  className={styles.detailsButton}
+                  style={{
+                    borderRadius: "0px 0px 50% 0px",
+                    background: token.secondaryColor,
+                  }}
+                  type="primary"
                   size="large"
                 />
               </Tooltip>
@@ -119,4 +122,5 @@ const Dish = () => {
     </DishLayout>
   );
 };
+
 export default Dish;

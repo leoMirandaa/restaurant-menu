@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
@@ -77,14 +76,15 @@ export const PlateCard = ({
           {ingredients}
         </Paragraph>
 
-        <Tooltip
-          title="Details"
-          onClick={handleDetailsClick}
-        >
+        <Tooltip title="Details">
           <Button
-            className={styles.detailsButton}
+            onClick={handleDetailsClick}
             icon={<ArrowRightOutlined style={{ fontSize: "13px" }} />}
-            style={{ background: token.secondaryColor }}
+            className={styles.detailsButton}
+            style={{
+              background: token.secondaryColor,
+              borderRadius: "50% 0px 0px 0px",
+            }}
             type="secondary"
             size="large"
           />
