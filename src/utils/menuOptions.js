@@ -10,12 +10,12 @@ export const menuOptions = [
   {
     key: "starter",
     icon: <IconCarrot size={32} />,
-    label: <a href="#starter">Starter</a>,
+    label: <a href="#starter">Starters</a>,
   },
   {
     key: "salad",
     icon: <IconSalad size={32} />,
-    label: <a href="#salad">Salad</a>,
+    label: <a href="#salad">Salads</a>,
   },
   {
     key: "main dishes",

@@ -11,7 +11,7 @@ import {
   ReadOutlined,
 } from "@ant-design/icons";
 
-import { HomeLayout } from "@/components/layouts/HomeLayout";
+import { HomeLayout } from "@/components/layouts";
 import styles from "../styles/home.module.css";
 
 const HomePage = () => {
