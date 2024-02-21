@@ -17,7 +17,8 @@ export const FooterComponent = () => {
     >
       <Link
         className={styles.footerLink}
-        href="https://leomiranda.vercel.app/"
+        href="https://github.com/leoMirandaa"
+        target="_blank"
       >
         <Paragraph>Created by Leo Miranda ©2024</Paragraph>
       </Link>
