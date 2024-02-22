@@ -3,12 +3,6 @@
   margin: auto;
 }
 
-@media (min-width: 1024px) {
-  .content {
-    width: 100%;
-  }
-}
-
 .cardsContainer {
   display: flex;
   flex-wrap: wrap;
@@ -26,8 +20,12 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .cardsContainer {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .content {
+    width: 100%;
   }
 }
