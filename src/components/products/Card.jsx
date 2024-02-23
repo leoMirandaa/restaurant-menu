@@ -50,7 +50,7 @@ export const PlateCard = ({
         {bestSeller && (
           <Tag
             className={styles.bestSellerTag}
-            color="#990236"
+            color={token.TagColor}
           >
             Best seller
           </Tag>
@@ -61,12 +61,12 @@ export const PlateCard = ({
           <Paragraph>
             {" "}
             Single: &nbsp;
-            <span style={{ color: token.colorPrimary }}>${price}</span>
+            <span style={{ color: token.PriceTextColor }}>${price}</span>
           </Paragraph>
 
           <Paragraph>
             Double: &nbsp;
-            <span style={{ color: token.colorPrimary }}>$36.80</span>
+            <span style={{ color: token.PriceTextColor }}>$36.80</span>
           </Paragraph>
         </div>
         <Paragraph
@@ -82,7 +82,7 @@ export const PlateCard = ({
             icon={<ArrowRightOutlined style={{ fontSize: "13px" }} />}
             className={styles.detailsButton}
             style={{
-              background: token.secondaryColor,
+              background: token.ArrowButtonColor,
               borderRadius: "50% 0px 0px 0px",
             }}
             type="secondary"
