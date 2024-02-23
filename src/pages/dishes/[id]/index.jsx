@@ -74,7 +74,7 @@ const Dish = () => {
               {dish?.bestSeller && (
                 <Tag
                   className={styles.bestSellerTag}
-                  color="#990236"
+                  color={token.TagColor}
                 >
                   Best seller
                 </Tag>
@@ -108,10 +108,10 @@ const Dish = () => {
                   icon={<ArrowLeftOutlined style={{ fontSize: "13px" }} />}
                   className={styles.detailsButton}
                   style={{
+                    background: token.ArrowButtonColor,
                     borderRadius: "0px 0px 50% 0px",
-                    background: token.secondaryColor,
                   }}
-                  type="primary"
+                  type="secondary"
                   size="large"
                 />
               </Tooltip>
