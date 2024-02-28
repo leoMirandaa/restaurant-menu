@@ -1,18 +1,16 @@
-import { Drawer, Menu, Typography } from "antd";
+import { useRouter } from "next/router";
+import { GithubOutlined } from "@ant-design/icons";
+import { Button, Drawer, Menu, Typography } from "antd";
 const { Title } = Typography;
 
 import { menuOptions } from "@/utils/menuOptions";
-import navStyles from "../../styles/dishesNavbar.module.css";
+import styles from "../../styles/dishesNavbar.module.css";
 
 export const DishesDrawer = ({ open, setOpen }) => {
+  const router = useRouter();
+
   const onClose = () => {
     setOpen(false);
-  };
-
-  const handleCloseDrawer = () => {
-    setTimeout(() => {
-      setOpen(false);
-    }, 350);
   };
 
   return (
@@ -23,23 +21,36 @@ export const DishesDrawer = ({ open, setOpen }) => {
       width={278}
       closeIcon={false}
     >
-      <div>
-        <div className={navStyles.sidebarTitle}>
-          <Title
-            level={3}
-            className={navStyles.sidebarTitleText}
-          >
-            Menu
-          </Title>
+      <div className={styles.sidebarContainer}>
+        <div>
+          <div className={styles.sidebarTitle}>
+            <Title
+              level={3}
+              className={styles.sidebarTitleText}
+            >
+              Menu
+            </Title>
+          </div>
+
+          <Menu
+            className={styles.drawerMenu}
+            mode="inline"
+            defaultSelectedKeys={["1"]}
+            items={[...menuOptions]}
+            onClick={onClose}
+          />
         </div>
 
-        <Menu
-          className={navStyles.drawerMenu}
-          mode="inline"
-          defaultSelectedKeys={["1"]}
-          items={[...menuOptions]}
-          onClick={handleCloseDrawer}
-        />
+        <div className={styles.buttonContainer}>
+          <Button
+            type="default"
+            size="large"
+            onClick={() => router.push("https://github.com/leoMirandaa")}
+            icon={<GithubOutlined />}
+          >
+            Github
+          </Button>
+        </div>
       </div>
     </Drawer>
   );

@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 import { Layout, theme, Typography, Button } from "antd";
-import { HomeOutlined, MenuOutlined } from "@ant-design/icons";
+import { GithubOutlined, HomeOutlined, MenuOutlined } from "@ant-design/icons";
 import { IconChefHat } from "@tabler/icons-react";
 const { Header } = Layout;
 const { Title } = Typography;
@@ -41,16 +41,30 @@ export const DishesNavbar = ({ themeSelected, setThemeSelected }) => {
             size={30}
             color={`${token.colorPrimary}`}
           />
-          <Title level={3}>Magenta kitchen</Title>
+          <Title
+            level={1}
+            style={{ fontSize: "24px" }}
+          >
+            Magenta kitchen
+          </Title>
         </Link>
 
-        <Button
-          className={navStyles.hamburgerMenuIcon}
-          onClick={showDrawer}
-          icon={<MenuOutlined style={{}} />}
-        />
+        <div className={navStyles.hamburgerMenuIcon}>
+          <Button
+            onClick={showDrawer}
+            icon={<MenuOutlined />}
+          />
+        </div>
 
         <div className={styles.headerButtonsContainer}>
+          <Button
+            onClick={() =>
+              router.push("https://github.com/leoMirandaa/restaurant-menu.git")
+            }
+            style={{ marginRight: ".5rem" }}
+            icon={<GithubOutlined />}
+          />
+
           <Button
             icon={<HomeOutlined />}
             onClick={() => router.push("/")}
