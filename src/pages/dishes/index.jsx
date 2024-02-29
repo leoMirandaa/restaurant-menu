@@ -5,14 +5,15 @@ const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 
 import { PlateCard } from "../../components/products/Card";
-import { products } from "../../../database/products";
 import { inView, animate } from "motion";
 
 import { DishesLayout } from "@/components/layouts";
 import styles from "../../styles/dishes.module.css";
-import { ScrollToTop } from "@/components/products/ScrollToTop";
+// import { ScrollToTop } from "@/components/products/ScrollToTop";
 
-const Dishes = () => {
+const Dishes = (props) => {
+  const dishes = props.dishes;
+
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -62,7 +63,7 @@ const Dishes = () => {
             </Paragraph>
 
             <span className={styles.cardsContainer}>
-              {products
+              {dishes
                 .filter((p) => p.category == 0)
                 .map((plate) => (
                   <PlateCard
@@ -89,7 +90,7 @@ const Dishes = () => {
               combined to create a dish that's both refreshing and nutritious.
             </Paragraph>
             <span className={styles.cardsContainer}>
-              {products
+              {dishes
                 .filter((p) => p.category == 1)
                 .map((plate) => (
                   <PlateCard
@@ -117,7 +118,7 @@ const Dishes = () => {
             </Paragraph>
 
             <span className={styles.cardsContainer}>
-              {products
+              {dishes
                 .filter((p) => p.category == 2)
                 .map((plate) => (
                   <PlateCard
@@ -144,7 +145,7 @@ const Dishes = () => {
               our experiences with their diversity and refreshing qualities.
             </Paragraph>
             <span className={styles.cardsContainer}>
-              {products
+              {dishes
                 .filter((p) => p.category == 3)
                 .map((plate) => (
                   <PlateCard
@@ -172,7 +173,7 @@ const Dishes = () => {
             </Paragraph>
 
             <span className={styles.cardsContainer}>
-              {products
+              {dishes
                 .filter((p) => p.category == 4)
                 .map((plate) => (
                   <PlateCard
@@ -185,8 +186,21 @@ const Dishes = () => {
         </main>
       </Content>
 
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
     </DishesLayout>
   );
 };
 export default Dishes;
+
+export async function getStaticProps() {
+  const response = await fetch(
+    "https://65e0ed51d3db23f7624a49a3.mockapi.io/dishes"
+  );
+  const dishes = await response.json();
+
+  return {
+    props: {
+      dishes,
+    },
+  };
+}

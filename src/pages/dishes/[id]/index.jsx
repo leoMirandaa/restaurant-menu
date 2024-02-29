@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import classnames from "classnames";
 
 import { animate } from "motion";
 import {
@@ -13,27 +12,22 @@ import {
   Tag,
   Tooltip,
   theme,
-  ConfigProvider,
 } from "antd";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 const { Content } = Layout;
 const { Title, Paragraph, Text } = Typography;
 
 import { DishLayout } from "@/components/layouts";
-import { products } from "../../../../database/products";
 import styles from "../../../styles/dishDetailsCard.module.css";
 
-const Dish = () => {
-  const [dish, setDish] = useState([]);
+const Dish = (props) => {
+  const { dish } = props;
   const router = useRouter();
 
   const { useToken } = theme;
   const { token } = useToken();
 
   useEffect(() => {
-    const data = products.filter((product) => product.id === +router.query.id);
-    setDish(data[0]);
-
     animate(
       ".cardDescriptionAnimation",
       { opacity: [0, 1] },
@@ -124,3 +118,32 @@ const Dish = () => {
 };
 
 export default Dish;
+
+export async function getStaticPaths() {
+  const response = await fetch(
+    "https://65e0ed51d3db23f7624a49a3.mockapi.io/dishes"
+  );
+  const dishes = await response.json();
+
+  const paths = dishes.map((dish) => {
+    return { params: { id: dish.id } };
+  });
+
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps(context) {
+  const { params } = context;
+  const slug = params.id;
+  const response = await fetch(
+    `https://65e0ed51d3db23f7624a49a3.mockapi.io/dishes/${slug}`
+  );
+  const dish = await response.json();
+
+  return {
+    props: {
+      dish,
+    },
+    revalidate: false,
+  };
+}
