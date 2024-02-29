@@ -1,7 +1,7 @@
-export const products = [
+const products = [
   // --------- Starter ---------
   {
-    id: 0,
+    id: "0",
     name: "French Fries",
     ingredients:
       "Potatoes, peanut oil, sea salt, fresh herbs, garlick cloves, parmesan cheese, black pepper.",
@@ -14,7 +14,7 @@ export const products = [
     bestSeller: false,
   },
   {
-    id: 1,
+    id: "1",
     name: "Onion rings",
     ingredients:
       "Onions, batter, oil, fresh herbs, pecorino cheese, egg wash, citrus flavor.",
@@ -27,7 +27,7 @@ export const products = [
     bestSeller: false,
   },
   {
-    id: 2,
+    id: "2",
     name: "Super nacho",
     ingredients:
       "Torilla chips, cheese, protein(meat, chicken), tomatoes, jalapenos, ilantro, avocado, sour cream, refried beans.",
@@ -40,7 +40,7 @@ export const products = [
     bestSeller: true,
   },
   {
-    id: 3,
+    id: "3",
     name: "Buffalo Chicken Wings",
     ingredients:
       "Chicken wings, oil, buffalo sauce, butter, slat, flour, blue cheese, carrot sticks, celery sticks ",
@@ -53,7 +53,7 @@ export const products = [
     bestSeller: true,
   },
   {
-    id: 4,
+    id: "4",
     name: "Tomato Soup",
     ingredients:
       "Tomatoes, oion, garlic, chicken broth, olive oil, herbs, salt, sugar, milk",
@@ -66,7 +66,7 @@ export const products = [
     bestSeller: false,
   },
   {
-    id: 5,
+    id: "5",
     name: "Mushroom Soup",
     ingredients:
       "Mushrooms, onio, garlic, butter, flour, broth, herbs, salt, cream",
@@ -81,7 +81,7 @@ export const products = [
 
   // --------- Salad ---------
   {
-    id: 6,
+    id: "6",
     name: "Caesar Salad",
     ingredients:
       "Romaine lettuce, parmeeesan cheese, croutons, aesar dressing, grilled chiken, bacon bits",
@@ -94,7 +94,7 @@ export const products = [
     bestSeller: false,
   },
   {
-    id: 7,
+    id: "7",
     name: "Green Salad",
     ingredients:
       "Leaf lettuche, cucumbers, tomatoes, bell peppers, carrots, radishes, vinaigrette, creamy dreesing, salt, croutons, nuts, grated parmesan",
@@ -107,7 +107,7 @@ export const products = [
     bestSeller: false,
   },
   {
-    id: 8,
+    id: "8",
     name: "Greek Salad",
     ingredients:
       "Tomatoes, cucumbers, red onion, bell peppers, feta cheese, kalamata olives, extra virgin olive oil, red wine vinegar, herbs.",
@@ -122,7 +122,7 @@ export const products = [
 
   // --------- Main dishes ---------
   {
-    id: 21,
+    id: "21",
     name: "Beef Hamburger",
     ingredients:
       "Ground beef, salt, pepper, buns, lettuche, tomato slices, onion, pickles, cheese, ktchup, mustard, mayonnaise, barbecue sauce",
@@ -135,7 +135,7 @@ export const products = [
     bestSeller: false,
   },
   {
-    id: 9,
+    id: "9",
     name: "Meat",
     ingredients:
       "Meat, salt, pepper, oil, butter, garlic powder, onion powder, paprika, dried herbs, tomatoes, bell peppers.",
@@ -148,7 +148,7 @@ export const products = [
     bestSeller: false,
   },
   {
-    id: 10,
+    id: "10",
     name: "Lasagne",
     ingredients:
       "Lasagna noodles, ground meat, tomato sauce, ricotta cheese, mozzarella cheese, parmesan cheese, eggs, oregano, salt, pepper.",
@@ -161,7 +161,7 @@ export const products = [
     bestSeller: true,
   },
   {
-    id: 11,
+    id: "11",
     name: "Flautas",
     ingredients:
       "Tortillas, shredded chicken, oil, slat, pepper, cumin, chili powder, garlic powder, monterey cheese, sour cream , guacamole, salsa, shredded lettuche, chopped tomatoes, refried beans, mexican rice.",
@@ -174,7 +174,7 @@ export const products = [
     bestSeller: true,
   },
   {
-    id: 12,
+    id: "12",
     name: "Meat Tacos",
     ingredients:
       "Tortillas, chicken, pork, shredded lettuch, dicd tomatos, diced onions, chopped cilantro, salsa(red or green), guacamole, sour ream, monterey cheese, refried beans, hot sauce, cumin, garlic powder, onion, salt.",
@@ -189,7 +189,7 @@ export const products = [
 
   // --------- Beverages ---------
   {
-    id: 13,
+    id: "13",
     name: "Coffee",
     ingredients:
       "Ground coffee, water, sweeteners(sugar, honey), milk(whole, skim, half-and-half).",
@@ -202,7 +202,7 @@ export const products = [
     bestSeller: true,
   },
   {
-    id: 14,
+    id: "14",
     name: "Latte",
     ingredients:
       "Expresso, steamed milk, sugar, flavored syrups(vanilla, caramel, hazelnut).",
@@ -215,7 +215,7 @@ export const products = [
     bestSeller: true,
   },
   {
-    id: 15,
+    id: "15",
     name: "Ice Coffee",
     ingredients:
       "Coffee, ice, milk, sweeteners(sugar, syrup, honey), flavorings(vanilla, caramel) whipped cream",
@@ -228,7 +228,7 @@ export const products = [
     bestSeller: false,
   },
   {
-    id: 16,
+    id: "16",
     name: "Lemonade",
     ingredients: "Lemons, water, sugar, ice, herbs",
     description:
@@ -240,7 +240,7 @@ export const products = [
     bestSeller: false,
   },
   {
-    id: 17,
+    id: "17",
     name: "Tequila",
     ingredients: "Blue agave tequila, lime, salt",
     description:
@@ -254,7 +254,7 @@ export const products = [
 
   // --------- Deserts ---------
   {
-    id: 18,
+    id: "18",
     name: "Chocolate Ice cream",
     ingredients:
       "Heavy cream, whole milk, cocoa powder, sugar, egg yolks, vanilla extract, salt",
@@ -267,7 +267,7 @@ export const products = [
     bestSeller: false,
   },
   {
-    id: 19,
+    id: "19",
     name: "Vanilla & Strawberry Cake",
     ingredients:
       "Vanilla extract, flour, granulated sugar, butter, eggs, buttermilk bakig powder, bakig soda",
@@ -280,7 +280,7 @@ export const products = [
     bestSeller: true,
   },
   {
-    id: 20,
+    id: "20",
     name: "Churros",
     ingredients: "Fluor, Butter, ggs, salt, vegetable oil, sugar, cinnamo",
     description:
@@ -293,7 +293,7 @@ export const products = [
   },
 ];
 
-export const categories = {
+const categories = {
   0: "Starters",
   1: "Saladas",
   2: "Main Dishses",
