@@ -8,7 +8,7 @@ const { Title } = Typography;
 
 import styles from "../../styles/navbar.module.css";
 
-export const HomeNavbar = ({ themeSelected, setThemeSelected }) => {
+export const HomeNavbar = () => {
   const router = useRouter();
 
   const {
@@ -33,14 +33,20 @@ export const HomeNavbar = ({ themeSelected, setThemeSelected }) => {
             size={30}
             color={`${token.colorPrimary}`}
           />
-          <Title level={3}>Magenta kitchen</Title>
+          <Title
+            level={1}
+            style={{ fontSize: "24px" }}
+          >
+            Magenta kitchen
+          </Title>
         </div>
 
-        <Button
-          className={styles.menuIcon}
-          icon={<ReadOutlined />}
-          onClick={() => router.push("/dishes")}
-        />
+        <div className={styles.menuIcon}>
+          <Button
+            icon={<ReadOutlined />}
+            onClick={() => router.push("/dishes")}
+          />
+        </div>
 
         {/* desktop */}
         <div className={styles.headerButtonsContainer}>
