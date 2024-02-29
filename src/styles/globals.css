@@ -10,17 +10,11 @@ body {
 }
 
 :root {
-  --background: white;
-  --foreground: black;
   --maxWidth: 1300px;
-  --primary-color: #e8013c;
 }
 
 [data-theme="dark"] {
-  --background: black;
-  --foreground: white;
   --maxWidth: 1300px;
-  --primary-color: #e8013c;
 }
 
 .container {
