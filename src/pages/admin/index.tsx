@@ -19,7 +19,7 @@ import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { IconPlus } from "@tabler/icons-react";
 
 import { DishModal } from "../../components/modals/DishModal";
-import { DishLayout, DishesLayout, HomeLayout } from "@/components/layouts";
+import { DishLayout } from "@/components/layouts";
 
 const categories = {
   0: "Starters",

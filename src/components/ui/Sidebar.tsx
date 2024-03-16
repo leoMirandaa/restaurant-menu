@@ -1,4 +1,4 @@
-import { Layout, Menu, Typography, theme } from "antd";
+import { Layout, Typography, theme } from "antd";
 const { Sider } = Layout;
 const { Title } = Typography;
 
