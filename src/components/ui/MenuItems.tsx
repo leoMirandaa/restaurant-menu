@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Menu, Typography, theme } from "antd";
+import { Menu, theme } from "antd";
 
 import { menuOptions } from "@/utils/menuOptions";
 import styles from "../../styles/sidebar.module.css";
