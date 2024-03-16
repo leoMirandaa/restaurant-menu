@@ -3,10 +3,16 @@ import Head from "next/head";
 import { Layout } from "antd";
 const { Content } = Layout;
 
-import { HomeNavbar, FooterComponent } from "../ui";
+import { DishesNavbar, FooterComponent, Sidebar } from "../ui";
 import styles from "../../styles/dishesLayout.module.css";
+import { TLayout } from "../../types/layout";
 
-export const DishLayout = ({ children, title, pageDescription, imageUrl }) => {
+export const DishesLayout = ({
+  children,
+  title,
+  pageDescription,
+  imageUrl,
+}: TLayout) => {
   return (
     <Layout>
       <Head>
@@ -31,9 +37,10 @@ export const DishLayout = ({ children, title, pageDescription, imageUrl }) => {
         )}
       </Head>
 
-      <HomeNavbar />
+      <DishesNavbar />
       <Content>
         <Layout className={`container ${styles.layoutContainer}`}>
+          <Sidebar />
           {children}
         </Layout>
       </Content>

@@ -5,32 +5,41 @@ import { Button, Card, theme, Typography, Tag, Tooltip } from "antd";
 const { Title, Paragraph } = Typography;
 import { ArrowRightOutlined } from "@ant-design/icons";
 
+import { PriceNameType, TMenuItem, TPriceOption } from "@/types/dish";
 import styles from "../../styles/dishCard.module.css";
-
-export const categories = {
-  0: "Starters",
-  1: "Saladas",
-  2: "Main Dishses",
-  3: "Beverages",
-  4: "Deserts",
-};
 
 export const PlateCard = ({
   id,
   name,
   ingredients,
-  price,
+  prices,
   imageUrl,
   bestSeller,
-}) => {
+}: TMenuItem) => {
   const router = useRouter();
 
   const { useToken } = theme;
   const { token } = useToken();
 
-  const handleDetailsClick = (event) => {
+  const handleDetailsClick = (event: React.MouseEvent) => {
     event.stopPropagation();
     router.push(`/dishes/${id}`);
+  };
+
+  const handlePriceName = (name: string) => {
+    switch (name) {
+      case PriceNameType.STANDARD:
+        return "";
+
+      case PriceNameType.TWELVEOZ:
+        return "12Oz: ";
+
+      case PriceNameType.SIXTEENOZ:
+        return "16Oz: ";
+
+      default:
+        return `${name.charAt(0).toUpperCase() + name.slice(1)}: `;
+    }
   };
 
   return (
@@ -50,24 +59,21 @@ export const PlateCard = ({
         {bestSeller && (
           <Tag
             className={styles.bestSellerTag}
-            color={token.TagColor}
+            color={token.colorInfo}
           >
             Best seller
           </Tag>
         )}
 
         <Title level={3}>{name}</Title>
-        <div className={styles.pricesContainer}>
-          <Paragraph>
-            {" "}
-            Single: &nbsp;
-            <span style={{ color: token.PriceTextColor }}>${price}</span>
-          </Paragraph>
 
-          <Paragraph>
-            Double: &nbsp;
-            <span style={{ color: token.PriceTextColor }}>$36.80</span>
-          </Paragraph>
+        <div className={styles.pricesContainer}>
+          {prices.map(({ name, price }: TPriceOption, idx) => (
+            <Paragraph key={`${name}-${price}-${idx}`}>
+              {handlePriceName(name)}
+              <span style={{ color: token.colorTextSecondary }}>${price}</span>
+            </Paragraph>
+          ))}
         </div>
         <Paragraph
           className={styles.ingredients}
@@ -82,10 +88,10 @@ export const PlateCard = ({
             icon={<ArrowRightOutlined style={{ fontSize: "13px" }} />}
             className={styles.detailsButton}
             style={{
-              background: token.ArrowButtonColor,
+              background: token.colorInfoBg,
               borderRadius: "50% 0px 0px 0px",
             }}
-            type="secondary"
+            type="text"
             size="large"
           />
         </Tooltip>

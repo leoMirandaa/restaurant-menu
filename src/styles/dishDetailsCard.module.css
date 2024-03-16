@@ -1,7 +1,7 @@
 .card {
   overflow: hidden;
   max-width: 1000px;
-  margin: auto;
+  margin: auto !important;
 }
 
 @media (min-width: 768px) {

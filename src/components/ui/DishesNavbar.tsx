@@ -12,7 +12,7 @@ import { DishesDrawer } from ".";
 import navStyles from "../../styles/dishesNavbar.module.css";
 import styles from "../../styles/navbar.module.css";
 
-export const DishesNavbar = ({ themeSelected, setThemeSelected }) => {
+export const DishesNavbar = () => {
   const [open, setOpen] = useState(false);
   const router = useRouter();
 

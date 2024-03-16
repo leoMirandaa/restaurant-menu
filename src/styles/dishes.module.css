@@ -1,6 +1,5 @@
-.content {
-  width: 90%;
-  margin: auto;
+.sectionContainer {
+  margin-bottom: 3rem;
 }
 
 .cardsContainer {
@@ -23,9 +22,5 @@
 @media (min-width: 1280px) {
   .cardsContainer {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .content {
-    width: 100%;
   }
 }

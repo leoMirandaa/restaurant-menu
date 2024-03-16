@@ -6,7 +6,6 @@ body {
 * {
   scroll-margin-top: 85px;
   scroll-behavior: smooth;
-  /* font-size: 16px; */
 }
 
 :root {

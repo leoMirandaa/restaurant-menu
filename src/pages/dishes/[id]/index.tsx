@@ -17,10 +17,15 @@ import { ArrowLeftOutlined } from "@ant-design/icons";
 const { Content } = Layout;
 const { Title, Paragraph, Text } = Typography;
 
-import { DishLayout } from "@/components/layouts";
+import { DishLayout } from "../../../components/layouts";
+import { TMenuItem, TMenuSection, TRestaurant } from "@/types/dish";
 import styles from "../../../styles/dishDetailsCard.module.css";
 
-const Dish = (props) => {
+interface IDishes {
+  dish: TMenuItem;
+}
+
+const Dish = (props: IDishes) => {
   const { dish } = props;
   const router = useRouter();
 
@@ -68,7 +73,7 @@ const Dish = (props) => {
               {dish?.bestSeller && (
                 <Tag
                   className={styles.bestSellerTag}
-                  color={token.TagColor}
+                  color={token.colorInfo}
                 >
                   Best seller
                 </Tag>
@@ -102,10 +107,10 @@ const Dish = (props) => {
                   icon={<ArrowLeftOutlined style={{ fontSize: "13px" }} />}
                   className={styles.detailsButton}
                   style={{
-                    background: token.ArrowButtonColor,
+                    background: token.colorInfoBg,
                     borderRadius: "0px 0px 50% 0px",
                   }}
-                  type="secondary"
+                  type="text"
                   size="large"
                 />
               </Tooltip>
@@ -121,12 +126,17 @@ export default Dish;
 
 export async function getStaticPaths() {
   const response = await fetch(
-    "https://65e0ed51d3db23f7624a49a3.mockapi.io/dishes"
+    "https://65e0ed51d3db23f7624a49a3.mockapi.io/magenta_kitchen"
   );
-  const dishes = await response.json();
+  const restaurant: TRestaurant[] = await response.json();
 
-  const paths = dishes.map((dish) => {
-    return { params: { id: dish.id } };
+  const sections = [];
+  restaurant[0]?.sections.map((section: TMenuSection) =>
+    section.items.map((item) => sections.push(item.id))
+  );
+
+  const paths = sections.map((dish: any) => {
+    return { params: { id: dish } };
   });
 
   return { paths, fallback: false };
@@ -136,7 +146,7 @@ export async function getStaticProps(context) {
   const { params } = context;
   const slug = params.id;
   const response = await fetch(
-    `https://65e0ed51d3db23f7624a49a3.mockapi.io/dishes/${slug}`
+    `https://65e0ed51d3db23f7624a49a3.mockapi.io/items/${slug}`
   );
   const dish = await response.json();
 
@@ -144,6 +154,6 @@ export async function getStaticProps(context) {
     props: {
       dish,
     },
-    revalidate: false,
+    revalidate: 600,
   };
 }

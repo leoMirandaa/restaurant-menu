@@ -1,12 +1,11 @@
 import { theme } from "antd";
-
 export const darkTheme = {
   algorithm: theme.darkAlgorithm,
   token: {
     colorPrimary: "#E8013C",
-    PriceTextColor: "#ff2555",
-    TagColor: "#990236",
-    ArrowButtonColor: "#303030",
+    colorInfo: "#990236", // bg tag
+    colorTextSecondary: "#ff2555", // price text
+    colorInfoBg: "#303030", // arrow btn
     fontFamily: "Bitter",
   },
 };
