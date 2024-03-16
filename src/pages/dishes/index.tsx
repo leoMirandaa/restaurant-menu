@@ -101,6 +101,6 @@ export async function getStaticProps() {
     props: {
       dishes,
     },
-    revalidate: false,
+    revalidate: 600,
   };
 }
