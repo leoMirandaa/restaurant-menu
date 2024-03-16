@@ -1,27 +1,25 @@
 import { useState } from "react";
+import Image from "next/image";
 
 import {
   Layout,
   theme,
   Typography,
+  Alert,
   Table,
   Space,
   Button,
   Card,
   Tag,
-  Breadcrumb,
 } from "antd";
 const { Content } = Layout;
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
-import { IconPencil, IconTrash, IconPlus } from "@tabler/icons-react";
+import { IconPlus } from "@tabler/icons-react";
 
-import { FooterComponent } from "@/components/ui/Footer";
-import { DishesNavbar } from "@/components/ui";
-import Image from "next/image";
 import { DishModal } from "../../components/modals/DishModal";
-import Link from "next/link";
+import { DishLayout, DishesLayout, HomeLayout } from "@/components/layouts";
 
 const categories = {
   0: "Starters",
@@ -55,7 +53,7 @@ const columns = [
     title: "Category",
     dataIndex: "category",
     key: "category",
-    render: (text) => <Tag color="magenta">{categories[text]}</Tag>,
+    render: (text) => <Tag>{categories[text]}</Tag>,
   },
   {
     title: "Description",
@@ -66,6 +64,7 @@ const columns = [
     title: "Price",
     dataIndex: "price",
     key: "price",
+    render: (text) => <div>$ {text}</div>,
   },
   {
     title: "Action",
@@ -123,7 +122,7 @@ const data = [
     key: "4",
     name: "Joe Black",
     image:
-      "https://images.pexels.com/photos/6310077/pexels-photo-6310077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://img.freepik.com/free-photo/chicken-parmesan-caesar-salad-with-lettuce-cherry-tomatoes-inside-white-bowl-served-with-sauce-bread_114579-204.jpg?w=996&t=st=1685654701~exp=1685655301~hmac=d4f5e0e0843f2220c3d10250bbece26b7c426b7c13d88a210a8890bd924f6495",
     category: 2,
     description:
       "Lorem Ipsum is simply but also Ipsum is simply but the leap into electronic typesetting, remaining essentially unchanged",
@@ -164,46 +163,36 @@ const adminPage = () => {
   };
 
   return (
-    <Layout
-      style={{
-        height: "100vh",
-      }}
+    <DishLayout
+      title="Dashboard admin"
+      pageDescription="Admin all your restaurant dishes in one place"
     >
-      <DishesNavbar />
       <Content
         style={{
           padding: "0px 24px",
           borderRadius: "10px",
-          width: "100vw",
         }}
       >
         <main
           style={{
-            // paddingTop: '15px',
             display: "flex",
             flexDirection: "column",
-            // alignItems: 'center',
           }}
         >
-          <Breadcrumb
-            separator=">"
-            items={[
-              {
-                title: <Link href="/">Menu</Link>,
-              },
-              {
-                title: <Text type="primary">Admin page</Text>,
-              },
-            ]}
-          />
           <div
             style={{
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              // width: "100%",
+              marginBottom: " 3rem",
             }}
           >
+            <Alert
+              message="Admin dashboard example, feel free to implement"
+              type="warning"
+              showIcon
+            />
+
             <Title
               level={2}
               style={{
@@ -211,7 +200,7 @@ const adminPage = () => {
                 marginTop: "10px",
               }}
             >
-              AdminPage
+              Admin Page
             </Title>
 
             <Card style={{ width: "auto" }}>
@@ -223,7 +212,6 @@ const adminPage = () => {
                   margin: "0px 0px 30px 0px",
                 }}
               >
-                {/* <Button type="primary" icon={<IconPlus stroke={2} size={20}/>}/> */}
                 <Title
                   style={{ color: token.colorPrimary, margin: 0 }}
                   level={3}
@@ -231,16 +219,26 @@ const adminPage = () => {
                   Dishes
                 </Title>
 
-                <Button onClick={showModal}>New dish</Button>
+                <Button
+                  icon={<IconPlus />}
+                  onClick={showModal}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  Add dish
+                </Button>
               </div>
 
               <Table
                 size="small"
                 columns={columns}
                 dataSource={data}
-                // style={{ width: "1100px" }}
+                style={{ width: "1200px" }}
                 scroll={{ y: 400 }}
-                // pagination={{ pageSize: 3 }}
+                pagination={{ pageSize: 3 }}
               />
             </Card>
           </div>
@@ -252,9 +250,7 @@ const adminPage = () => {
           handleCancel={handleCancel}
         />
       </Content>
-
-      <FooterComponent />
-    </Layout>
+    </DishLayout>
   );
 };
 export default adminPage;

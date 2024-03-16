@@ -2,7 +2,7 @@ import { Layout, Menu, Typography, theme } from "antd";
 const { Sider } = Layout;
 const { Title } = Typography;
 
-import { menuOptions } from "@/utils/menuOptions";
+import { MenuItems } from "./MenuItems";
 import styles from "../../styles/sidebar.module.css";
 
 export const Sidebar = () => {
@@ -32,12 +32,7 @@ export const Sidebar = () => {
         </Title>
       </div>
 
-      <Menu
-        className={styles.menuContainer}
-        mode="inline"
-        defaultSelectedKeys={["starter"]}
-        items={[...menuOptions]}
-      />
+      <MenuItems />
     </Sider>
   );
 };

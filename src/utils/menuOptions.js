@@ -8,19 +8,19 @@ import {
 
 export const menuOptions = [
   {
-    key: "starter",
+    key: "starters",
     icon: <IconCarrot size={32} />,
-    label: <a href="#starter">Starters</a>,
+    label: <a href="#starters">Starters</a>,
   },
   {
-    key: "salad",
+    key: "salads",
     icon: <IconSalad size={32} />,
-    label: <a href="#salad">Salads</a>,
+    label: <a href="#salads">Salads</a>,
   },
   {
     key: "main dishes",
     icon: <IconMeat size={32} />,
-    label: <a href="#mainDishes">Main dishes</a>,
+    label: <a href="#main dishes">Main dishes</a>,
   },
   {
     key: "beverages",
@@ -28,8 +28,8 @@ export const menuOptions = [
     label: <a href="#beverages">Beverages</a>,
   },
   {
-    key: "desert",
+    key: "deserts",
     icon: <IconIceCream2 size={32} />,
-    label: <a href="#deserts">Deserts</a>,
+    label: <a href="#deserts">Desserts</a>,
   },
 ];

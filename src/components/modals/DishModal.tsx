@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { Button, Modal, Form, Input, Select, Divider, Typography } from "antd";
-const { Option } = Select;
 const { Title } = Typography;
 export const DishModal = ({ isModalOpen, handleOk, handleCancel }) => {
   const onFinish = (values) => {

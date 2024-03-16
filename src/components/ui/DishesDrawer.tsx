@@ -1,13 +1,20 @@
 import { useRouter } from "next/router";
 import { GithubOutlined } from "@ant-design/icons";
-import { Button, Drawer, Menu, Typography } from "antd";
+import { Button, Drawer, Typography, theme } from "antd";
 const { Title } = Typography;
 
-import { menuOptions } from "@/utils/menuOptions";
+import { MenuItems } from "./MenuItems";
 import styles from "../../styles/dishesNavbar.module.css";
 
 export const DishesDrawer = ({ open, setOpen }) => {
   const router = useRouter();
+
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
+
+  const { useToken } = theme;
+  const { token } = useToken();
 
   const onClose = () => {
     setOpen(false);
@@ -25,26 +32,26 @@ export const DishesDrawer = ({ open, setOpen }) => {
         <div>
           <div className={styles.sidebarTitle}>
             <Title
-              level={3}
+              level={2}
               className={styles.sidebarTitleText}
+              style={{
+                color: token.colorPrimary,
+                marginTop: "1rem",
+              }}
             >
               Menu
             </Title>
           </div>
 
-          <Menu
-            className={styles.drawerMenu}
-            mode="inline"
-            defaultSelectedKeys={["1"]}
-            items={[...menuOptions]}
-            onClick={onClose}
+          <MenuItems
+            isDrawerOpen={open}
+            setOpenDrawer={setOpen}
           />
         </div>
 
         <div className={styles.buttonContainer}>
           <Button
             type="default"
-            size="large"
             onClick={() => router.push("https://github.com/leoMirandaa")}
             icon={<GithubOutlined />}
           >
