@@ -1,5 +1,6 @@
 {
-  "name": "food-store-fronted",
+  "name": "restaurant-menu",
+  "author": "Leo Miranda",
   "version": "0.1.0",
   "private": true,
   "scripts": {
