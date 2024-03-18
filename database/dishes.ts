@@ -1,6 +1,7 @@
 import { TRestaurant, PriceNameType } from "@/types/dish";
 
-export const menuExample: TRestaurant = {
+//*** Mock data ***
+export const dishes: TRestaurant = {
   name: "Magenta kitchen",
   description:
     "Since 1990, Magenta Kitchen has prided itself on being one of the best restaurants, a testament to its enduring legacy of excellence. Situated in the heart of California's culinary capital, Magenta Kitchen has become a beloved institution, cherished by locals and revered by food enthusiasts from around the globe.",
