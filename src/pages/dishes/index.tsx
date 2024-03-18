@@ -102,6 +102,7 @@ export async function getStaticProps() {
     props: {
       dishes,
     },
+    // Re-generate every 10 minutes(600sec)
     revalidate: 600,
   };
 }
