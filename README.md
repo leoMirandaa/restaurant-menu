@@ -2,7 +2,7 @@
 
 ## <a href="https://nextjs.org/" target="_blank">Next.js</a> + <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a> + <a href="https://ant.design/" target="_blank">Ant Design</a> + <a href="https://motion.dev/" target="_blank">Motion One</a>.
 
-Restaurant menu created with the purpose to have an elegant digital menu, with the capability to use it with QR code and show the elemental restaurant information and all the dishes available. <a href="https://magentakitchen.vercel.app" target="_blank">Live Demo</a>
+Restaurant menu with the ability to update menu items in real-time at scheduled intervals, it provides a dynamic experience for customers. Each menu item is presented with an appealing design, enhancing its visual appeal and making it easy for customers to explore. <a href="https://magentakitchen.vercel.app" target="_blank">Live Demo</a>
 
 ![magenta](https://github.com/leoMirandaa/restaurant-menu/assets/61714687/17ee5e62-7027-4ba0-b308-7193cd84d392)
 
@@ -31,6 +31,15 @@ Restaurant menu created with the purpose to have an elegant digital menu, with t
 </table>
 
 <br/>
+
+## Features
+
+- [x] Responsive design
+- [x] Server side rendering(SSR)
+- [x] Real-Time Updates with Data Fetching
+- [x] Meta Tags
+- [x] Interactive Menu
+- [x] Branding and Personalizations
 
 ## How to install
 
