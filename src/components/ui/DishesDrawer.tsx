@@ -51,8 +51,8 @@ export const DishesDrawer = ({ open, setOpen }) => {
 
         <div className={styles.buttonContainer}>
           <Button
-            type="default"
-            onClick={() => router.push("https://github.com/leoMirandaa")}
+            href="https://github.com/leoMirandaa/restaurant-menu.git"
+            target="_blank"
             icon={<GithubOutlined />}
           >
             Github

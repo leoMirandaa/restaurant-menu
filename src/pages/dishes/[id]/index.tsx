@@ -43,7 +43,8 @@ const Dish = (props: IDishes) => {
   return (
     <DishLayout
       title={dish?.name}
-      pageDescription={` ${dish?.name} dish description`}
+      pageDescription={`Ingredients and description`}
+      imageUrl={dish.imageUrl}
     >
       <Content>
         <main>
