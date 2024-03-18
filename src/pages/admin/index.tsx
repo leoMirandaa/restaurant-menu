@@ -164,8 +164,9 @@ const adminPage = () => {
 
   return (
     <DishLayout
-      title="Dashboard admin"
+      title="Admin Dashboard"
       pageDescription="Admin all your restaurant dishes in one place"
+      imageUrl="https://res.cloudinary.com/dbzv9xfjp/image/upload/v1710747902/og-images/dishes-menu_kjawtv.png"
     >
       <Content
         style={{

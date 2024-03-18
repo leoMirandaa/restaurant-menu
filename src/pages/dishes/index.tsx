@@ -39,8 +39,9 @@ const Dishes = (props: IDishes) => {
 
   return (
     <DishesLayout
-      title="Dishes Menu"
+      title="Today's Menu"
       pageDescription="List of delicious dishes"
+      imageUrl="https://res.cloudinary.com/dbzv9xfjp/image/upload/v1710747902/og-images/dishes-menu_kjawtv.png"
     >
       <Content
         style={{

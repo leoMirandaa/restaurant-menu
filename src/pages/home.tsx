@@ -24,7 +24,8 @@ const HomePage = () => {
   return (
     <HomeLayout
       title="Magenta Kitchen"
-      pageDescription="Restaurant digital menu to show dishes"
+      pageDescription="Your digital restaurant menu"
+      imageUrl="https://res.cloudinary.com/dbzv9xfjp/image/upload/v1710746432/og-images/Magenta-kitchen-op_eecp7e.png"
     >
       <main className={styles.mainContainer}>
         <img
