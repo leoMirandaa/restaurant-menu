@@ -4,7 +4,8 @@
 
 Restaurant menu with the ability to update menu items in real-time at scheduled intervals, it provides a dynamic experience for customers. Each menu item is presented with an appealing design, enhancing its visual appeal and making it easy for customers to explore. <a href="https://magentakitchen.vercel.app" target="_blank">Live Demo</a>
 
-![magenta](https://github.com/leoMirandaa/restaurant-menu/assets/61714687/17ee5e62-7027-4ba0-b308-7193cd84d392)
+![restaurant-menu](https://github.com/leoMirandaa/restaurant-menu/assets/61714687/369b8904-b0d8-4756-a79f-c9cd7089cce8)
+
 
 ## Technologies used
 
