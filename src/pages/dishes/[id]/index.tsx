@@ -155,6 +155,7 @@ export async function getStaticProps(context) {
     props: {
       dish,
     },
+    // Re-generate every 10 minutes(600sec)
     revalidate: 600,
   };
 }
